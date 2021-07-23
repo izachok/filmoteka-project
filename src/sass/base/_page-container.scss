@@ -1,0 +1,12 @@
+//create sticky footer, even if there is not enough content on page
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-container__body {
+  flex-grow: 1;
+  position: relative;
+  z-index: 0;
+}

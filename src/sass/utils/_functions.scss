@@ -1,0 +1,17 @@
+//set value for transition property. You could use it with default values
+//example with default values:  transition: get-transition-prop(background-color), get-transition-prop(color);
+//full example: transition: get-transition-prop(background-color, 500ms, linear)
+@function get-transition-prop(
+  $property-name,
+  $function-time: $animation-time,
+  $function: $animation-function
+) {
+  @return $property-name $function-time $function;
+}
+
+//calculate width for flex-grid
+//example with default values:flex-basis: get-column-basis(2); (two columns)
+//full example: flex-basis: get-column-basis(2, 500px, 30px);
+@function get-column-basis($column-num, $width: 100%, $gap: $column-gap) {
+  @return calc((#{$width} - #{$column-num} * #{$gap}) / #{$column-num});
+}

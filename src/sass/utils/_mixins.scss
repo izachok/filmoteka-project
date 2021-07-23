@@ -1,0 +1,24 @@
+@mixin set-colors($color, $bg-color) {
+  color: $color;
+  background-color: $bg-color;
+}
+
+//set container for flex grid
+@mixin elements-set($gap: $column-gap) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $gap / -2;
+}
+
+//set margin for flex grid elements
+@mixin element($gap: $column-gap) {
+  margin: $gap / 2;
+}
+
+//add styles for centering block
+//could use by default or with inline-flex display property
+@mixin flex-centered($display: flex) {
+  display: $display;
+  justify-content: center;
+  align-items: center;
+}

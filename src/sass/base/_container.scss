@@ -1,0 +1,17 @@
+.container {
+  padding: 0 $column-gap/2;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-phone-up {
+    width: $mobile-width;
+  }
+
+  @include for-tablet-up {
+    width: $tablet-width;
+  }
+
+  @include for-desktop-up {
+    width: $desktop-width;
+  }
+}

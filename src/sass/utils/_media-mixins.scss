@@ -1,0 +1,43 @@
+// mixins for media queries
+// example of usage
+//  @include for-phone-only {
+//       margin-bottom: $column-gap;
+//     }
+
+@mixin for-responsive-only {
+  @media screen and (max-width: $mobile-width - 1) {
+    @content;
+  }
+}
+
+@mixin for-phone-only {
+  @media screen and (max-width: $tablet-width - 1) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media screen and (max-width: $desktop-width - 1) {
+    @content;
+  }
+}
+
+//you can change value for min-width on $shift value. Best variant: 1 or -1
+//or use by default without shift value
+@mixin for-phone-up($shift: 0) {
+  @media screen and (min-width: $mobile-width+$shift) {
+    @content;
+  }
+}
+
+@mixin for-tablet-up($shift: 0) {
+  @media screen and (min-width: $tablet-width+$shift) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
