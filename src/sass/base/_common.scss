@@ -1,6 +1,6 @@
 body {
   font-family: $main-font;
-  color: $primary-text-color;
+  color: $main-text-color;
 
   &.modal-open {
     overflow: hidden;
@@ -29,7 +29,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  color: $title-text-color;
+  color: $main-text-color;
 }
 
 .link {
