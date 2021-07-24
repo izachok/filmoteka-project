@@ -1,12 +1,13 @@
 //template variables
 $column-gap: 30px;
 $column-gap-mobile: 20px;
+
 $animation-time: 250ms;
 $animation-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-$mobile-width: 320px;
+$mobile-width: 480px;
 $tablet-width: 768px;
-$desktop-width: 1024px;
+$desktop-width: 1200px;
 
 $container-width: 1200px;
 
@@ -16,12 +17,18 @@ $main-font: 'Roboto', sans-serif;
 $header-text-color: #ffffff;
 $main-text-color: #000000;
 $footer-text-color: #757575;
+
 $accent-color: #ff6b01;
 $accent-text-color: #ffffff;
+
 $current-color: #ff6b01;
 $current-text-color: #ffffff;
+
+$current-btn-color: #ff6b01;
+$current-btn-text-color: #ffffff;
+
 $details-card-main-text-color: #000000;
 $details-card-items-text-color: #8c8c8c;
-$details-card-accent-text-color: #ffffff;
+
 $header-background-color: rgba(0, 0, 0, 0.56);
 $main-background-color: #ffffff;
