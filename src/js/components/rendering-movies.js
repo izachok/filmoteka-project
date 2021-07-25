@@ -3,7 +3,7 @@ import * as moviesDBApi from '../api/moviesdb-api';
 import genres from '../../data/genres.json';
 import cardMrc from '../../templates/one-card-mrc.hbs'
 const BASE_URL = 'http://image.tmdb.org/t/p/';
-const BASE_WIDTH = 'w500';
+const BASE_WIDTH = 'w342';
 
 // moviesDBApi.getMoviesByQuery('cat', 2).then(console.log);
 // moviesDBApi.getMovieById(400).then(console.log);
@@ -38,6 +38,7 @@ function makeStringGenries (arrStrName) {
     };
     return arrStrName.join(',')
 };
+
 function makeUrl(partialURL) {
     return `${BASE_URL}${BASE_WIDTH}${partialURL}`
 }
