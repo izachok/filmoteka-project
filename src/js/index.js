@@ -5,3 +5,5 @@ import '../sass/main.scss';
 // moviesDBApi.getTrendingMovies().then(console.log);
 // moviesDBApi.getMoviesByQuery('cat', 2).then(console.log);
 // moviesDBApi.getMovieById(400).then(console.log);
+
+import './components/rendering-movies';

@@ -1,0 +1,18 @@
+{{#each this}}
+<li class="films__list-item">
+<div class="one-card one-card_home">
+    <div>
+        <img src={{poster_path}} alt={{title}}>
+    </div>
+    <div>
+        <p>{{title}}</p>
+        
+        <p>
+            {{stringGenries}},
+            
+        </p>
+
+    </div>
+</div>
+</li>
+{{/each}}
