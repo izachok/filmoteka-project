@@ -1,46 +1,45 @@
 .films {
-    padding-top: 20px;
+  padding-top: 20px;
 
-    @include for-tablet-up {
-        padding-top: 60px;
-    }
+  @include for-tablet-up {
+    padding-top: 60px;
+  }
 }
 
-
 .films__list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  align-items: center;
 
-    @include for-tablet-up {
-        @include elements-set;
-        flex-direction: row;
-    }
+  @include for-tablet-up {
+    @include elements-set;
+    flex-direction: row;
+  }
 }
 
 .films__list-item {
-    background-color: black; //todo: delete background after adding real cards
+  // background-color: black; //todo: delete background after adding real cards
 
-    @include for-phone-only {
-        &:not(:last-child) {
-            margin-bottom: 20px;
-        }
-    
-        width: 100%;
+  @include for-phone-only {
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
 
-    @include for-tablet-up {
-        width: 294px;
-        height: 440px; //todo: delete height after adding real cards
+    width: 100%;
+  }
 
-        @include element;
-    }
+  @include for-tablet-up {
+    width: 294px;
+    height: 440px; //todo: delete height after adding real cards
 
-    @include for-desktop-up {
-        width: 274px;
-        height: 440px; //todo: delete height after adding real cards
-    }
+    @include element;
+  }
+
+  @include for-desktop-up {
+    width: 274px;
+    height: 440px; //todo: delete height after adding real cards
+  }
 }
