@@ -1,5 +1,9 @@
 .films {
     padding-top: 20px;
+
+    @include for-tablet-up {
+        padding-top: 60px;
+    }
 }
 
 
@@ -10,45 +14,33 @@
     padding: 0px;
     margin: 0px;
     align-items: center;
+
+    @include for-tablet-up {
+        @include elements-set;
+        flex-direction: row;
+    }
 }
 
 .films__list-item {
     background-color: black;
-}
 
-@include for-phone-only {
-    .films__list-item {
+    @include for-phone-only {
         &:not(:last-child) {
             margin-bottom: 20px;
         }
-    }
-
-    .films__list-item {
+    
         width: 100%;
     }
-}
 
-@include for-tablet-up {
-    .films {
-        padding-top: 60px;
-    }
-
-    .films__list {
-        @include elements-set;
-        flex-direction: row;
-    }
-
-    .films__list-item {
+    @include for-tablet-up {
         width: 294px;
-        height: 440px;
+        height: 440px; //todo: delete height after adding real cards
 
         @include element;
     }
-}
 
-@include for-desktop-up {
-    .films__list-item {
+    @include for-desktop-up {
         width: 274px;
-        height: 440px;
+        height: 440px; //todo: delete height after adding real cards
     }
 }
