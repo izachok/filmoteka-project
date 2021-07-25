@@ -22,7 +22,7 @@
 }
 
 .films__list-item {
-    background-color: black;
+    background-color: black; //todo: delete background after adding real cards
 
     @include for-phone-only {
         &:not(:last-child) {
