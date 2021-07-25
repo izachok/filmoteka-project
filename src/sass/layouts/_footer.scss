@@ -1,0 +1,25 @@
+.footer {
+  padding: $column-gap;
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+
+  @include for-tablet-up {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+}
+.footer__container {
+  display: inline-block;
+
+  @include for-phone-only {
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+}
+.footer__icon {
+  fill: $accent-color;
+}
