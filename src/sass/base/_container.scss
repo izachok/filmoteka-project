@@ -5,13 +5,16 @@
 
   @include for-phone-up {
     width: $mobile-width;
+    padding: 0px 20px
   }
 
   @include for-tablet-up {
     width: $tablet-width;
+    padding: 0px 75px
   }
 
   @include for-desktop-up {
     width: $desktop-width;
+    padding: 0px 70px
   }
 }
