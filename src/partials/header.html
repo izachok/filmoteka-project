@@ -1,1 +1,44 @@
-<header>some header</header>
+<header class="home-header_img library-header_img">
+  <div class="page-header">
+    <div class="page-nav_container">
+
+      <a href="index.html" class="header-logo">
+        <svg height="24" width="24" class="header__icon-film">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <h1 class="page-title">Filmoteka</h1>
+      </a>
+     
+      <ul class="page-nav_wrapper">
+        <li>
+          <a href="index.html" class="nav-el active-page">HOME</a>  
+        </li>
+        <li>
+          <a href="" class="nav-el">MY LIBRARY</a>
+        </li> 
+      </ul>
+    </div>
+
+    <form class="header__search-form" >
+      <input
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search film..."
+        class=""
+      />
+      <svg height="12" width="12" class="icon-search">
+        <use href="./images/sprite.svg#icon-search"></use>
+      </svg>
+    </form>
+
+
+    <!-- <div class="library-header__button-wrapper">
+      <ul class="library-header__button-container">
+        <li><button type="button" class="library-button library-button_active">Watched</button></li>
+        <li><button type="button" class="library-button">queue</button></li>
+      </ul>
+    </div> -->
+
+  </div>
+</header>
