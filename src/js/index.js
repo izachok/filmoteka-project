@@ -1,6 +1,8 @@
 import 'basiclightbox/dist/basicLightbox.min.css';
 import '../sass/main.scss';
 import * as footerModal from './components/footer-modal';
+import './components/localStorage.js'
+
 
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
