@@ -33,13 +33,13 @@
 
   @include for-tablet-up {
     width: 294px;
-    height: 440px; //todo: delete height after adding real cards
+    // height: 440px; //todo: delete height after adding real cards
 
     @include element;
   }
 
   @include for-desktop-up {
     width: 274px;
-    height: 440px; //todo: delete height after adding real cards
+    // height: 440px; //todo: delete height after adding real cards
   }
 }
