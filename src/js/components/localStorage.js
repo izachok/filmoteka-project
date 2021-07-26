@@ -1,42 +1,32 @@
-var resultSection = document.querySelector('section.films'),
-    watchedBtn = document.querySelector('.watched'),
+document.querySelector('section.films').insertAdjacentHTML("afterbegin", '<button class="watched" style="width: 60px;">Add to watched</button><button class="queue" style="width: 60px;">Add to queue</button')
+
+var watchedBtn = document.querySelector('.watched'),
     queueBtn = document.querySelector('.queue'),
     isWatched = false,
-    isInQueue = false;
+    isInQueue = false,
+    watched = [],
+    queue = [];
 
     watchedBtn.addEventListener('click', addToWatched);
     queueBtn.addEventListener('click', addToQueue);   
 
 
 
-function getStorageStatus () {
-    try {
-      const watched = localStorage.getItem('watched');
-      const inQueue = localStorage.getItem('inQueue');
-  
-      if (watched === null ||  watched === undefined || watched.length === 0) {
-        watched = [];
-        getEmptyLibrary();
-      } else if (isWatched = true) {
-        watched = JSON.parse(watched)
-      }
+// to do: check the uniqueness of an object id
+const userWatched = localStorage.getItem("watched");
+if (userWatched) {
+  watched.push(JSON.parse(userWatched));
+}
 
-      if (inQueue === null ||  inQueue === undefined || inQueue.length === 0) {
-        inQueue = [];
-        getEmptyLibrary();
-      } else if (isInQueue = true) {
-        inQueue = JSON.parse(inQueue)
-      }
-    } 
-    catch (err) {
-      console.error('Get state error: ', err);
-    }
-  };
+const userQueue = localStorage.getItem("queue");
+if (userQueue) {
+  queue.push(JSON.parse(userQueue));
+}
 
 
 function addToWatched () {
 
-    localStorage.setItem('watched', "id")
+    localStorage.setItem('watched', JSON.stringify(watched));
 
     watchedBtn.innerHTML = "Remove from watched";
     isWatched = true;
@@ -47,8 +37,7 @@ function addToWatched () {
 
 function addToQueue () {
 
-    localStorage.setItem('inQueue', "id")
-
+    localStorage.setItem('queue', JSON.stringify(queue));
 
     queueBtn.innerHTML = "Remove from queue";
     isInQueue = true;
@@ -69,7 +58,7 @@ function removeFromWatched () {
 }
 
 function removeFromQueue () {
-    localStorage.removeItem('inQueue');
+    localStorage.removeItem('queue');
 
     queueBtn.innerHTML = "Add to queue";
     isInQueue = false;
@@ -79,9 +68,9 @@ function removeFromQueue () {
 }
 
 
-function getEmptyLibrary () {
-    resultSection.insertAdjacentHTML("afterbegin", getMessageMarkup);
-    function getMessageMarkup () {
-        "<h2 class='empty-msg'>There's nothing here.. <a href='#home' class='link'>Yet.</a></h2>"
-    }
-}
+// function getEmptyLibrary () {
+//     resultSection.insertAdjacentHTML("afterbegin", getMessageMarkup);
+//     function getMessageMarkup () {
+//         "<h2 class='empty-msg'>There's nothing here.. <a href='#home' class='link'>Yet.</a></h2>"
+//     }
+// }
