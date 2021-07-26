@@ -23,3 +23,13 @@
 .footer__icon {
   fill: $accent-color;
 }
+
+.footer__link {
+  color: $footer-text-color;
+  transition: get-transition-prop(color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
