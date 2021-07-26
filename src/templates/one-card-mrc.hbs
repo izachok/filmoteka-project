@@ -1,17 +1,15 @@
 {{#each this}}
 <li class="films__list-item">
-<div class="one-card one-card_home">
-    <div>
-        <img src={{poster_url}} alt={{title}}>
+<div class="one-card">
+    <div class="one-card-bximg">
+        <img class="one-card-img" src={{poster_url}} alt={{title}}>
     </div>
     <div>
-        <p>{{title}}</p>
+        <h4 class="one-card-title">{{title}}</h4>
+        <div class="one-card-bxdes">
+            <p class="one-card-description">{{stringGenries}}<span class="one-card-year"> {{release_year}}</span> <div class="one-card-average visually-hidden">{{vote_average}}</div></p>
+        </div>
         
-        <p>
-            {{stringGenries}}
-            
-        </p>
-
     </div>
 </div>
 </li>

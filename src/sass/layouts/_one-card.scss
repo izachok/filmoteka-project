@@ -1,0 +1,41 @@
+.one-card {
+  &-img {
+    border-radius: 5px;
+  }
+  &-bximg {
+    margin-bottom: 10px;
+  }
+  &-title {
+    color: $main-text-color;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
+  &-description {
+    color: #ff6b08;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  &-bxdes {
+    display: flex;
+    justify-content: start;
+  }
+  &-year {
+    margin-right: 10px;
+  }
+  &-average {
+    @include flex-centered;
+    width: 36px;
+    height: 16px;
+    color: $accent-text-color;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: $accent-color;
+    border-radius: 5px;
+  }
+}
