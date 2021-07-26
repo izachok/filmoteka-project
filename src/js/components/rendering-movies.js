@@ -1,14 +1,9 @@
 
-import * as moviesDBApi from '../api/moviesdb-api'; //todo: delete after checking
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 
 const BASE_URL = 'http://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w342';
-
-moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => renderGallery(arr, filmList)); //todo: delete after checking
-
-const filmList = document.querySelector('.films__list'); //todo: delete after checking
 
 function arrGenres (array) {
     return array.map(item => item.name)
