@@ -1,0 +1,44 @@
+.modal {
+  margin: $column-gap-mobile;
+  padding: 48px $column-gap-mobile;
+  color: $details-card-main-text-color;
+  background-color: $main-background-color;
+  position: relative;
+
+  max-width: 460px;
+
+  @include for-tablet-up {
+    padding: 40px $column-gap;
+    max-width: 618px;
+    margin: 0;
+  }
+
+  @include for-desktop-up {
+    padding: 50px $column-gap;
+    max-width: 882px;
+  }
+}
+
+.modal__close {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: $details-card-main-text-color;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: get-transition-prop(color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.modal__icon {
+  fill: currentColor;
+}

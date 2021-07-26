@@ -1,0 +1,146 @@
+// .footer-modal {
+// }
+.footer-modal__card {
+  @include for-tablet-up {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.card__team-info {
+  text-align: center;
+
+  @include for-phone-only {
+    margin-bottom: 10px;
+  }
+
+  @include for-tablet-up {
+    margin-right: 10px;
+    flex-basis: 45%;
+    flex-shrink: 0;
+  }
+}
+
+.card__photo {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.card__icon {
+  margin-right: 8px;
+  stroke: $details-card-main-text-color;
+}
+
+.card__name {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.card__city {
+  color: $details-card-items-text-color;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+.card__work-info {
+  text-align: center;
+  @include for-tablet-up {
+    align-content: center;
+  }
+}
+.card__role {
+  color: $accent-color;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.card__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+//slider
+.slider {
+  position: relative;
+}
+
+.slider__inner-wrapper {
+  margin-bottom: 10px;
+
+  @include for-tablet-up {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.slider__navigation {
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: $details-card-items-text-color;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  transition: get-transition-prop(color);
+
+  @include for-tablet-up {
+    top: 50%;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.slider__navigation--left {
+  left: 0;
+}
+
+.slider__navigation--right {
+  right: 0;
+}
+
+.slider__icon {
+  fill: currentColor;
+  stroke: white;
+}
+
+.slider__dots {
+  text-align: center;
+}
+
+.slider__dot {
+  display: inline-block;
+  padding: 8px;
+  background-color: $details-card-items-text-color;
+  border-radius: 50%;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  @include for-tablet-up {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+.slider__dot-photo {
+  display: none;
+
+  @include for-tablet-up {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
