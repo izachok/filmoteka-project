@@ -10,7 +10,7 @@ moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => re
 
 const filmList = document.querySelector('.films__list'); //todo: delete after checking
 
-function arrGenges (array) {
+function arrGenres (array) {
     return array.map(item => item.name)
 };
 
@@ -34,7 +34,7 @@ function makeMoviesArrayForRendering(data) {
     const arrMovies = data.results;
     const arrayForRendering = arrMovies.map(movie => {
         const newArrayId = getGenresByIds(movie.genre_ids);
-        const arrStrName = arrGenges(newArrayId);
+        const arrStrName = arrGenres(newArrayId);
         movie.stringGenres = makeStringGenres(arrStrName);
         movie.posterUrl = makeUrl(movie.poster_path);
         movie.releaseYear = makeYear(movie.release_date);
