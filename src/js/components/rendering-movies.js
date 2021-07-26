@@ -1,34 +1,14 @@
-import * as moviesDBApi from '../api/moviesdb-api';
-// import getGenresByIds from '../api/genres-library';
-import genres from '../../data/genres.json';
+
+import * as moviesDBApi from '../api/moviesdb-api'; //todo: delete after checking
+import { getGenresByIds } from '../api/genres-library';
 import cardMrc from '../../templates/one-card-mrc.hbs';
 
 const BASE_URL = 'http://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w342';
 
-// moviesDBApi.getMoviesByQuery('cat', 2).then(console.log);
-// moviesDBApi.getMovieById(400).then(console.log);
-moviesDBApi.getTrendingMovies().then(makeArrayToRendering).then(renderingGalerry);
+moviesDBApi.getTrendingMovies().then(makeArrayToRendering).then(arr => renderingGalerry(arr, filmList)); //todo: delete after checking
 
-const filmList = document.querySelector('.films__list');
-
-const getGenresByIds = function (genreIds) {
-  if (!Array.isArray(genreIds)) return [];
-  return genres.filter(genre => genreIds.includes(genre.id));
-};
-
-function makeArrayToRendering(data) {
-    const arrMovies = data.results;
-    const arrayToRendering = arrMovies.map(movie => {
-        const newArrayId = getGenresByIds(movie.genre_ids);
-        const arrStrName = arrGengies(newArrayId);
-        movie.stringGenries = makeStringGenries(arrStrName);
-        movie.poster_url = makeUrl(movie.poster_path);
-        movie.release_year = makeYear(movie.release_date);
-        return movie;
-    });
-    return arrayToRendering;
-};
+const filmList = document.querySelector('.films__list'); //todo: delete after checking
 
 function arrGengies (array) {
     return array.map(item => item.name)
@@ -50,7 +30,22 @@ function makeYear(dateStr) {
     return dateStr.slice(0, 4)
 };
 
-function renderingGalerry(arrayToRendering) {
-    const galleryMrc = cardMrc(arrayToRendering);
-    filmList.insertAdjacentHTML('beforeend', galleryMrc)
+function makeArrayToRendering(data) {
+    const arrMovies = data.results;
+    const arrayToRendering = arrMovies.map(movie => {
+        const newArrayId = getGenresByIds(movie.genre_ids);
+        const arrStrName = arrGengies(newArrayId);
+        movie.stringGenries = makeStringGenries(arrStrName);
+        movie.poster_url = makeUrl(movie.poster_path);
+        movie.release_year = makeYear(movie.release_date);
+        return movie;
+    });
+    return arrayToRendering;
 };
+
+function renderingGalerry(arrayToRendering, element) {
+    const galleryMrc = cardMrc(arrayToRendering);
+    element.insertAdjacentHTML('beforeend', galleryMrc)
+};
+
+export { makeArrayToRendering, renderingGalerry }
