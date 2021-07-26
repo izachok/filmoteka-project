@@ -8,4 +8,10 @@ import * as footerModal from './components/footer-modal';
 // moviesDBApi.getMoviesByQuery('cat', 2).then(console.log);
 // moviesDBApi.getMovieById(400).then(console.log);
 
+
+import { makeMoviesArrayForRendering, renderGallery } from './components/rendering-movies';
+
 footerModal.createFooterModal();
+
+// example of using makeMoviesArrayForRendering, renderGallery functions
+// moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => renderGallery(arr, filmList)); 

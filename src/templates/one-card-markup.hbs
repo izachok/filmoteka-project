@@ -1,0 +1,16 @@
+{{#each this}}
+<li class="films__list-item">
+<div class="one-card">
+    <div class="one-card-box-img">
+        <img class="one-card-img" src={{posterUrl}} alt={{title}}>
+    </div>
+    <div>
+        <h4 class="one-card-title">{{title}}</h4>
+        <div class="one-card-box-description">
+            <p class="one-card-description">{{stringGenres}}<span class="one-card-year"> {{releaseYear}}</span> <div class="one-card-average visually-hidden">{{vote_average}}</div></p>
+        </div>
+        
+    </div>
+</div>
+</li>
+{{/each}}
