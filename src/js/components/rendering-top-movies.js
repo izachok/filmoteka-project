@@ -4,10 +4,10 @@ import { makeMoviesArrayForRendering, renderGallery } from "./rendering-movies";
 
 const filmListRef = document.querySelector('.films__list')
 
-function renderTopMovies(page = 1) {
+function renderTopMovies(page) {
 
-    if (pageState.isHome) {
-        return getTrendingMovies(`${page}`)
+    if (pageState.isHome() === true ) {
+        return getTrendingMovies(page)
             .then(makeMoviesArrayForRendering)
             .then(value => {
                 return renderGallery(value, filmListRef)
