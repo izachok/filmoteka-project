@@ -3,7 +3,8 @@ import '../sass/main.scss';
 import * as footerModal from './components/footer-modal';
 import { pageState } from './components/pageState';
 import { initSearch } from './components/search';
-import { renderTopMovies } from './components/rendering-top-movies'
+import { renderTopMovies } from './components/rendering-top-movies';
+import {addItemToWatched, addItemToQueue, removeFromWatched, removeFromQueue} from './components/localDB';
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
 // moviesDBApi.getTrendingMovies().then(console.log);
