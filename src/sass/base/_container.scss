@@ -3,6 +3,7 @@
   margin-left: auto;
   margin-right: auto;
 
+
   @include for-phone-up {
     width: $mobile-width;
     padding: 0px 20px
