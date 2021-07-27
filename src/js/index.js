@@ -2,7 +2,7 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import '../sass/main.scss';
 import * as footerModal from './components/footer-modal';
 import { pageState } from './components/pageState';
-import './components/search'
+import { initSearch } from './components/search';
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
 // moviesDBApi.getTrendingMovies().then(console.log);
@@ -12,6 +12,6 @@ import './components/search'
 import { makeMoviesArrayForRendering, renderGallery } from './components/rendering-movies';
 
 footerModal.createFooterModal();
-
+initSearch();
 // example of using makeMoviesArrayForRendering, renderGallery functions
 // moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => renderGallery(arr, filmList));
