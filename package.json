@@ -19,7 +19,7 @@
     "url": "https://github.com/izachok/filmoteka-project/issues"
   },
   "staticFiles": {
-    "staticPath": "public",
+    "staticPath": "src/public",
     "watcherGlob": "**"
   },
   "devDependencies": {
