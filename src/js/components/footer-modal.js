@@ -1,14 +1,17 @@
 import * as basicLightbox from 'basiclightbox';
+import {initSlider} from './slider';
+
 
 let modalInstance = null;
 
 const refs = {
   modalOpenLink: document.querySelector('.js-footer-modal'),
+  footerModal: document.getElementById('footer-modal'),
 };
+refs.sliderContainer = refs.footerModal.querySelector('.slider');
 
 function createFooterModal() {
-  modalInstance = basicLightbox.create(document.getElementById('footer-modal'));
-
+  modalInstance = basicLightbox.create(refs.footerModal);
   bindEvents();
 }
 
@@ -27,6 +30,7 @@ function bindEvents() {
 
 function showFooterModal() {
   modalInstance.show();
+  initSlider();
 }
 
 export { createFooterModal, showFooterModal };
