@@ -68,6 +68,14 @@
   position: relative;
 }
 
+.slide{
+  display: none;
+}
+
+.slide--active{
+display: block;
+}
+
 .slider__inner-wrapper {
   margin-bottom: 10px;
 
