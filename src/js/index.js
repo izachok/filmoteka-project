@@ -15,3 +15,9 @@ footerModal.createFooterModal();
 
 // example of using makeMoviesArrayForRendering, renderGallery functions
 // moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => renderGallery(arr, filmList));
+
+
+
+import { renderTopMovies } from './components/rendering-top-movies'
+
+renderTopMovies()
