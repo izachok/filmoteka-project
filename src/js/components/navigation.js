@@ -1,6 +1,7 @@
 import { renderApp } from "./renderer";
 import { setIsQueue, setIsWatched } from "./pageState";
-import {initLibrary} from "./renderLibrary";
+import { initLibrary } from "./renderLibrary";
+
 const navElements = document.getElementsByClassName('navEl');
 
 export function initNavigation() {

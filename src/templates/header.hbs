@@ -1,6 +1,6 @@
 <div class="changable-el">
   {{#if this.isHome}}
-      <form class="header__search-form" >
+      <form class="header__search-form">
         <input
           type="text"
           name="query"
@@ -8,9 +8,11 @@
           placeholder="Search film..."
           class=""
         />
-        {{!-- <svg height="12" width="12" class="icon-search">
-          <use href="sprite.svg#icon-search"></use>
-        </svg> --}}
+        <button type="button" class="button-search">
+          <svg height="12" width="12" id="icon-search" viewBox="0 0 12 12">
+            <path fill="none" d="M5.5 9.5a4 4 0 100-8 4 4 0 000 8zM10.5 10.5L8.325 8.325" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </form>
   {{else}}
       <div class="library-header__button-wrapper">
