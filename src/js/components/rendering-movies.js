@@ -1,7 +1,7 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 
-const BASE_URL = 'http://image.tmdb.org/t/p/';
+const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w342';
 
 function arrGenres(array) {
@@ -13,15 +13,22 @@ function makeStringGenres(arrStrName) {
   if (arrStrName.length > 2) {
     return `${arrStrName[0]}, ${arrStrName[1]}, Other |`;
   }
-  return arrStrName.join(',').concat(' |');
+  return arrStrName.join(', ').concat(' |');
 }
 
 function makeUrl(partialURL) {
+  if (partialURL === null) {
+    return 'https://img.icons8.com/dusk/50/000000/video.png';
+  }
   return `${BASE_URL}${BASE_WIDTH}${partialURL}`;
 }
 
-function makeYear(dateStr) {
-  return dateStr.slice(0, 4);
+function makeYear(movie) {
+  const arrayKeysMovie = Object.keys(movie);
+  if (!arrayKeysMovie.includes('release_date')) {
+    return '';
+  }
+  return movie.release_date.slice(0, 4);
 }
 
 function makeMoviesArrayForRendering(data) {
@@ -31,7 +38,7 @@ function makeMoviesArrayForRendering(data) {
     const arrStrName = arrGenres(newArrayId);
     movie.stringGenres = makeStringGenres(arrStrName);
     movie.posterUrl = makeUrl(movie.poster_path);
-    movie.releaseYear = makeYear(movie.release_date);
+    movie.releaseYear = makeYear(movie);
     return movie;
   });
   return arrayForRendering;
