@@ -47,6 +47,44 @@ function makeMoviesArrayForRendering(data) {
 function renderGallery(arrayForRendering, element) {
   const galleryMarkup = cardMarkup(arrayForRendering);
   element.innerHTML = galleryMarkup;
+
+  bindMovieObjToCard(arrayForRendering);
 }
+
+function bindMovieObjToCard(movieObjs) {
+  const cards = document.querySelectorAll('.films__list-item');
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      //todo: it should be implemented with modal functionality
+      showMovieModal(movieObjs[index]);
+    });
+  });
+}
+
+//-----------------temp for testing library buttons-----------
+// import * as basicLightbox from 'basiclightbox';
+// import libraryType from './library-type';
+// import LibraryBtn from './library-btn';
+
+// function showMovieModal(movieObj) {
+//   const modalInstance =
+//     basicLightbox.create(`<div class="footer-modal modal"><h1>${movieObj.title}</h1>
+// 	<p><button type="button" data-action="add-to-watched">Add</button>
+//   <button type="button" data-action="add-to-queue">Add</button>
+//   </p></div>`);
+//   modalInstance.show();
+
+//   const watchBtn = new LibraryBtn({
+//     element: modalInstance.element().querySelector('[data-action="add-to-watched"]'),
+//     movieObj,
+//     type: libraryType.WATCHED,
+//   });
+
+//   const queueBtn = new LibraryBtn({
+//     element: modalInstance.element().querySelector('[data-action="add-to-queue"]'),
+//     movieObj,
+//     type: libraryType.QUEUE,
+//   });
+// }
 
 export { makeMoviesArrayForRendering, renderGallery };
