@@ -1,16 +1,17 @@
 {{#each this}}
-<li class="films__list-item">
-<div class="one-card">
-    <div class="one-card-box-img">
-        <img class="one-card-img" src={{posterUrl}} alt={{title}}>
-    </div>
-    <div>
-        <h4 class="one-card-title">{{title}}</h4>
-        <div class="one-card-box-description">
-            <p class="one-card-description">{{stringGenres}}<span class="one-card-year"> {{releaseYear}}</span> <div class="one-card-average visually-hidden">{{vote_average}}</div></p>
+  <li class='films__list-item'>
+    <div class='one-card'>
+      <div class='one-card__box-img'>
+        <img class='one-card__img' src={{posterUrl}} alt={{title}} />
+      </div>
+      <div class='one-card__title-box'>
+        <h4 class='one-card__title'>{{title}}</h4>
+        <div class='one-card__box-description'>
+          <p class='one-card__description'>{{stringGenres}}<span class='one-card__year'>
+              {{releaseYear}}</span>
+            <div class='one-card__average visually-hidden'>{{vote_average}}</div></p>
         </div>
-        
+      </div>
     </div>
-</div>
-</li>
+  </li>
 {{/each}}

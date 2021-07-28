@@ -1,32 +1,73 @@
 .one-card {
-  &-img {
+  &__img {
     border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
-  &-box-img {
+  &__box-img {
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
+
+    @include for-responsive-only {
+      min-width: 280px;
+      min-height: 398px;
+    }
+    @include for-phone-only {
+      width: 280px;
+      height: 398px;
+    }
+    @include for-tablet-down {
+      width: 294px;
+      height: 398px;
+    }
+
+    @include for-desktop-up {
+      width: 274px;
+      height: 398px;
+    }
   }
-  &-title {
+  &__title-box {
+    margin-left: auto;
+    margin-right: auto;
+    @include for-responsive-only {
+      min-width: 280px;
+    }
+    @include for-phone-only {
+      width: 280px;
+    }
+    @include for-tablet-down {
+      width: 294px;
+    }
+    @include for-desktop-up {
+      width: 274px;
+    }
+  }
+  &__title {
+    display: block;
+    width: inherit;
     color: $main-text-color;
     font-weight: 500;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 1.33;
     text-transform: uppercase;
   }
-  &-description {
-    color: #ff6b08;
-    font-style: normal;
+  &__description {
+    display: block;
+    color: $accent-color;
     font-weight: 500;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 1.33;
   }
-  &-box-description {
+  &__box-description {
     display: flex;
     justify-content: start;
   }
-  &-year {
+  &__year {
     margin-right: 10px;
   }
-  &-average {
+  &__average {
     @include flex-centered;
     width: 36px;
     height: 16px;
@@ -34,7 +75,7 @@
     text-transform: uppercase;
     font-weight: 500;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.17;
     background-color: $accent-color;
     border-radius: 5px;
   }

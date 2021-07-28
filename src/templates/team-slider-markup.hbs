@@ -1,0 +1,33 @@
+  <ul class="slider__inner-wrapper list">
+    {{#each this}}
+    <li class="slide">
+      <article class="footer-modal__card card">
+        <div class="card__team-info">
+          <img src="{{photoUrl}}" class="card__photo" alt="{{fullName}}" />
+          <p class="card__name">
+            <a href="{{githubUrl}}" target="_blank" rel="noopener noreferrer"><svg
+                class="card__icon" width="18" height="16">
+                <use href="./images/sprite.svg#icon-github"></use>
+              </svg></a>{{fullName}}
+          </p>
+          <p class="card__city">{{city}}</p>
+        </div>
+        <div class="card__work-info">
+          <p class="card__role">{{role}}</p>
+          <p class="card__text">
+            {{text}}
+          </p>
+        </div>
+      </article>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="slider__dots-wrapper">
+    <ul class="slider__dots list">
+      {{#each this}}
+      <li class="slider__dot">
+        <img src="{{photoUrl}}" class="slider__dot-photo" width="40" alt="{{fullName}}" />
+      </li>
+      {{/each}}
+    </ul>
+  </div>
