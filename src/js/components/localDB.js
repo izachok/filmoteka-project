@@ -32,7 +32,7 @@ function isInArray(key, item) {
 function removeFromLocalStorageArray (key, item) {
     let array = getFromLocalStorage(key);
     let itemIndex = array.findIndex(function (elem) { return elem.id === item.id});
-    array.splice(itemIndex);
+    array.splice(itemIndex, 1);
     return saveToLocalStorage(key, array);
 }
 
