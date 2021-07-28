@@ -11,8 +11,8 @@ function addToLocalStorageArray(key, item) {
         saveToLocalStorage(key, [])
     }
 
-    var array = getFromLocalStorage(key);
-    var isExist = array.findIndex(function (elem) { return elem.id === item.id}) !== -1;
+    let array = getFromLocalStorage(key);
+    let isExist = array.findIndex(function (elem) { return elem.id === item.id}) !== -1;
     if (!isExist) {
         array.push(item);
     }
@@ -24,17 +24,16 @@ function isInArray(key, item) {
         return false;
     }
 
-    var array = getFromLocalStorage(key);
-    var isExist = array.findIndex(function (elem) { return elem.id === item.id}) !== -1;
+    let array = getFromLocalStorage(key);
+    let isExist = array.findIndex(function (elem) { return elem.id === item.id}) !== -1;
     return isExist;
 }
 
 function removeFromLocalStorageArray (key, item) {
-    var array = getFromLocalStorage(key);
-    var itemIndex = array.findIndex(function (elem) { return elem.id === item.id});
-    var newArr = array.splice(itemIndex, item);
-
-    saveToLocalStorage(key, newArr);
+    let array = getFromLocalStorage(key);
+    let itemIndex = array.findIndex(function (elem) { return elem.id === item.id});
+    array.splice(itemIndex);
+    return saveToLocalStorage(key, array);
 }
 
 function isInWatched(objModel) {
@@ -53,12 +52,20 @@ function addItemToQueue(objModel) {
     addToLocalStorageArray("queue", objModel); 
 }
 
-function removeFromWatched (objModel) {
-    removeFromLocalStorageArray ('watched', objModel)
+function removeFromWatched (item) {
+    removeFromLocalStorageArray ('watched', item) 
 }
 
-function removeFromQueue (objModel) {
-    removeFromLocalStorageArray ('queue', objModel)
+function removeFromQueue (item) {
+    removeFromLocalStorageArray ('queue', item) 
 }
 
-export {addItemToWatched, addItemToQueue, removeFromWatched, removeFromQueue, isInWatched, isInQueue};
+function getItemsFromWatched() {
+    return getFromLocalStorage('watched')
+}
+
+function getItemsFromQueue() {
+    return getFromLocalStorage('queue')
+}
+
+export {addItemToWatched, addItemToQueue, removeFromWatched, removeFromQueue, isInWatched, isInQueue, getItemsFromWatched, getItemsFromQueue};
