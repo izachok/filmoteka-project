@@ -1,17 +1,23 @@
 <div class='modal'>
   <div>
-    <button type='button' class='modal__close'></button>
-    <img src='#' alt='poster' />
-    <h2></h2>
-    <ul>
-      <li><span>Vote/Votes</span><span></span></li>
-      <li><span>Popularity</span><span></span></li>
-      <li><span>Original Title</span><span></span></li>
-      <li><span>Genre</span><span></span></li>
+    <button type='button' class='modal__close' data-action='modal-close'>
+      <svg class='modal__icon' width='30' height='30'>
+        <use href='./images/sprite.svg#icon-close'></use>
+      </svg>
+    </button>
+    <img src='#' alt='poster' class='poster' />
+    <h2 class='movie-name'></h2>
+    <ul class='properties-list'>
+      <li class='property-item'><span>Vote/Votes</span><span class='property-span'></span></li>
+      <li class='property-item'><span>Popularity</span><span class='property-span'></span></li>
+      <li class='property-item'><span>Original Title</span><span class='property-span'></span></li>
+      <li class='property-item'><span>Genre</span><span class='property-span'></span></li>
     </ul>
     <h3>About</h3>
-    <p></p>
-    <button type='button'>ADD TO WATCHED</button>
-    <button type='button'>ADD TO QUEUE</button>
+    <p class='about-movie'></p>
+    <div class='modal-window-buttons'>
+      <button type='button' class='modal-window-btn'>ADD TO WATCHED</button>
+      <button type='button' class='modal-window-btn'>ADD TO QUEUE</button>
+    </div>
   </div>
 </div>
