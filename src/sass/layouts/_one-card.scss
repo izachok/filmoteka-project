@@ -11,12 +11,11 @@
     margin-bottom: 10px;
 
     @include for-responsive-only {
-      min-width: 280px;
-      min-height: 398px;
+      max-width: 440px;
     }
     @include for-phone-only {
-      width: 280px;
-      height: 398px;
+      max-width: 280px;
+      max-height: 398px;
     }
     @include for-tablet-down {
       width: 294px;
@@ -32,14 +31,15 @@
     margin-left: auto;
     margin-right: auto;
     @include for-responsive-only {
-      min-width: 280px;
+      max-width: 440px;
     }
     @include for-phone-only {
-      width: 280px;
+      max-width: 280px;
     }
     @include for-tablet-down {
       width: 294px;
     }
+
     @include for-desktop-up {
       width: 274px;
     }
