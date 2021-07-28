@@ -4,6 +4,7 @@ import * as footerModal from './components/footer-modal';
 import { pageState } from './components/pageState';
 import { initSearch } from './components/search';
 import { renderTopMovies } from './components/rendering-top-movies';
+import { onBtnClicks } from './components/pagination';
 import * as localDB from './components/localDB';
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
@@ -22,4 +23,3 @@ renderTopMovies();
 // example of using localStorage
 // import * as localDB from './components/localDB';
 // localDB.addItemToWatched(MovieObj);
-
