@@ -1,0 +1,23 @@
+<div class="changable-el">
+  {{#if this.isHome}}
+      <form class="header__search-form" >
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search film..."
+          class=""
+        />
+        {{!-- <svg height="12" width="12" class="icon-search">
+          <use href="sprite.svg#icon-search"></use>
+        </svg> --}}
+      </form>
+  {{else}}
+      <div class="library-header__button-wrapper">
+        <ul class="library-header__button-container">
+          <li><button type="button" class="library-button library-button_active">Watched</button></li>
+          <li><button type="button" class="library-button">queue</button></li>
+        </ul>
+      </div>
+  {{/if}}
+<div>
