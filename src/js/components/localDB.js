@@ -1,14 +1,9 @@
-
 function getFromLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
 }
 
 function saveToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
-}
-
-function removeFromLocalStorage(key, value) {
-    localStorage.removeItem(key, value);
 }
 
 function addToLocalStorageArray(key, item) {
@@ -34,17 +29,20 @@ function isInArray(key, item) {
     return isExist;
 }
 
-function removeFromLocalStorageArray (key) {
+function removeFromLocalStorageArray (key, item) {
     var array = getFromLocalStorage(key);
-    removeFromLocalStorage(key, array)
+    var itemIndex = array.findIndex(function (elem) { return elem.id === item.id});
+    var newArr = array.splice(itemIndex, item);
+
+    saveToLocalStorage(key, newArr);
 }
 
 function isInWatched(objModel) {
-    isInArray("watched", objModel);
+    return isInArray("watched", objModel);
 }
 
 function isInQueue(objModel) {
-    isInArray("queue", objModel);
+    return isInArray("queue", objModel);
 }
 
 function addItemToWatched(objModel) {
@@ -63,4 +61,4 @@ function removeFromQueue (objModel) {
     removeFromLocalStorageArray ('queue', objModel)
 }
 
-export {addItemToWatched, addItemToQueue, removeFromWatched, removeFromQueue};
+export {addItemToWatched, addItemToQueue, removeFromWatched, removeFromQueue, isInWatched, isInQueue};
