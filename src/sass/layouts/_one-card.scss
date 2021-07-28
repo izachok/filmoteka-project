@@ -11,8 +11,8 @@
     margin-bottom: 10px;
 
     @include for-responsive-only {
-      width: 280px;
-      height: 398px;
+      min-width: 280px;
+      min-height: 398px;
     }
     @include for-phone-only {
       width: 280px;
