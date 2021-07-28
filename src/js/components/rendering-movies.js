@@ -18,7 +18,7 @@ function makeStringGenres(arrStrName) {
 
 function makeUrl(partialURL) {
   if (partialURL === null) {
-    return 'https://img.icons8.com/dusk/50/000000/video.png';
+    return 'icon-poster.png';
   }
   return `${BASE_URL}${BASE_WIDTH}${partialURL}`;
 }
