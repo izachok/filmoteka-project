@@ -3,6 +3,6 @@ export const pageState = {
   isQueue: false,
   query: '',
   isHome() {
-    return !isQueue && !isWatched;
+    return !this.isQueue && !this.isWatched;
   },
 };

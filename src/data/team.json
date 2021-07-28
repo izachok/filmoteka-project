@@ -3,39 +3,39 @@
     "fullName": "Olga Tiutiunnyk",
     "city": "Ukraine, Kharkiv",
     "role": "Team lead",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/56074910?v=4",
     "githubUrl": "https://github.com/izachok",
-    "text": ""
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vitae saepe odio consectetur, optio doloribus, soluta reiciendis officiis consequatur qui molestiae tempore expedita."
   },
   {
     "fullName": "Hanna Hryhorieva",
     "city": "Ukraine, Kharkiv",
     "role": "SCRUM master",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/74866014?v=4",
     "githubUrl": "https://github.com/HannaHryhorieva",
-    "text": ""
-  }
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vitae saepe odio consectetur, optio doloribus, soluta reiciendis officiis consequatur qui molestiae tempore expedita."
+  },
   {
     "fullName": "Aleksandr Bryzgalin",
     "city": "Finland, Tampere",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/72348783?v=4",
     "githubUrl": "https://github.com/Aleksandr-Bryzgalin",
-    "text": ""
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vitae saepe odio consectetur, optio doloribus, soluta reiciendis officiis consequatur qui molestiae tempore expedita."
   },
   {
-    "fullName": "",
-    "city": "",
+    "fullName": "Oleksandra Haniieva",
+    "city": "Poland, Wrocław",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/72212649?v=4",
     "githubUrl": "https://github.com/Aleksandra605",
     "text": ""
   },
   {
-    "fullName": "",
-    "city": "",
+    "fullName": "Natalia Denysenko",
+    "city": "Ivano-Frankivsk",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/47227518?v=4",
     "githubUrl": "https://github.com/dNataly",
     "text": ""
   },
@@ -43,7 +43,7 @@
     "fullName": "",
     "city": "",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/76392716?v=4",
     "githubUrl": "https://github.com/Maksytko",
     "text": ""
   },
@@ -51,7 +51,7 @@
     "fullName": "",
     "city": "",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/75704401?v=4",
     "githubUrl": "https://github.com/Sergio1004",
     "text": ""
   },
@@ -59,7 +59,7 @@
     "fullName": "",
     "city": "",
     "role": "Developer",
-    "photoUrl": "",
+    "photoUrl": "https://avatars.githubusercontent.com/u/74300521?v=4",
     "githubUrl": "https://github.com/tskalska",
     "text": ""
   }
