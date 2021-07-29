@@ -50,7 +50,6 @@
   &__box-description {
     display: flex;
     justify-content: start;
-    margin-right: 10px;
   }
   &__average {
     @include flex-centered;
