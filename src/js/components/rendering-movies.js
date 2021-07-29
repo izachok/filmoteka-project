@@ -1,5 +1,8 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
+import { showModal } from './modal-movie';
+
+const filmList = document.querySelector('.films-list');
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w342';
@@ -51,14 +54,24 @@ function renderGallery(arrayForRendering, element) {
   bindMovieObjToCard(arrayForRendering);
 }
 
-function bindMovieObjToCard(movieObjs) {
+function bindMovieObjToCard(movieObjs, index) {
+  const filmList = document.querySelector('.films__list');
   const cards = document.querySelectorAll('.films__list-item');
-  cards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      //todo: it should be implemented with modal functionality
-      showMovieModal(movieObjs[index]);
-    });
+  filmList.addEventListener('click', event => {
+    // if (!event.target.li) {
+    //   return;
+    // }
+    console.log(event.currentTarget);
+    // showModal(movieObjs[index]);
   });
+  // cards.forEach((card, index) => {
+  //   card.addEventListener('click', event => {
+  //     //todo: it should be implemented with modal functionality
+  //     // showMovieModal(movieObjs[index]);
+  //     console.log(event.target);
+  //     showModal(movieObjs[index]);
+  //   });
+  // });
 }
 
 //-----------------temp for testing library buttons-----------
