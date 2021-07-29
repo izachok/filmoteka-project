@@ -5,6 +5,7 @@ import { pageState } from './components/pageState';
 import { initSearch } from './components/search';
 import { renderTopMovies } from './components/rendering-top-movies';
 import * as localDB from './components/localDB';
+import './components/to-top-btn';
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
 // moviesDBApi.getTrendingMovies().then(console.log);
