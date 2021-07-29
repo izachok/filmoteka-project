@@ -2,7 +2,7 @@ import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
-const BASE_WIDTH = 'w342';
+const BASE_WIDTH = 'w500';
 
 function arrGenres(array) {
   return array.map(item => item.name);
@@ -17,7 +17,9 @@ function makeStringGenres(arrStrName) {
 }
 
 function makeYear(movie) {
-  if (movie.release_date) return movie.release_date.slice(0, 4);
+  if (movie.release_date) {
+    return movie.release_date.slice(0, 4);
+  }
   return '';
 }
 

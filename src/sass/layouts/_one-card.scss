@@ -6,40 +6,26 @@
     object-fit: cover;
   }
   &__box-img {
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 10px;
-
-    @include for-responsive-only {
+    @include for-phone-only {
       max-width: 440px;
     }
-    @include for-phone-only {
-      max-width: 280px;
-      max-height: 398px;
-    }
-    @include for-tablet-down {
+    @include for-tablet-up {
       width: 294px;
       height: 398px;
     }
-
     @include for-desktop-up {
       width: 274px;
       height: 398px;
     }
   }
   &__title-box {
-    margin-left: auto;
-    margin-right: auto;
-    @include for-responsive-only {
+    @include for-phone-only {
       max-width: 440px;
     }
-    @include for-phone-only {
-      max-width: 280px;
-    }
-    @include for-tablet-down {
+    @include for-tablet-up {
       width: 294px;
     }
-
     @include for-desktop-up {
       width: 274px;
     }
