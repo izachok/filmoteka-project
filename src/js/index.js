@@ -6,6 +6,7 @@ import { initSearch } from './components/search';
 import { renderTopMovies } from './components/rendering-top-movies';
 import * as localDB from './components/localDB';
 import './components/to-top-btn';
+import { onClickWatchedBtn , onClickQueueBtn } from './components/functionality-watched-queue-button';
 //example of using api functions
 // import * as moviesDBApi from './api/moviesdb-api';
 // moviesDBApi.getTrendingMovies().then(console.log);
@@ -17,6 +18,7 @@ import { makeMoviesArrayForRendering, renderGallery } from './components/renderi
 footerModal.createFooterModal();
 initSearch();
 renderTopMovies();
+
 // example of using makeMoviesArrayForRendering, renderGallery functions
 // moviesDBApi.getTrendingMovies().then(makeMoviesArrayForRendering).then(arr => renderGallery(arr, filmList));
 
