@@ -3,6 +3,9 @@ import '../sass/main.scss';
 import * as footerModal from './components/footer-modal';
 import { pageState } from './components/pageState';
 import { initSearch } from './components/search';
+import { renderApp } from './components/renderer';
+import { initNavigation } from './components/navigation';
+
 import { renderTopMovies } from './components/rendering-top-movies';
 import * as localDB from './components/localDB';
 import './components/to-top-btn';
@@ -13,6 +16,9 @@ import './components/to-top-btn';
 // moviesDBApi.getMovieById(400).then(console.log);
 
 import { makeMoviesArrayForRendering, renderGallery } from './components/rendering-movies';
+
+renderApp();
+initNavigation();
 
 footerModal.createFooterModal();
 initSearch();
