@@ -52,6 +52,7 @@ export default class LibraryBtn {
       default:
         break;
     }
+    pageState.wasLibraryChanged = true;
     this.setStatus();
   }
 }

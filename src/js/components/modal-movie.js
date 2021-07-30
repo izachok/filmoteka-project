@@ -1,8 +1,12 @@
 import * as basicLightbox from 'basiclightbox';
 import modalWindowMovie from '../../templates/modalWindowMovie';
+import libraryType from './library-type';
+import LibraryBtn from './library-btn';
+import { renderMoviesList } from './renderer';
 
 class OpenModal {
   constructor(argument) {
+    this.movieObj = argument;
     this.instance = basicLightbox.create(modalWindowMovie(argument), {
       onClose: this.onCloseModal,
       onShow: this.onShowModal,
@@ -10,7 +14,19 @@ class OpenModal {
   }
 
   showModal() {
-    return this.instance.show();
+    this.instance.show();
+
+    const watchBtn = new LibraryBtn({
+      element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
+      movieObj: this.movieObj,
+      type: libraryType.WATCHED,
+    });
+
+    const queueBtn = new LibraryBtn({
+      element: this.instance.element().querySelector('[data-action="add-to-queue"]'),
+      movieObj: this.movieObj,
+      type: libraryType.QUEUE,
+    });
   }
 
   onShowModal() {
@@ -19,6 +35,12 @@ class OpenModal {
 
   onCloseModal() {
     window.removeEventListener('keydown', this.turnOnKeys);
+
+    //todo move to metod closes modal in future
+    //rerender movies list if add/remove buttons were clicked
+    if (!pageState.isHome && pageState.wasLibraryChanged) {
+      renderMoviesList();
+    }
   }
 
   turnOnKeys(event) {

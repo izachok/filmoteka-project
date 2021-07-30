@@ -1,21 +1,19 @@
-import { pageState } from "./pageState";
+import libraryType from './library-type';
 
-export function defineLibraryType(){
+export function defineLibraryType() {
   const libraryBtnElements = [...document.getElementsByClassName('library-button')];
-  libraryBtnElements.map(el => el.onclick=changeLibraryState)
+  libraryBtnElements.map(el => (el.onclick = changeLibraryState));
 }
 
-function changeLibraryState(event){
-  [...document.getElementsByClassName('library-button')].map(el => el.classList.remove('library-button_active'));
+function changeLibraryState(event) {
+  [...document.getElementsByClassName('library-button')].map(el =>
+    el.classList.remove('library-button_active'),
+  );
   const page = event.target.getAttribute('page');
 
-  if (page === "watched"){
+  if (page === libraryType.WATCHED) {
     pageState.isWatched = true;
-    pageState.isQueue = false;
-   
-  }
-  else if (page === "queue"){
-    pageState.isWatched = false;
+  } else if (page === libraryType.QUEUE) {
     pageState.isQueue = true;
   }
 
