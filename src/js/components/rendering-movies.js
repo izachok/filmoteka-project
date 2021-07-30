@@ -1,5 +1,9 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
+import { OpenModal } from './modal-movie';
+// import { showModal, onShowModal, onCloseModal, turnOnKeys } from './modal-movie';
+
+const filmList = document.querySelector('.films-list');
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -60,11 +64,15 @@ function renderGallery(arrayForRendering, element) {
 }
 
 function bindMovieObjToCard(movieObjs) {
+  // const filmList = document.querySelector('.films__list');
   const cards = document.querySelectorAll('.films__list-item');
   cards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      //todo: it should be implemented with modal functionality
-      showMovieModal(movieObjs[index]);
+    card.addEventListener('click', event => {
+      const openModal = new OpenModal(movieObjs[index]);
+      openModal.showModal();
+      openModal.onShowModal();
+      openModal.onCloseModal();
+      // showModal(movieObjs[index]);
     });
   });
 }

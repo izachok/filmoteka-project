@@ -19,12 +19,20 @@
   }
 }
 
+ul {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
 .modal__close {
   margin: 0;
   padding: 0;
   width: 30px;
   height: 30px;
-  border: none;
+  border: 1px solid black;
   color: $details-card-main-text-color;
   background-color: transparent;
   cursor: pointer;
@@ -41,4 +49,55 @@
 
 .modal__icon {
   fill: currentColor;
+}
+
+.poster {
+  width: 240px;
+  height: 20px;
+}
+
+.properties-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.property-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.property-span {
+  border: 1px solid grey;
+}
+
+.movie-name {
+  height: 21px;
+  margin-top: 30px;
+}
+
+.about-movie {
+  border: 1px solid grey;
+  margin-bottom: 21px;
+  margin-top: 10px;
+}
+
+.modal-window-buttons {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.modal-window-btn {
+  width: 113px;
+  height: 44px;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
 }
