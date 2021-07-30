@@ -1,11 +1,10 @@
-import { renderApp } from "./renderer";
-import { pageState } from "./pageState";
-import { defineLibraryType } from "./defineLibraryType"
+import { renderApp } from './renderer';
+import { defineLibraryType } from './defineLibraryType';
 
 const navElements = document.getElementsByClassName('navEl');
 
 export function initNavigation() {
-  [...navElements].forEach(navElement=>navElement.onclick = changePage);
+  [...navElements].forEach(navElement => (navElement.onclick = changePage));
 }
 
 function changePage(event) {
@@ -13,22 +12,19 @@ function changePage(event) {
   const changableHeaderEL = document.querySelector('.changable-el');
   changableHeaderEL.remove();
   const page = event.target.getAttribute('page');
-
-  if (page === "home"){
-    pageState.isQueue = false;
-    pageState.isWatched = false;
+  if (page === 'home') {
+    pageState.isHome = true;
     headerImgEL.classList.remove('library-header_img');
     headerImgEL.classList.add('home-header_img');
-  }
-  else {
-    pageState.isWatched = true;
+  } else {
+    pageState.isHome = false;
     headerImgEL.classList.remove('home-header_img');
     headerImgEL.classList.add('library-header_img');
   }
   chageNavElStyle(event);
   renderApp();
 
-  if (pageState.isHome()===false){
+  if (!pageState.isHome) {
     defineLibraryType();
   }
 }
@@ -36,8 +32,4 @@ function changePage(event) {
 function chageNavElStyle(event) {
   [...navElements].forEach(el => el.classList.remove('active-page'));
   event.currentTarget.classList.add('active-page');
-};
-
-
-
-
+}

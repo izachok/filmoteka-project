@@ -21,8 +21,6 @@
 }
 
 .films__list-item {
-  // background-color: black; //todo: delete background after adding real cards
-
   @include for-phone-only {
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -33,13 +31,10 @@
 
   @include for-tablet-up {
     width: 294px;
-    // height: 440px; //todo: delete height after adding real cards
-
     @include element;
   }
 
   @include for-desktop-up {
     width: 274px;
-    // height: 440px; //todo: delete height after adding real cards
   }
 }

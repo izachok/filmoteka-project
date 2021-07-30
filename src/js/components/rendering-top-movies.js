@@ -1,19 +1,14 @@
-import { getTrendingMovies } from "../api/moviesdb-api";
-import { pageState } from "./pageState";
-import { makeMoviesArrayForRendering, renderGallery } from "./rendering-movies";
+import { getTrendingMovies } from '../api/moviesdb-api';
+import { makeMoviesArrayForRendering, renderGallery } from './rendering-movies';
 
-const filmListRef = document.querySelector('.films__list')
-
-function renderTopMovies(page) {
-
-    if (pageState.isHome() === true ) {
-        return getTrendingMovies(page)
-            .then(makeMoviesArrayForRendering)
-            .then(value => {
-                return renderGallery(value, filmListRef)
-            });
-    }
+function renderTopMovies(page = 1) {
+  if (pageState.isHome) {
+    return getTrendingMovies(page)
+      .then(makeMoviesArrayForRendering)
+      .then(value => {
+        return renderGallery(value);
+      });
+  }
 }
 
-export { renderTopMovies }
-
+export { renderTopMovies };
