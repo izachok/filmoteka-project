@@ -27,6 +27,11 @@ class OpenModal {
       movieObj: this.movieObj,
       type: libraryType.QUEUE,
     });
+    window.addEventListener('keydown', event => {
+      if (event.keyCode === 27) {
+        return this.instance.close();
+      }
+    });
   }
 
   onShowModal() {
@@ -43,13 +48,13 @@ class OpenModal {
     }
   }
 
-  turnOnKeys(event) {
-    console.log('hey');
-    if (event.keyCode === 27) {
-      console.log(event);
-      this.instance.close();
-    }
-  }
+  // turnOnKeys(event) {
+  //   console.log('hey');
+  //   if (event.keyCode === 27) {
+  //     console.log(event);
+  //     this.instance.close();
+  //   }
+  // }
 }
 
 // function showModal(obj) {
