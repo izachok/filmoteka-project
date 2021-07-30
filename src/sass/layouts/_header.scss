@@ -5,27 +5,27 @@
   background-position: bottom right;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("./../images/headerbg/bgimg.jpg");
+  background-image: url('./../images/headerbg/bgimg.jpg');
 
-  @media screen and (min-resolution:2dppx){
-  background-image:url("./../images/headerbg/bgimg@2x.jpg")
+  @media screen and (min-resolution: 2dppx) {
+    background-image: url('./../images/headerbg/bgimg@2x.jpg');
   }
 
-  @media screen and (min-width:$mobile-width) and (max-width:$tablet-width) {
-    background-image: url("./../images/headerbg/bgimg760.jpg");
+  @media screen and (min-width: $mobile-width) and (max-width: $tablet-width) {
+    background-image: url('./../images/headerbg/bgimg760.jpg');
   }
 
-  @media screen and (min-resolution:2dppx)and (min-width:$mobile-width) and (max-width:$tablet-width){
-    background-image:url("./../images/headerbg/bgimg760@2x.jpg");
-    }
-
-  @media screen and (min-width:$tablet-width){
-    background-image: url("./../images/headerbg/bgimg1024.jpg");
+  @media screen and (min-resolution: 2dppx) and (min-width: $mobile-width) and (max-width: $tablet-width) {
+    background-image: url('./../images/headerbg/bgimg760@2x.jpg');
   }
 
-  @media screen and (min-resolution:2dppx)and (min-width:$tablet-width){
-    background-image:url("./../images/headerbg/bgimg1024@2x.jpg");
-    }
+  @media screen and (min-width: $tablet-width) {
+    background-image: url('./../images/headerbg/bgimg1024.jpg');
+  }
+
+  @media screen and (min-resolution: 2dppx) and (min-width: $tablet-width) {
+    background-image: url('./../images/headerbg/bgimg1024@2x.jpg');
+  }
 }
 
 .page-header {
@@ -33,7 +33,7 @@
   padding-right: 20px;
   padding-top: 48px;
 
-  @media screen and (min-width:$mobile-width){
+  @media screen and (min-width: $mobile-width) {
     padding-right: 71px;
     padding-left: 71px;
   }
@@ -44,20 +44,20 @@
   font-size: 30px;
   line-height: 35px;
   font-weight: normal;
-  
-  @media screen and (max-width:$mobile-width) {
+
+  @media screen and (max-width: $mobile-width) {
     display: none;
   }
 }
 
-.page-nav_container{
+.page-nav_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   margin-bottom: 61px;
 
-  @media screen and (max-width:$mobile-width){
+  @media screen and (max-width: $mobile-width) {
     align-items: flex-end;
   }
 }
@@ -71,9 +71,9 @@
   }
 }
 
-.page-nav_wrapper{
+.page-nav_wrapper {
   color: $header-text-color;
-  
+
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -82,7 +82,7 @@
 
   display: flex;
 
-  li{
+  li {
     list-style-type: none;
     margin-left: 39px;
   }
@@ -90,9 +90,8 @@
 
 .nav-el {
   position: relative;
-  padding-bottom:2px;
-  text-decoration:none;
-  
+  padding-bottom: 2px;
+  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -102,7 +101,7 @@
 
 .active-page {
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     bottom: 0;
@@ -118,7 +117,7 @@
   margin: auto;
   width: 100%;
 
-  @media screen and (min-width:$tablet-width){
+  @media screen and (min-width: $tablet-width) {
     max-width: 336px;
   }
 
@@ -131,30 +130,29 @@
     border-bottom: 0.5px solid $accent-text-color;
     width: 100%;
 
-    &::placeholder{
+    &::placeholder {
       color: $accent-text-color;
     }
   }
 
-  .icon-search{
+  .icon-search {
     position: absolute;
     right: 3px;
     top: 2px;
+    cursor: pointer;
   }
 }
 
-
 /*  my library-page style */
 
-
-.library-header__button-container{
+.library-header__button-container {
   margin: auto;
   display: flex;
   justify-content: center;
 
   li {
     display: block;
-    
+
     &:first-child {
       margin-right: 15px;
     }
@@ -173,7 +171,7 @@
   border-radius: 5px;
   display: block;
 
-  @media screen and (min-width:$mobile-width){
+  @media screen and (min-width: $mobile-width) {
     width: 136px;
   }
 }
@@ -181,6 +179,6 @@
 .library-button_active {
   background-color: $accent-color;
   border: none;
-  -webkit-box-shadow: 1px 1px 36px -3px rgba(255,107,1,0.82); 
-  box-shadow: 1px 1px 36px -3px rgba(255,107,1,0.82);
+  -webkit-box-shadow: 1px 1px 36px -3px rgba(255, 107, 1, 0.82);
+  box-shadow: 1px 1px 36px -3px rgba(255, 107, 1, 0.82);
 }
