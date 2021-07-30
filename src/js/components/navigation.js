@@ -1,15 +1,11 @@
 import { renderApp } from "./renderer";
-import { setIsQueue, setIsWatched } from "./pageState";
-import { initLibrary } from "./renderLibrary";
+import { pageState } from "./pageState";
+import { defineLibraryType } from "./defineLibraryType"
 
 const navElements = document.getElementsByClassName('navEl');
 
 export function initNavigation() {
-  
-  for (let i = 0; i < navElements.length; i++) {
-      let navElement = navElements[i];
-      navElement.onclick = changePage;
-  }
+  [...navElements].forEach(navElement=>navElement.onclick = changePage);
 }
 
 function changePage(event) {
@@ -19,30 +15,29 @@ function changePage(event) {
   const page = event.target.getAttribute('page');
 
   if (page === "home"){
-    setIsQueue(false);
-    setIsWatched(false);
+    pageState.isQueue = false;
+    pageState.isWatched = false;
     headerImgEL.classList.remove('library-header_img');
     headerImgEL.classList.add('home-header_img');
   }
   else {
-    setIsWatched(true);
+    pageState.isWatched = true;
     headerImgEL.classList.remove('home-header_img');
     headerImgEL.classList.add('library-header_img');
-    initLibrary();
   }
-  removeClassStyle();
-  addClassStyle(event);
-
+  chageNavElStyle(event);
   renderApp();
+
+  if (pageState.isHome()===false){
+    defineLibraryType();
+  }
 }
 
-
-function removeClassStyle() {
-  const navElsArray = [...navElements];
-  navElsArray.forEach(el => el.classList.remove('active-page'))
+function chageNavElStyle(event) {
+  [...navElements].forEach(el => el.classList.remove('active-page'));
+  event.currentTarget.classList.add('active-page');
 };
 
-function addClassStyle(event){
-  const currentEventNavEl = event.currentTarget;
-  currentEventNavEl.classList.add('active-page');
-};
+
+
+

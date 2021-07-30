@@ -8,7 +8,9 @@
 }
 
 .home-header_img {
+  display: block;
   background-image: url("./../images/headerbg/bgimg.jpg");
+ 
 
   @media screen and (min-resolution:2dppx){
   background-image:url("./../images/headerbg/bgimg@2x.jpg")
@@ -36,7 +38,7 @@
   background-image: url("./../images/headerbg/libraryimg.jpg");
 
   @media screen and (min-resolution:2dppx){
-  background-image:url("./../images/headerbg/libraryimg@2x.jpg")
+  background-image:url("./../images/headerbg/libraryimg@2x.jpg");
   }
 
   @media screen and (min-width:$mobile-width) and (max-width:$tablet-width) {
@@ -165,13 +167,6 @@
     border: none;
     border-bottom: 0.5px solid $accent-text-color;
     width: 100%;
-
-    // &::after {
-    //   content: '';
-    //   display: block;
-    //   position: absolute;
-    //   background: url("../../images/sprite.svg#icon-search");
-    // }
 
     &::placeholder{
       color: $accent-text-color;

@@ -1,7 +1,7 @@
 import 'basiclightbox/dist/basicLightbox.min.css';
 import '../sass/main.scss';
 import * as footerModal from './components/footer-modal';
-import { pageState, setIsWatched, setIsQueue} from './components/pageState';
+import { pageState } from './components/pageState';
 import { initSearch } from './components/search';
 import { renderApp } from './components/renderer';
 import { initNavigation } from './components/navigation';
