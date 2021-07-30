@@ -6,38 +6,24 @@
     object-fit: cover;
   }
   &__box-img {
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 10px;
-
-    @include for-responsive-only {
-      min-width: 280px;
-      min-height: 398px;
-    }
     @include for-phone-only {
-      width: 280px;
-      height: 398px;
+      max-width: 440px;
     }
-    @include for-tablet-down {
+    @include for-tablet-up {
       width: 294px;
       height: 398px;
     }
-
     @include for-desktop-up {
       width: 274px;
       height: 398px;
     }
   }
   &__title-box {
-    margin-left: auto;
-    margin-right: auto;
-    @include for-responsive-only {
-      min-width: 280px;
-    }
     @include for-phone-only {
-      width: 280px;
+      max-width: 440px;
     }
-    @include for-tablet-down {
+    @include for-tablet-up {
       width: 294px;
     }
     @include for-desktop-up {
@@ -54,6 +40,7 @@
     text-transform: uppercase;
   }
   &__description {
+    margin-right: 10px;
     display: block;
     color: $accent-color;
     font-weight: 500;
@@ -63,9 +50,6 @@
   &__box-description {
     display: flex;
     justify-content: start;
-  }
-  &__year {
-    margin-right: 10px;
   }
   &__average {
     @include flex-centered;

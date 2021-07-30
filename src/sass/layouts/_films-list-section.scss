@@ -8,11 +8,11 @@
 
 .films__list {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0px;
   margin: 0px;
-  align-items: center;
 
   @include for-tablet-up {
     @include elements-set;

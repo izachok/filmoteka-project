@@ -3,10 +3,10 @@ import { getMoviesByQuery } from '../api/moviesdb-api';
 import { makeMoviesArrayForRendering, renderGallery } from './rendering-movies';
 
 const refs = {
-  searchInputEl: document.querySelector('input[name="query"]'),
-  searchFormEl: document.querySelector('.header__search-form'),
-  searchButtonEl: document.querySelector('.icon-search'), //todo: change selector for icon on selector for button
-  filmsListEl: document.querySelector('.films__list'),
+  searchInputEl: null,
+  searchFormEl: null,
+  searchButtonEl: null,
+  filmsListEl: null,
 };
 
 const onFormSubmit = async function (event) {
@@ -27,6 +27,11 @@ const onFormSubmit = async function (event) {
 };
 
 export const initSearch = function () {
+  refs.searchInputEl = document.querySelector('input[name="query"]'),
+  refs.searchFormEl = document.querySelector('.header__search-form'),
+  refs.searchButtonEl = document.querySelector('.button-search'),
+  refs.filmsListEl = document.querySelector('.films__list'),
+
   refs.searchButtonEl.addEventListener('click', onFormSubmit);
   refs.searchFormEl.addEventListener('submit', onFormSubmit);
 };
