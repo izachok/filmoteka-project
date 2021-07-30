@@ -28,7 +28,14 @@
 
 .card__icon {
   margin-right: 8px;
-  stroke: $details-card-main-text-color;
+  color: $details-card-main-text-color;
+  fill: currentColor;
+  transition: get-transition-prop(color);
+
+  &:hover {
+    color: $accent-color;
+    fill: currentColor;
+  }
 }
 
 .card__name {
@@ -68,12 +75,12 @@
   position: relative;
 }
 
-.slide{
+.slide {
   display: none;
 }
 
-.slide--active{
-display: block;
+.slide--active {
+  display: block;
 }
 
 .slider__inner-wrapper {
