@@ -1,0 +1,25 @@
+import libraryType from './library-type';
+import { renderMoviesList } from './renderer';
+
+const refs = {};
+
+function initLibraryHeaderBtns() {
+  refs.watchedBtnRef = document.querySelector(`.library-button[page="${libraryType.WATCHED}"]`);
+  refs.queueBtnRef = document.querySelector(`.library-button[page="${libraryType.QUEUE}"]`);
+  refs.filmListRef = document.querySelector('.films__list');
+
+  refs.watchedBtnRef?.addEventListener('click', onClickWatchedBtn);
+  refs.queueBtnRef?.addEventListener('click', onClickQueueBtn);
+}
+
+function onClickWatchedBtn() {
+  pageState.isWatched = true;
+  renderMoviesList();
+}
+
+function onClickQueueBtn() {
+  pageState.isQueue = true;
+  renderMoviesList();
+}
+
+export { initLibraryHeaderBtns, onClickWatchedBtn, onClickQueueBtn };

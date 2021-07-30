@@ -5,8 +5,8 @@ const refs = {};
 
 let num = 0;
 
-export function initSlider(){
-  refs.sliderRoot = document.querySelector('.footer-modal .slider')
+export function initSlider() {
+  refs.sliderRoot = document.querySelector('.footer-modal .slider');
   refs.sliderContainer = refs.sliderRoot.querySelector('.footer-modal .slider__outer-wrapper');
 
   renderSliderMarkup();
@@ -15,53 +15,50 @@ export function initSlider(){
   showSlide(num);
 }
 
-function initRefs(){
+function initRefs() {
   refs.slides = refs.sliderContainer.querySelectorAll('.slide');
-  refs.dots = refs.sliderContainer.querySelectorAll(".slider__dot");
+  refs.dots = refs.sliderContainer.querySelectorAll('.slider__dot');
   refs.nextSlide = refs.sliderRoot.querySelector('.footer-modal  [data-action=nextSlide]');
   refs.prevSlide = refs.sliderRoot.querySelector('.footer-modal  [data-action=prevSlide]');
 }
 
-function bindEvents(){
-  refs.dots.forEach((dot, index)=>{
-    dot.addEventListener('click', e =>{
+function bindEvents() {
+  refs.dots.forEach((dot, index) => {
+    dot.addEventListener('click', e => {
       showSlide(index);
-    })
+    });
   });
 
   refs.nextSlide.addEventListener('click', showNextSlide);
   refs.prevSlide.addEventListener('click', showPrevSlide);
 }
 
-
-function showSlide(n){
+function showSlide(n) {
   num = n;
 
   refs.slides.forEach((slide, index) => {
-    if(index===n){
-      slide.classList.add("slide--active");
-    }
-    else{
-      slide.classList.remove("slide--active");
+    if (index === n) {
+      slide.classList.add('slide--active');
+    } else {
+      slide.classList.remove('slide--active');
     }
   });
-  
 }
 
-function showPrevSlide(){
+function showPrevSlide() {
   num -= 1;
-  if(num < 0) num = refs.slides.length-1;
+  if (num < 0) num = refs.slides.length - 1;
   showSlide(num);
 }
 
-function showNextSlide(){
+function showNextSlide() {
   num += 1;
-  if(num >= refs.slides.length) num = 0;
+  if (num >= refs.slides.length) num = 0;
   showSlide(num);
 }
-
 
 function renderSliderMarkup() {
   const markup = teamSliderTpl(teamMembers);
+  console.log(markup);
   refs.sliderContainer.innerHTML = markup;
 }

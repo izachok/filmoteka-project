@@ -1,12 +1,11 @@
-import { pageState } from './pageState';
 import { getMoviesByQuery } from '../api/moviesdb-api';
 import { makeMoviesArrayForRendering, renderGallery } from './rendering-movies';
+import { renderMoviesList } from './renderer';
 
 const refs = {
-  searchInputEl: document.querySelector('input[name="query"]'),
-  searchFormEl: document.querySelector('.header__search-form'),
-  searchButtonEl: document.querySelector('.icon-search'), //todo: change selector for icon on selector for button
-  filmsListEl: document.querySelector('.films__list'),
+  searchInputEl: null,
+  searchFormEl: null,
+  searchButtonEl: null,
 };
 
 const onFormSubmit = async function (event) {
@@ -21,12 +20,17 @@ const onFormSubmit = async function (event) {
 
   const queryResult = await getMoviesByQuery(query);
   const filmsArray = makeMoviesArrayForRendering(queryResult);
-  renderGallery(filmsArray, refs.filmsListEl);
+  renderMoviesList(filmsArray);
+
+  refs.searchInputEl.value = '';
 
   // todo: add function for create pagination
 };
 
 export const initSearch = function () {
-  refs.searchButtonEl.addEventListener('click', onFormSubmit);
-  refs.searchFormEl.addEventListener('submit', onFormSubmit);
+  refs.searchInputEl = document.querySelector('input[name="query"]');
+  refs.searchFormEl = document.querySelector('.header__search-form');
+  refs.searchButtonEl = document.querySelector('.button-search');
+  refs.searchButtonEl?.addEventListener('click', onFormSubmit);
+  refs.searchFormEl?.addEventListener('submit', onFormSubmit);
 };

@@ -13,9 +13,12 @@
 @import './layouts/header';
 @import './layouts/pagination';
 
-@import './components/_modal';
+@import './components/modal';
 @import './components/footer-modal';
+@import './components/to-top-btn';
 
 @import './layouts/footer';
 @import './layouts/films-list-section';
+@import './layouts/film-list-is-empty';
 @import './layouts/one-card';
+
