@@ -336,6 +336,89 @@ a, ul {
   box-shadow: 1px 1px 36px -3px rgba(255, 107, 1, 0.82);
 }
 
+.pagination__counter {
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page-arrow {
+  width: 40px;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.page-arrow:hover {
+  background-color: #ff6b08;
+  color: #ffffff;
+}
+
+.page-dots {
+  padding-bottom: 5px;
+  background-color: #f7f7f7;
+}
+
+.page-btn:hover {
+  cursor: pointer;
+  background-color: #ff6b08;
+  color: #ffffff;
+}
+
+.active {
+  cursor: pointer;
+  background-color: #ff6b08;
+  color: #ffffff;
+}
+
+.pagination.container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.page-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 5px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.page-dots:hover {
+  background-color: #ffffff;
+  cursor: default;
+  color: #000000;
+}
+
+.active {
+  cursor: pointer;
+  background-color: #ff6b08;
+  color: #ffffff;
+}
+
 .modal {
   margin: 20px;
   padding: 48px 20px;
@@ -373,7 +456,7 @@ li {
   padding: 0;
   width: 30px;
   height: 30px;
-  border: none;
+  border: 1px solid black;
   color: #000000;
   background-color: transparent;
   cursor: pointer;
@@ -394,8 +477,7 @@ li {
 
 .poster {
   width: 240px;
-  height: 100px;
-  background-color: gray;
+  height: 20px;
 }
 
 .properties-list {
@@ -419,12 +501,10 @@ li {
 
 .movie-name {
   height: 21px;
-  background-color: gray;
   margin-top: 30px;
 }
 
 .about-movie {
-  height: 20px;
   border: 1px solid grey;
   margin-bottom: 21px;
   margin-top: 10px;

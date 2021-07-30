@@ -1,6 +1,7 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import { showModal } from './modal-movie';
+import { OpenModal } from './modal-movie';
+// import { showModal, onShowModal, onCloseModal, turnOnKeys } from './modal-movie';
 
 const filmList = document.querySelector('.films-list');
 
@@ -54,24 +55,18 @@ function renderGallery(arrayForRendering, element) {
   bindMovieObjToCard(arrayForRendering);
 }
 
-function bindMovieObjToCard(movieObjs, index) {
-  const filmList = document.querySelector('.films__list');
+function bindMovieObjToCard(movieObjs) {
+  // const filmList = document.querySelector('.films__list');
   const cards = document.querySelectorAll('.films__list-item');
-  filmList.addEventListener('click', event => {
-    // if (!event.target.li) {
-    //   return;
-    // }
-    console.log(event.currentTarget);
-    // showModal(movieObjs[index]);
+  cards.forEach((card, index) => {
+    card.addEventListener('click', event => {
+      const openModal = new OpenModal(movieObjs[index]);
+      openModal.showModal();
+      openModal.onShowModal();
+      openModal.onCloseModal();
+      // showModal(movieObjs[index]);
+    });
   });
-  // cards.forEach((card, index) => {
-  //   card.addEventListener('click', event => {
-  //     //todo: it should be implemented with modal functionality
-  //     // showMovieModal(movieObjs[index]);
-  //     console.log(event.target);
-  //     showModal(movieObjs[index]);
-  //   });
-  // });
 }
 
 //-----------------temp for testing library buttons-----------

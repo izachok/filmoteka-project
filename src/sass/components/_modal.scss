@@ -32,7 +32,7 @@ li {
   padding: 0;
   width: 30px;
   height: 30px;
-  border: none;
+  border: 1px solid black;
   color: $details-card-main-text-color;
   background-color: transparent;
   cursor: pointer;
@@ -51,17 +51,9 @@ li {
   fill: currentColor;
 }
 
-// .modal {
-//   position: relative;
-//   min-width: 280px;
-//   background-color: white;
-//   padding: 48px 28px;
-// }
-
 .poster {
   width: 240px;
-  // height: 100px;
-  background-color: gray;
+  height: 20px;
 }
 
 .properties-list {
@@ -81,12 +73,10 @@ li {
 
 .movie-name {
   height: 21px;
-  background-color: gray;
   margin-top: 30px;
 }
 
 .about-movie {
-  height: 20px;
   border: 1px solid grey;
   margin-bottom: 21px;
   margin-top: 10px;

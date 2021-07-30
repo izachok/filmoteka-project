@@ -2,19 +2,24 @@
   <div>
     <button type='button' class='modal__close' data-action='modal-close'>
       <svg class='modal__icon' width='30' height='30'>
-        <use href='./images/sprite.svg#icon-close'></use>
+        <use href='/images/sprite.svg#icon-close'></use>
       </svg>
     </button>
     <img src={{posterUrl}} alt={{title}} class='poster' />
-    <h2 class='movie-name'></h2>
+    <h2 class='movie-name'>{{title}}</h2>
     <ul class='properties-list'>
-      <li class='property-item'><span>Vote/Votes</span><span class='property-span'></span></li>
-      <li class='property-item'><span>Popularity</span><span class='property-span'></span></li>
-      <li class='property-item'><span>Original Title</span><span class='property-span'></span></li>
-      <li class='property-item'><span>Genre</span><span class='property-span'></span></li>
+      <li class='property-item'>
+        Vote/Votes
+        <span class='property-span'>{{vote_average}}</span>/{{vote_count}}
+      </li>
+      <li class='property-item'>Popularity<span class='property-span'>{{popularity}}</span></li>
+      <li class='property-item'>Original Title<span
+          class='property-span'
+        >{{original_title}}</span></li>
+      <li class='property-item'>Genre<span>{{stringGenres}}</span></li>
     </ul>
     <h3>About</h3>
-    <p class='about-movie'></p>
+    <p class='about-movie'>{{overview}}</p>
     <div class='modal-window-buttons'>
       <button type='button' class='modal-window-btn'>ADD TO WATCHED</button>
       <button type='button' class='modal-window-btn'>ADD TO QUEUE</button>
