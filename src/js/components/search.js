@@ -20,17 +20,21 @@ const onFormSubmit = async function (event) {
   }
 
   pageState.query = query;
+  try {
+    const queryResult = await getMoviesByQuery(query);
+    const filmsArray = makeMoviesArrayForRendering(queryResult);
+    if (queryResult.total_results === 0) {
+      Notify.warning('Search result not successful. Enter the correct movie name and try again');
+      refs.searchInputEl.value = '';
+      renderTopMovies();
+      return;
+    }
+    renderMoviesList(filmsArray);
 
-  const queryResult = await getMoviesByQuery(query);
-  const filmsArray = makeMoviesArrayForRendering(queryResult);
-  if (queryResult.total_results === 0) {
-    Notify.warning('Search result not successful. Enter the correct movie name and ');
     refs.searchInputEl.value = '';
-    return renderTopMovies();
+  } catch (error) {
+    Notify.failure(`${error}`);
   }
-  renderMoviesList(filmsArray);
-
-  refs.searchInputEl.value = '';
 
   // todo: add function for create pagination
 };
