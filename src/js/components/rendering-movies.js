@@ -58,8 +58,15 @@ function makeMoviesArrayForRendering(data) {
 function renderGallery(arrayForRendering) {
   const galleryMarkup = cardMarkup(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
-
+  showsRating();
   bindMovieObjToCard(arrayForRendering);
+}
+
+function showsRating() {
+  if (!pageState.isHome) {
+    const ratingMarkup = document.querySelectorAll('.one-card__average');
+    [...ratingMarkup].map(element => element.classList.remove('visually-hidden'));
+  }
 }
 
 function bindMovieObjToCard(movieObjs) {
