@@ -63,9 +63,9 @@ function renderGallery(arrayForRendering) {
 }
 
 function showsRating() {
-  if (pageState.isHome === false) {
-    const ratingMarcup = document.querySelectorAll('.one-card__average');
-    [...ratingMarcup].map(element => element.classList.remove('visually-hidden'));
+  if (!pageState.isHome) {
+    const ratingMarkup = document.querySelectorAll('.one-card__average');
+    [...ratingMarkup].map(element => element.classList.remove('visually-hidden'));
   }
 }
 
