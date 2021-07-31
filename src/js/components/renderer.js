@@ -12,6 +12,7 @@ function renderApp() {
 }
 
 function renderHeader() {
+  // window.onload = document.querySelector('button[page="home"]').className('active-page');
   const headerEL = document.querySelector('.page-header');
   headerEL.insertAdjacentHTML('beforeend', header({ ...pageState, isHome: pageState.isHome }));
 

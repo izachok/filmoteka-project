@@ -1,7 +1,7 @@
 .header-section {
   width: 100%;
   height: 230px;
-  background-color: rgba(0, 0, 0, 0.56);
+  background-color: rgba(0,0,0,0.56);
   background-position: bottom right;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,22 +9,22 @@
 
 .home-header_img {
   display: block;
-  background-image: url('./../images/headerbg/bgimg.jpg');
+  background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg.jpg');
 
   @media screen and (min-resolution: 2dppx) {
-    background-image: url('./../images/headerbg/bgimg@2x.jpg');
+    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg@2x.jpg');
   }
 
   @media screen and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image: url('./../images/headerbg/bgimg760.jpg');
+    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg760.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image: url('./../images/headerbg/bgimg760@2x.jpg');
+    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg760@2x.jpg');
   }
 
   @media screen and (min-width: $tablet-width) {
-    background-image: url('./../images/headerbg/bgimg1024.jpg');
+    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg1024.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $tablet-width) {
@@ -33,10 +33,10 @@
 }
 
 .library-header_img {
-  background-image: url('./../images/headerbg/libraryimg.jpg');
+  background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg.jpg');
 
   @media screen and (min-resolution: 2dppx) {
-    background-image: url('./../images/headerbg/libraryimg@2x.jpg');
+    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg@2x.jpg');
   }
 
   @media screen and (min-width: $mobile-width) and (max-width: $tablet-width) {
@@ -44,7 +44,7 @@
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image: url('./../images/headerbg/libraryimg760@2x.jpg');
+    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg760@2x.jpg');
   }
 
   @media screen and (min-width: $tablet-width) {
@@ -52,7 +52,7 @@
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $tablet-width) {
-    background-image: url('./../images/headerbg/libraryimg1024@2x.jpg');
+    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg1024@2x.jpg');
   }
 }
 
@@ -97,6 +97,24 @@
 
   h1 {
     margin-left: 12px;
+    &:hover,
+    &:focus {
+      color: $accent-color;
+      transition:  $animation-time  $animation-function;
+      transition-property: color;
+    }
+  }
+}
+
+.logo-icon{
+  stroke: #818181;
+  
+  @include for-phone-only{ 
+    &:hover,
+    &:focus {
+        stroke: $accent-color;
+        transition: get-transition-prop(stroke);
+    }
   }
 }
 
@@ -121,12 +139,14 @@
   background-color: transparent;
   font-size: 14px;
   border: none;
+  display: block;
 }
 
 .nav-el {
   position: relative;
   padding-bottom: 2px;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: $accent-color;
@@ -151,10 +171,7 @@
   position: relative;
   margin: auto;
   width: 100%;
-
-  @include for-tablet-up {
-    max-width: 336px;
-  }
+  max-width: 336px;
 
   input {
     font-size: 14px;
