@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.headers.common['Authorization'] =
@@ -10,6 +11,7 @@ const handleFetch = function (response) {
       return response.data;
     })
     .catch(function (error) {
+      Notify.failure(`${error.response.data.status_message}`);
       throw new Error(error.response.data.status_message);
     });
 };
