@@ -5,7 +5,7 @@
     "role": "Team lead",
     "photoUrl": "olga-tiutiunnyk",
     "githubUrl": "https://github.com/izachok",
-    "text": "Olga is our Teamlead. She prepared structure of project, wrote documents about project interfaces and made many reviews. She implemented footer and this modal about team with slider, wrote functions for working with API, refactored project in order to connect all parts together. Add to library buttons also were implemented by her. "
+    "text": "Olga is our Teamlead. She prepared the structure of the project, wrote documentation about the project's interfaces and made most of the reviews. She implemented footer and this modal section with a slider about our team, also wrote functions for working with API, and refactored the project to connect all the parts. 'Add to library' buttons are also made by Olga."
   },
   {
     "fullName": "Hanna Hryhorieva",
@@ -13,7 +13,7 @@
     "role": "SCRUM master",
     "photoUrl": "hanna-hryhorieva",
     "githubUrl": "https://github.com/HannaHryhorieva",
-    "text": "Hanna is our Scrum master. Thanks to her, the evening standup turned into convenient and useful pastime for our team. She wrote functional for rendering cards and their styles and added notifications about errors."
+    "text": "Hanna is our Scrum Master. Thanks to her, Daily standup meetings were held smoothly, efficiently and at a time convenient for all the team members. She made functionality and styles for rendering movie cards as well as for errors notification."
   },
   {
     "fullName": "Aleksandr Bryzgalin",
@@ -21,7 +21,7 @@
     "role": "Developer",
     "photoUrl": "aleksandr-bryzgalin",
     "githubUrl": "https://github.com/Aleksandr-Bryzgalin",
-    "text": "Aleksandr implemented loading of trending movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit."
+    "text": "Aleksandr implemented loading of popular movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit."
   },
   {
     "fullName": "Oleksandra Haniieva",
@@ -45,7 +45,7 @@
     "role": "Developer",
     "photoUrl": "maxim-lebiga",
     "githubUrl": "https://github.com/Maksytko",
-    "text": "Maxim prepared styles for main container and implemented search functionality on our site."
+    "text": "Maxim prepared styles for main container and implemented search functionality on our website."
   },
   {
     "fullName": "Serhii Krimets",
