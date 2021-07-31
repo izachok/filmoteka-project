@@ -1,87 +1,69 @@
-body
-{
-  margin:0;
-  padding:0;
-  background:#262626;
-}
-.ring
-{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:150px;
-  height:150px;
-  background:transparent;
-  border:3px solid #3c3c3c;
-  border-radius:50%;
-  text-align:center;
-  line-height:150px;
-  font-family:sans-serif;
-  font-size:20px;
-  color:#fff000;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  text-shadow:0 0 10px #fff000;
-  box-shadow:0 0 20px rgba(0,0,0,.5);
-}
-.ring:before
-{
-  content:'';
-  position:absolute;
-  top:-3px;
-  left:-3px;
-  width:100%;
-  height:100%;
-  border:3px solid transparent;
-  border-top:3px solid #fff000;
-  border-right:3px solid #fff000;
-  border-radius:50%;
-  animation:animateC 2s linear infinite;
-}
-span
-{
-  display:block;
-  position:absolute;
-  top:calc(50% - 2px);
-  left:50%;
-  width:50%;
-  height:4px;
-  background:transparent;
-  transform-origin:left;
-  animation:animate 2s linear infinite;
-}
-span:before
-{
-  content:'';
-  position:absolute;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:#fff000;
-  top:-6px;
-  right:-8px;
-  box-shadow:0 0 20px #fff000;
-}
-@keyframes animateC
-{
-  0%
-  {
-    transform:rotate(0deg);
-  }
-  100%
-  {
-    transform:rotate(360deg);
+.spinner {
+  display: none;
+
+  &.is-visible {
+    display: block;
   }
 }
-@keyframes animate
-{
-  0%
-  {
-    transform:rotate(45deg);
+
+.center {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  opacity: 0.7;
+}
+
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, $accent-color, #fff);
+  margin: 10px;
+  animation: wave 0.45s linear infinite;
+  border-radius: 20px;
+  opacity: 1;
+}
+.wave:nth-child(2) {
+  animation-delay: 0s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.05s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.15s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.25s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.35s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.4s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
   }
-  100%
-  {
-    transform:rotate(405deg);
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
   }
 }
