@@ -5,7 +5,7 @@ import header from './../../templates/header.hbs';
 import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
-
+import { Notify } from 'notiflix';
 function renderApp() {
   renderHeader();
   renderMoviesList();
@@ -32,7 +32,7 @@ function renderMoviesList(movies) {
       pageState.query = '';
     } else {
       //show trending movies
-      renderTopMovies();
+      renderTopMovies().catch(error => Notify.failure(`${error}`));
     }
   } else if (pageState.isWatched) {
     //show watched library

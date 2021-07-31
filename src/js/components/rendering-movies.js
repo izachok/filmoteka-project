@@ -48,6 +48,8 @@ function makeMoviesArrayForRendering(data) {
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
     movie.posterUrl = makeUrl(movie.poster_path);
+    const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
+    movie.stringGenres = makeStringGenres(arrStrName);
     return movie;
   });
   return arrayForRendering;
