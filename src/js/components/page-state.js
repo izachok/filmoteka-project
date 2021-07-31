@@ -45,6 +45,7 @@ export class PageState {
     return this.#wasLibraryChanged;
   }
 
+  //set true if movie was added/removed to library. use for page rerendering if something changed
   set wasLibraryChanged(value) {
     this.#wasLibraryChanged = value;
   }
