@@ -8,8 +8,8 @@ function renderTopMovies(page = 1) {
       .then(makeMoviesArrayForRendering)
       .then(value => {
         return renderGallery(value);
-      })
-      .catch(error => Notify.failure(`${error}`));
+      });
+    // .catch(error => Notify.failure(`${error}`));
   }
 }
 

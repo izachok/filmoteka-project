@@ -18,12 +18,13 @@ const onFormSubmit = function (event) {
   }
 
   pageState.query = query;
+  pagination.reset();
   RenderSearchResults();
 };
 
-async function RenderSearchResults(page = 1) {
+export async function RenderSearchResults(page = 1) {
   try {
-    const queryResult = await getMoviesByQuery(pageState.query);
+    const queryResult = await getMoviesByQuery(pageState.query, page);
     const filmsArray = makeMoviesArrayForRendering(queryResult);
 
     if (queryResult.total_results === 0) {

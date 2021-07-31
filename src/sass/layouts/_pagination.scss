@@ -1,37 +1,26 @@
-.pagination__counter {
+.tui-pagination {
   height: 40px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.page-arrow {
-  width: 40px;
-  height: 100%;
-  border-radius: 5px;
-  border: none;
-  background-color: $accent-text-color;
-}
-
-.page-arrow:hover {
+.tui-prev,
+.tui-next:hover {
   background-color: #ff6b08;
-  color: $accent-text-color;
 }
 
-.page-dots {
+.tui-prev-is-ellip,
+.tui-next-is-ellip {
   padding-bottom: 5px;
   background-color: $footer-background-color;
 }
 
-.page-btn:hover {
-  cursor: pointer;
-  background-color: #ff6b08;
-  color: $accent-text-color;
-}
-
-.active {
+.tui-page-btn:hover {
   cursor: pointer;
   background-color: #ff6b08;
   color: $accent-text-color;
@@ -42,7 +31,7 @@
   margin-bottom: 40px;
 }
 
-.page-btn {
+.tui-page-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,9 +44,22 @@
   outline: none;
   cursor: pointer;
   background-color: $accent-text-color;
+
+  text-decoration: none;
 }
 
-.page-dots {
+.tui-prev,
+.tui-next {
+  width: 40px;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: $footer-background-color;
+  border-radius: 5px;
+}
+
+.tui-prev-is-ellip,
+.tui-next-is-ellip {
   &:hover {
     background-color: $accent-text-color;
     cursor: default;
@@ -65,14 +67,8 @@
   }
 }
 
-.active {
+.tui-is-selected {
   cursor: pointer;
   background-color: #ff6b08;
   color: $accent-text-color;
 }
-
-// @include for-phone-only {
-//   .page-dots {
-//     display: none;
-//   }
-// }

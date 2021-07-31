@@ -5,12 +5,15 @@ import header from './../../templates/header.hbs';
 import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
+import { bindPagination, createPagination } from './pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
 function renderApp() {
   renderHeader();
   renderMoviesList();
+  // bindPagination();
+  createPagination();
 }
 
 function renderHeader() {

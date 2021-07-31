@@ -7,6 +7,7 @@ import { PageState } from './components/page-state';
 import { renderApp } from './components/renderer';
 
 import './components/to-top-btn';
+// import './components/pagination';
 
 window.pageState = new PageState();
 Notify.init({
