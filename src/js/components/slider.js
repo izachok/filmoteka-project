@@ -5,6 +5,8 @@ const refs = {};
 
 let num = 0;
 
+let intervalId = null;
+
 export function initSlider() {
   refs.sliderRoot = document.querySelector('.footer-modal .slider');
   refs.sliderContainer = refs.sliderRoot.querySelector('.footer-modal .slider__outer-wrapper');
@@ -59,6 +61,15 @@ function showNextSlide() {
 
 function renderSliderMarkup() {
   const markup = teamSliderTpl(teamMembers);
-  console.log(markup);
   refs.sliderContainer.innerHTML = markup;
+}
+
+export function turnOnAutoSlider() {
+  intervalId = setInterval(() => {
+    showNextSlide();
+  }, 5000);
+}
+
+export function turnOffAutoSlider() {
+  clearInterval(intervalId);
 }
