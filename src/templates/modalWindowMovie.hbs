@@ -1,16 +1,17 @@
 <div class='modal'>
-  <div>
-    <button type='button' class='modal__close' data-action='modal-close'>
-      <svg class='modal__icon' width='30' height='30'>
-        <use href='/images/sprite.svg#icon-close'></use>
-      </svg>
-    </button>
-    <img src={{posterUrl}} alt={{title}} class='poster' />
+
+  <button type='button' class='modal__close' data-action='modal-close'>
+    <svg class='modal__icon' width='30' height='30'>
+      <use href='sprite.svg#icon-close'></use>
+    </svg>
+  </button>
+  <img src={{posterUrl}} alt={{title}} class='poster' />
+  <div class='modal-window-content'>
     <h2 class='movie-name'>{{title}}</h2>
     <ul class='properties-list'>
       <li class='property-item'>
         Vote/Votes
-        <span class='property-span'>{{vote_average}}</span>/{{vote_count}}
+        <span class='property-span vote'>{{vote_average}}</span>/{{vote_count}}
       </li>
       <li class='property-item'>Popularity<span class='property-span'>{{popularity}}</span></li>
       <li class='property-item'>Original Title<span
@@ -21,8 +22,8 @@
     <h3>About</h3>
     <p class='about-movie'>{{overview}}</p>
     <div class='modal-window-buttons'>
-      <button type='button' class='modal-window-btn' data-action="add-to-watched">ADD TO WATCHED</button>
-      <button type='button' class='modal-window-btn' data-action="add-to-queue">ADD TO QUEUE</button>
+      <button type='button' class='modal-window-btn' data-action='add-to-watched'>ADD TO WATCHED</button>
+      <button type='button' class='modal-window-btn' data-action='add-to-queue'>ADD TO QUEUE</button>
     </div>
   </div>
 </div>

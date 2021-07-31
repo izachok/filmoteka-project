@@ -4,18 +4,21 @@
   color: $details-card-main-text-color;
   background-color: $main-background-color;
   position: relative;
-
+  min-width: 280px;
   max-width: 460px;
 
   @include for-tablet-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 40px $column-gap;
-    max-width: 618px;
+    min-width: 618px;
     margin: 0;
   }
 
   @include for-desktop-up {
     padding: 50px $column-gap;
-    max-width: 882px;
+    min-width: 882px;
   }
 }
 
@@ -27,13 +30,22 @@ li {
   list-style: none;
 }
 
+.modal-window-content {
+  @include for-tablet-up {
+    width: 262px;
+  }
+  @include for-desktop-up {
+    width: 396px;
+  }
+}
+
 .modal__close {
+  border: 0;
   margin: 0;
   padding: 0;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  color: $details-card-main-text-color;
+  // color: $details-card-main-text-color;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
@@ -53,7 +65,15 @@ li {
 
 .poster {
   width: 240px;
-  height: 20px;
+  margin-bottom: 30px;
+  @include for-tablet-up {
+    width: 264px;
+    margin: 0;
+  }
+  @include for-desktop-up {
+    width: 396px;
+    height: 478px;
+  }
 }
 
 .properties-list {
@@ -64,28 +84,43 @@ li {
 .property-item {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 240px;
+  color: $details-card-items-text-color;
 }
 
 .property-span {
-  border: 1px solid grey;
+  color: black;
+  font-weight: 500;
+}
+
+.vote {
+  color: white;
+  background-color: $accent-color;
+  width: 36px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .movie-name {
   height: 21px;
-  margin-top: 30px;
+  @include for-desktop-up {
+    font-size: 30px;
+  }
 }
 
 .about-movie {
-  border: 1px solid grey;
   margin-bottom: 21px;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .modal-window-buttons {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
+  @include for-desktop-up {
+    width: 287px;
+  }
 }
 
 .modal-window-btn {
@@ -99,5 +134,11 @@ li {
     color: white;
     background-color: $accent-color;
     border-color: $accent-color;
+  }
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
   }
 }

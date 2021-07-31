@@ -16,21 +16,26 @@ class OpenModal {
   showModal() {
     this.instance.show();
 
-    const watchBtn = new LibraryBtn({
-      element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
-      movieObj: this.movieObj,
-      type: libraryType.WATCHED,
-    });
+    // const watchBtn = new LibraryBtn({
+    //   element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
+    //   movieObj: this.movieObj,
+    //   type: libraryType.WATCHED,
+    // });
 
-    const queueBtn = new LibraryBtn({
-      element: this.instance.element().querySelector('[data-action="add-to-queue"]'),
-      movieObj: this.movieObj,
-      type: libraryType.QUEUE,
-    });
+    // const queueBtn = new LibraryBtn({
+    //   element: this.instance.element().querySelector('[data-action="add-to-queue"]'),
+    //   movieObj: this.movieObj,
+    //   type: libraryType.QUEUE,
+    // });
+
     window.addEventListener('keydown', event => {
       if (event.keyCode === 27) {
         return this.instance.close();
       }
+    });
+
+    document.querySelector('.modal__close').addEventListener('click', event => {
+      return this.instance.close();
     });
   }
 
