@@ -52,6 +52,5 @@ function changePage(page) {
 
 function chageNavElStyle(page) {
   [...navElements].forEach(el => el.classList.remove('active-page'));
-  console.log(page);
   document.querySelector(`[page=${page}]`).classList.add('active-page');
 }
