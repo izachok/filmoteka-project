@@ -61,9 +61,9 @@
 .tui-prev-is-ellip,
 .tui-next-is-ellip {
   &:hover {
-    background-color: $accent-text-color;
+    background-color: #ff6b08;
     cursor: default;
-    color: $main-text-color;
+    color: $accent-text-color;
   }
 }
 

@@ -4,6 +4,8 @@ import { renderTopMovies } from './rendering-top-movies';
 import { Notify } from 'notiflix';
 import { PageState } from './page-state';
 import { RenderSearchResults } from './search';
+import { renderMoviesList, renderWatched } from './renderer';
+import { getItemsFromWatched } from './localDB';
 
 const refs = {
   paginationContainer: null,
@@ -18,6 +20,7 @@ export function createPagination() {
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
+    usageStatistics: false,
   };
 
   const container = document.getElementById('tui-pagination-container');
@@ -34,9 +37,30 @@ const onCurrentPageClick = async function (event) {
   }
 };
 
-export { onCurrentPageClick };
+const hidePagination = function (data) {
+  console.log(data.total_results);
+  if (data.total_results > 20) {
+    return;
+  } else {
+    refs.paginationContainer.classList.add('visually-hidden');
+  }
+};
+
+const hidePaginationLocalStorage = function (array) {
+  if (pageState.isHome) {
+    return;
+  } else {
+    if (array.length >= 19) {
+      refs.paginationContainer.classList.remove('visually-hidden');
+    } else {
+      refs.paginationContainer.classList.add('visually-hidden');
+    }
+  }
+};
 
 export const bindPagination = function () {
   refs.paginationContainer = document.querySelector('.tui-pagination');
   pagination.on('beforeMove', onCurrentPageClick);
 };
+
+export { onCurrentPageClick, hidePagination, hidePaginationLocalStorage };
