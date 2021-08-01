@@ -1,6 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-import {initSlider} from './slider';
-
+import { initSlider, turnOnAutoSlider, turnOffAutoSlider } from './slider';
 
 let modalInstance = null;
 
@@ -11,7 +10,10 @@ const refs = {
 refs.sliderContainer = refs.footerModal.querySelector('.slider');
 
 function createFooterModal() {
-  modalInstance = basicLightbox.create(refs.footerModal);
+  modalInstance = basicLightbox.create(refs.footerModal, {
+    onShow: turnOnAutoSlider,
+    onClose: turnOffAutoSlider,
+  });
   bindEvents();
 }
 

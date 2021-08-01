@@ -1,0 +1,69 @@
+.spinner {
+  display: none;
+
+  &.is-visible {
+    display: block;
+  }
+}
+
+.center {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  opacity: 0.7;
+}
+
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, $accent-color, #fff);
+  margin: 10px;
+  animation: wave 0.45s linear infinite;
+  border-radius: 20px;
+  opacity: 1;
+}
+.wave:nth-child(2) {
+  animation-delay: 0s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.05s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.15s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.25s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.35s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.4s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

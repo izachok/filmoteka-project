@@ -5,8 +5,11 @@ axios.defaults.headers.common['Authorization'] =
   'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYTZjNGIwYzQwMzI5N2JiZGM5NTAzNmMxMjkwYzc5NyIsInN1YiI6IjYwZjlhNmUyOTdmZGVjMDA3NGRlMmRmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a83nORWttyE7amxmCMPeKf9lKvYOeGs30Ue0qmqjMEw';
 
 const handleFetch = function (response) {
+  const spinner = document.getElementById('spinner');
+  spinner.classList.add('is-visible');
   return response
     .then(function (response) {
+      spinner.classList.remove('is-visible');
       return response.data;
     })
     .catch(function (error) {
