@@ -27,24 +27,16 @@ export function createPagination() {
 }
 
 const onCurrentPageClick = async function (event) {
-  let currentPage;
-  //   try {
-  if (event.target.classList.contains('tui-page-btn')) {
-    currentPage = event.target.textContent;
-    if (pageState.query) {
-      RenderSearchResults(currentPage);
-    } else {
-      renderTopMovies(currentPage);
-    }
+  if (pageState.query) {
+    RenderSearchResults(event.page);
+  } else {
+    renderTopMovies(event.page);
   }
-  //   } catch (error) {
-  //     Notify.failure(`${error}`);
-  //   }
 };
 
 export { onCurrentPageClick };
 
 export const bindPagination = function () {
   refs.paginationContainer = document.querySelector('.tui-pagination');
-  refs.paginationContainer.addEventListener('click', onCurrentPageClick);
+  pagination.on('beforeMove', onCurrentPageClick);
 };
