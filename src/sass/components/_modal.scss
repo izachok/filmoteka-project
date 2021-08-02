@@ -151,12 +151,15 @@
 
 .movie__buttons {
   width: 100%;
+  justify-content: center;
   display: inline-flex;
 }
 
 .movie__btn {
   font-weight: 500;
-  min-width: 113px;
+  min-width: 112px;
+  max-width: 125px;
+  width: 50%;
   padding-left: 10px;
   padding-right: 10px;
   height: 44px;
@@ -168,10 +171,10 @@
   transition: get-transition-prop(color);
 
   @include for-tablet-up {
-    min-width: 125px;
+    width: 125px;
   }
   @include for-desktop-up {
-    min-width: 136px;
+    width: 136px;
   }
 
   &:not(:last-child) {
