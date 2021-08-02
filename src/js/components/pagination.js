@@ -1,11 +1,6 @@
 import Pagination from 'tui-pagination';
-import { getTrendingMovies, getMoviesByQuery, getMovieById } from '../api/moviesdb-api';
 import { renderTopMovies } from './rendering-top-movies';
-import { Notify } from 'notiflix';
-import { PageState } from './page-state';
 import { RenderSearchResults } from './search';
-import { renderMoviesList, renderWatched } from './renderer';
-import { getItemsFromWatched } from './localDB';
 
 const refs = {
   paginationContainer: null,
@@ -39,7 +34,7 @@ const onCurrentPageClick = async function (event) {
 
 const hidePagination = function (data) {
   if (data.total_results > 20) {
-    return;
+    refs.paginationContainer.classList.remove('visually-hidden');
   } else {
     refs.paginationContainer.classList.add('visually-hidden');
   }
