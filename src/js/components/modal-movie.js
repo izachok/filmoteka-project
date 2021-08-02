@@ -35,6 +35,20 @@ class OpenModal {
         onClose: this.onCloseModal,
         onShow: this.onShowModal,
       }));
+
+class OpenModal {
+  #windowKeyHandler = this.onWindowClick.bind(this);
+
+  constructor(argument) {
+    this.movieObj = argument;
+    this.instance = basicLightbox.create(modalWindowMovie(argument), {
+      onClose: () => {
+        this.onCloseModal();
+      },
+      onShow: () => {
+        this.onShowModal();
+      },
+    });
   }
 
   showModal() {
@@ -65,8 +79,14 @@ class OpenModal {
     });
   }
 
+  onShowModal() {
+    document.body.classList.add('modal-open');
+    window.addEventListener('keydown', this.#windowKeyHandler);
+  }
+
   onCloseModal() {
-    //todo move to metod closes modal in future
+    document.body.classList.remove('modal-open');
+    window.removeEventListener('keydown', this.#windowKeyHandler);
     //rerender movies list if add/remove buttons were clicked
     if (!pageState.isHome && pageState.wasLibraryChanged) {
       renderMoviesList();
@@ -79,6 +99,11 @@ class OpenModal {
       .get(`/movie/${this.id}/similar`)
       .then(response => console.log(response.data.results));
   };
+  onWindowClick(event) {
+    if (event.code === 'Escape') {
+      this.instance.close();
+    }
+  }
 }
 
-export { OpenModal, genresForModal };
+    export { OpenModal, genresForModal };

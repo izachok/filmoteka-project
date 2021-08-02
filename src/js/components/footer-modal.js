@@ -11,8 +11,8 @@ refs.sliderContainer = refs.footerModal.querySelector('.slider');
 
 function createFooterModal() {
   modalInstance = basicLightbox.create(refs.footerModal, {
-    onShow: turnOnAutoSlider,
-    onClose: turnOffAutoSlider,
+    onShow: onModalFooterShow,
+    onClose: onModalFooterClose,
   });
   bindEvents();
 }
@@ -35,4 +35,19 @@ function showFooterModal() {
   initSlider();
 }
 
+function onModalFooterShow(event) {
+  turnOnAutoSlider();
+  window.addEventListener('keydown', onWindowKeydown);
+}
+
+function onModalFooterClose() {
+  turnOffAutoSlider();
+  window.removeEventListener('keydown', onWindowKeydown);
+}
+
+function onWindowKeydown(event) {
+  if (event.code === 'Escape') {
+    modalInstance.close();
+  }
+}
 export { createFooterModal, showFooterModal };
