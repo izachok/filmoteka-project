@@ -6,6 +6,7 @@ import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
 import { bindPagination, createPagination } from './pagination';
+import { Pagination } from 'tui-pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
@@ -45,6 +46,7 @@ function renderMoviesList() {
 function renderWatched() {
   if (localDB.getItemsFromWatched() === null || localDB.getItemsFromWatched().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
     renderGallery(localDB.getItemsFromWatched());
   }
@@ -53,6 +55,7 @@ function renderWatched() {
 function renderQueue() {
   if (localDB.getItemsFromQueue() === null || localDB.getItemsFromQueue().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
     renderGallery(localDB.getItemsFromQueue());
   }

@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import { renderTopMovies } from './rendering-top-movies';
 import { RenderSearchResults } from './search';
+import { renderMoviesList } from './renderer';
 
 const refs = {
   paginationContainer: null,
@@ -25,6 +26,9 @@ export function createPagination() {
 }
 
 const onCurrentPageClick = async function (event) {
+  if (pageState.isWatched || pageState.isQueue) {
+    renderMoviesList();
+  }
   if (pageState.query) {
     RenderSearchResults(event.page);
   } else {

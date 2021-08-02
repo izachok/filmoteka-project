@@ -47,9 +47,8 @@ function makeUrl(partialURL) {
 function makeMoviesArrayForRendering(data) {
   console.log(data);
   console.log(pagination);
-  hidePagination(data);
   pagination.setTotalItems(data.total_results);
-
+  hidePagination(data);
   const arrMovies = data.results;
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
