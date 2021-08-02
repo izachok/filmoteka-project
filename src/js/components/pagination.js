@@ -38,7 +38,6 @@ const onCurrentPageClick = async function (event) {
 };
 
 const hidePagination = function (data) {
-  console.log(data.total_results);
   if (data.total_results > 20) {
     return;
   } else {
