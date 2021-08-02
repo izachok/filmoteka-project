@@ -20,11 +20,11 @@
         <ul class='properties-values list'>
           <li class='value-item'><span class='movie__vote'>{{vote_average}}</span> / <span class='movie__vote movie__vote--light'>{{vote_count}}</span></li>
           <li class='value-item'>{{popularity}}</li>
-          <li class='value-item'>{{original_title}}</li>
+          <li class='value-item movie__title'>{{original_title}}</li>
           <li class='value-item'>{{stringGenres}}</li>
         </ul>
       </div>
-      <h3>About</h3>
+      <h3 class="movie__about-header">About</h3>
       <p class='movie__about'>{{overview}}</p>
       <div class='movie__buttons'>
         <button type='button' class='movie__btn' data-action='add-to-watched'>Add wo Watched</button>

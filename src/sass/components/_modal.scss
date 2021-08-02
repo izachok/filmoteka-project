@@ -71,6 +71,7 @@
 
 .movie__poster {
   margin: 0 0 30px 0;
+  border-radius: 5px;
   @include for-tablet-up {
     margin: 0;
   }
@@ -128,10 +129,22 @@
   color: $main-text-color;
 }
 
+.movie__title {
+  text-transform: uppercase;
+}
+
+.movie__about-header {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
 .movie__about {
   width: 100%;
   margin-bottom: 21px;
-  margin-top: 10px;
+
   font-weight: 500;
   line-height: 20px;
 }
