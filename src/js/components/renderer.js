@@ -26,12 +26,13 @@ function renderHeader() {
 }
 
 function renderMoviesList() {
+  pageState.query = '';
   if (pageState.isHome) {
     //show trending movies
     renderTopMovies();
     // }
   } else if (pageState.isWatched) {
-    pageState.query = '';
+    // pageState.query = '';
     //show watched library
     renderWatched();
   } else {
