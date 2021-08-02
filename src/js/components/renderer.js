@@ -48,6 +48,7 @@ function renderWatched() {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
+    pagination.setTotalItems(localDB.getItemsFromWatched().length);
     renderGallery(localDB.getItemsFromWatched());
   }
 }
@@ -57,6 +58,7 @@ function renderQueue() {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
+    pagination.setTotalItems(localDB.getItemsFromQueue().length);
     renderGallery(localDB.getItemsFromQueue());
   }
 }
