@@ -1,6 +1,7 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 import { OpenModal } from './modal-movie';
+import { hidePagination, hidePaginationLocalStorage } from './pagination';
 import LibraryBtn from './library-btn';
 import libraryType from './library-type';
 
@@ -14,7 +15,7 @@ function arrGenres(array) {
 function makeStringGenres(arrStrName) {
   if (!Array.isArray(arrStrName)) return '';
   if (arrStrName.length > 2) {
-    return `${arrStrName[0]}, ${arrStrName[1]}`;
+    return `${arrStrName[0]}, ${arrStrName[1]}, Other`;
   }
   return arrStrName.join(', ');
 }
@@ -46,6 +47,12 @@ function makeUrl(partialURL) {
 }
 
 function makeMoviesArrayForRendering(data) {
+  pagination.setTotalItems(data.total_results);
+  if (pagination.getCurrentPage() === 1) {
+    pagination.reset();
+  }
+  hidePagination(data);
+
   const arrMovies = data.results;
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
@@ -59,6 +66,7 @@ function makeMoviesArrayForRendering(data) {
 
 function renderGallery(arrayForRendering) {
   const galleryMarkup = cardMarkup(arrayForRendering);
+  // hidePaginationLocalStorage(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);
