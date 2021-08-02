@@ -128,10 +128,18 @@
   color: $main-text-color;
 }
 
+.movie__about-header {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
 .movie__about {
   width: 100%;
   margin-bottom: 21px;
-  margin-top: 10px;
+
   font-weight: 500;
   line-height: 20px;
 }
