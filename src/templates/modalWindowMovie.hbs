@@ -1,5 +1,4 @@
 <div class='modal'>
-
   <button type='button' class='modal__close' data-action='modal-close'>
     <svg class='modal__icon' width='30' height='30'>
       <use href='sprite.svg#icon-close'></use>
@@ -8,17 +7,20 @@
   <img src={{posterUrl}} alt={{title}} class='poster' />
   <div class='modal-window-content'>
     <h2 class='movie-name'>{{title}}</h2>
-    <ul class='properties-list'>
-      <li class='property-item'>
-        Vote/Votes
-        <span class='property-span vote'>{{vote_average}}</span>/{{vote_count}}
-      </li>
-      <li class='property-item'>Popularity<span class='property-span'>{{popularity}}</span></li>
-      <li class='property-item'>Original Title<span
-          class='property-span'
-        >{{original_title}}</span></li>
-      <li class='property-item'>Genre<span>{{stringGenres}}</span></li>
-    </ul>
+    <div class='properties'>
+      <ul class='properties-list'>
+        <li class='property-item'>Vote/Votes</li>
+        <li class='property-item'>Popularity</li>
+        <li class='property-item'>Original Title</li>
+        <li class='property-item'>Genre</li>
+      </ul>
+      <ul class='properties-values'>
+        <li class='value-item'><span class='vote'>{{vote_average}}</span>/{{vote_count}}</li>
+        <li class='value-item'>{{popularity}}</li>
+        <li class='value-item'>{{original_title}}</li>
+        <li class='value-item'>{{stringGenres}}</li>
+      </ul>
+    </div>
     <h3>About</h3>
     <p class='about-movie'>{{overview}}</p>
     <div class='modal-window-buttons'>
