@@ -74,11 +74,11 @@ function renderSliderMarkup() {
 }
 
 export function turnOnAutoSlider() {
-  intervalId = setInterval(() => {
+  intervalId = setTimeout(() => {
     showNextSlide();
   }, 5000);
 }
 
 export function turnOffAutoSlider() {
-  clearInterval(intervalId);
+  clearTimeout(intervalId);
 }
