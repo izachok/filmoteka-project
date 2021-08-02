@@ -5,16 +5,18 @@ import header from './../../templates/header.hbs';
 import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
+import { createPagination, hidePaginationLocalStorage } from './pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
 function renderApp() {
   renderHeader();
   renderMoviesList();
+  createPagination();
+  // bindPagination();
 }
 
 function renderHeader() {
-  // window.onload = document.querySelector('button[page="home"]').className('active-page');
   const headerEL = document.querySelector('.page-header');
   headerEL.insertAdjacentHTML('beforeend', header({ ...pageState, isHome: pageState.isHome }));
 
@@ -29,6 +31,7 @@ function renderMoviesList() {
     renderTopMovies();
     // }
   } else if (pageState.isWatched) {
+    pageState.query = '';
     //show watched library
     renderWatched();
   } else {
@@ -42,7 +45,10 @@ function renderMoviesList() {
 function renderWatched() {
   if (localDB.getItemsFromWatched() === null || localDB.getItemsFromWatched().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
+    // pagination.setTotalItems(localDB.getItemsFromWatched().length);
+    hidePaginationLocalStorage();
     renderGallery(localDB.getItemsFromWatched());
   }
 }
@@ -50,7 +56,10 @@ function renderWatched() {
 function renderQueue() {
   if (localDB.getItemsFromQueue() === null || localDB.getItemsFromQueue().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
+    // pagination.setTotalItems(localDB.getItemsFromQueue().length);
+    hidePaginationLocalStorage();
     renderGallery(localDB.getItemsFromQueue());
   }
 }
