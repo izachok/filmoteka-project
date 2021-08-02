@@ -9,7 +9,7 @@ const refs = {
 
 export function createPagination() {
   const options = {
-    totalItems: 1000,
+    // totalItems: 1000,
     itemsPerPage: 20,
     visiblePages: 5,
     page: 1,

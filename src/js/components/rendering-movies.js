@@ -45,10 +45,12 @@ function makeUrl(partialURL) {
 }
 
 function makeMoviesArrayForRendering(data) {
-  console.log(data);
-  console.log(pagination);
   pagination.setTotalItems(data.total_results);
+  if (pagination.getCurrentPage() === 1) {
+    pagination.reset();
+  }
   hidePagination(data);
+
   const arrMovies = data.results;
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
@@ -62,7 +64,6 @@ function makeMoviesArrayForRendering(data) {
 
 function renderGallery(arrayForRendering) {
   const galleryMarkup = cardMarkup(arrayForRendering);
-  console.log(arrayForRendering);
   hidePaginationLocalStorage(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();

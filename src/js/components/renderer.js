@@ -33,6 +33,7 @@ function renderMoviesList() {
     renderTopMovies();
     // }
   } else if (pageState.isWatched) {
+    pageState.query = '';
     //show watched library
     renderWatched();
   } else {
