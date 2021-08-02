@@ -153,6 +153,10 @@
   width: 100%;
   justify-content: center;
   display: inline-flex;
+
+  @include for-desktop-up {
+    justify-content: flex-start;
+  }
 }
 
 .movie__btn {
