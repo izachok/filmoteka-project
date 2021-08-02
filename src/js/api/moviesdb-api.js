@@ -9,11 +9,13 @@ const handleFetch = function (response) {
   spinner.classList.add('is-visible');
   return response
     .then(function (response) {
-      spinner.classList.remove('is-visible');
       return response.data;
     })
     .catch(function (error) {
       throw new Error(error.response.data.status_message);
+    })
+    .finally(function () {
+      spinner.classList.remove('is-visible');
     });
 };
 
