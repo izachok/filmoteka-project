@@ -13,7 +13,7 @@ function arrGenres(array) {
 function makeStringGenres(arrStrName) {
   if (!Array.isArray(arrStrName)) return '';
   if (arrStrName.length > 2) {
-    return `${arrStrName[0]}, ${arrStrName[1]}`;
+    return `${arrStrName[0]}, ${arrStrName[1]}, Other`;
   }
   return arrStrName.join(', ');
 }
@@ -65,8 +65,15 @@ function renderGallery(arrayForRendering) {
   console.log(arrayForRendering);
   hidePaginationLocalStorage(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
-
+  showsRating();
   bindMovieObjToCard(arrayForRendering);
+}
+
+function showsRating() {
+  if (!pageState.isHome) {
+    const ratingMarkup = document.querySelectorAll('.one-card__average');
+    [...ratingMarkup].map(element => element.classList.remove('visually-hidden'));
+  }
 }
 
 function bindMovieObjToCard(movieObjs) {
@@ -75,9 +82,6 @@ function bindMovieObjToCard(movieObjs) {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
       openModal.showModal();
-      //todo move to OpenModal class and delete here
-      openModal.onShowModal();
-      openModal.onCloseModal();
     });
   });
 }

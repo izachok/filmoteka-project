@@ -1,4 +1,8 @@
 .one-card {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
   &__img {
     border-radius: 5px;
     height: 100%;

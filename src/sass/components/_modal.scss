@@ -1,39 +1,63 @@
 .modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 500px;
+  overflow-y: auto;
   margin: $column-gap-mobile;
   padding: 48px $column-gap-mobile;
   color: $details-card-main-text-color;
   background-color: $main-background-color;
   position: relative;
-
+  min-width: 280px;
   max-width: 460px;
 
   @include for-tablet-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 40px $column-gap;
-    max-width: 618px;
+    min-width: 618px;
     margin: 0;
   }
 
   @include for-desktop-up {
+    justify-content: space-around;
     padding: 50px $column-gap;
-    max-width: 882px;
+    min-width: 882px;
   }
 }
 
-ul {
+ul,
+span {
   margin: 0;
 }
 
 li {
+  margin: 0;
   list-style: none;
 }
 
+.modal-window-content {
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  @include for-tablet-up {
+    width: 264px;
+    margin: 0;
+  }
+  @include for-desktop-up {
+    width: 396px;
+  }
+}
+
 .modal__close {
+  border: 0;
   margin: 0;
   padding: 0;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  color: $details-card-main-text-color;
+  // color: $details-card-main-text-color;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
@@ -53,51 +77,97 @@ li {
 
 .poster {
   width: 240px;
-  height: 20px;
+  margin: 0 0 30px 0;
+  @include for-tablet-up {
+    width: 264px;
+    margin: 0;
+  }
+  @include for-desktop-up {
+    width: 300px;
+    height: 430px;
+  }
 }
 
-.properties-list {
+.properties {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
+  @include for-desktop-up {
+    width: 260px;
+  }
 }
 
 .property-item {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  color: $details-card-items-text-color;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
-.property-span {
-  border: 1px solid grey;
+.value-item {
+  color: black;
+  font-weight: 500;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.vote {
+  display: inline-block;
+  color: white;
+  background-color: $accent-color;
+  width: 36px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .movie-name {
-  height: 21px;
-  margin-top: 30px;
+  @include for-desktop-up {
+    font-size: 30px;
+  }
 }
 
 .about-movie {
-  border: 1px solid grey;
+  width: 100%;
   margin-bottom: 21px;
   margin-top: 10px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .modal-window-buttons {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
+  @include for-desktop-up {
+    width: 287px;
+  }
 }
 
 .modal-window-btn {
+  font-weight: 500;
   width: 113px;
   height: 44px;
   background-color: inherit;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
+  transition: get-transition-prop(color);
   &:hover,
   &:focus {
     color: white;
     background-color: $accent-color;
     border-color: $accent-color;
+  }
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
   }
 }
