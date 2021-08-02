@@ -3,14 +3,15 @@ import { renderTopMovies } from './rendering-top-movies';
 import { RenderSearchResults } from './search';
 import { renderMoviesList } from './renderer';
 
+const ITEMS_PER_PAGE = 20;
+
 const refs = {
   paginationContainer: null,
 };
 
 export function createPagination() {
   const options = {
-    // totalItems: 1000,
-    itemsPerPage: 20,
+    itemsPerPage: ITEMS_PER_PAGE,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
@@ -21,7 +22,6 @@ export function createPagination() {
 
   const container = document.getElementById('tui-pagination-container');
   window.pagination = new Pagination(container, options);
-  //   pagination.setItemsPerPage(20);
   bindPagination();
 }
 
@@ -37,7 +37,7 @@ const onCurrentPageClick = async function (event) {
 };
 
 const hidePagination = function (data) {
-  if (data.total_results > 20) {
+  if (data.total_results > ITEMS_PER_PAGE) {
     refs.paginationContainer.classList.remove('visually-hidden');
   } else {
     refs.paginationContainer.classList.add('visually-hidden');
@@ -45,15 +45,15 @@ const hidePagination = function (data) {
 };
 
 const hidePaginationLocalStorage = function (array) {
-  if (pageState.isHome) {
-    return;
-  } else {
-    if (array.length >= 19) {
-      refs.paginationContainer.classList.remove('visually-hidden');
-    } else {
-      refs.paginationContainer.classList.add('visually-hidden');
-    }
-  }
+  refs.paginationContainer.classList.add('visually-hidden');
+  // if (pageState.isHome) {
+  //   return;
+  // }
+  // if (array.length > ITEMS_PER_PAGE) {
+  //   refs.paginationContainer.classList.remove('visually-hidden');
+  // } else {
+  //   refs.paginationContainer.classList.add('visually-hidden');
+  // }
 };
 
 export const bindPagination = function () {

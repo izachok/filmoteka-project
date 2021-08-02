@@ -64,7 +64,7 @@ function makeMoviesArrayForRendering(data) {
 
 function renderGallery(arrayForRendering) {
   const galleryMarkup = cardMarkup(arrayForRendering);
-  hidePaginationLocalStorage(arrayForRendering);
+  // hidePaginationLocalStorage(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);

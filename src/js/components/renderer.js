@@ -5,20 +5,18 @@ import header from './../../templates/header.hbs';
 import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
-import { bindPagination, createPagination } from './pagination';
-import { Pagination } from 'tui-pagination';
+import { createPagination, hidePaginationLocalStorage } from './pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
 function renderApp() {
   renderHeader();
   renderMoviesList();
-  // bindPagination();
   createPagination();
+  // bindPagination();
 }
 
 function renderHeader() {
-  // window.onload = document.querySelector('button[page="home"]').className('active-page');
   const headerEL = document.querySelector('.page-header');
   headerEL.insertAdjacentHTML('beforeend', header({ ...pageState, isHome: pageState.isHome }));
 
@@ -49,7 +47,8 @@ function renderWatched() {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
-    pagination.setTotalItems(localDB.getItemsFromWatched().length);
+    // pagination.setTotalItems(localDB.getItemsFromWatched().length);
+    hidePaginationLocalStorage();
     renderGallery(localDB.getItemsFromWatched());
   }
 }
@@ -59,7 +58,8 @@ function renderQueue() {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
-    pagination.setTotalItems(localDB.getItemsFromQueue().length);
+    // pagination.setTotalItems(localDB.getItemsFromQueue().length);
+    hidePaginationLocalStorage();
     renderGallery(localDB.getItemsFromQueue());
   }
 }
