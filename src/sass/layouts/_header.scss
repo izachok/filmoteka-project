@@ -1,7 +1,7 @@
 .header-section {
   width: 100%;
   height: 230px;
-  background-color: rgba(0,0,0,0.56);
+  background-color: rgba(0,0,0,0.5);
   background-position: bottom right;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,50 +9,74 @@
 
 .home-header_img {
   display: block;
-  background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg.jpg');
+  background-image:
+  linear-gradient(to top left, $header-background-color, $header-background-color), 
+  url('./../images/headerbg/bgimg.jpg');
 
   @media screen and (min-resolution: 2dppx) {
-    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg@2x.jpg');
+    background-image: 
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/bgimg@2x.jpg');
   }
 
   @media screen and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg760.jpg');
+    background-image: 
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/bgimg760.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg760@2x.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/bgimg760@2x.jpg');
   }
 
   @media screen and (min-width: $tablet-width) {
-    background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/bgimg1024.jpg');
+    background-image: 
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/bgimg1024.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $tablet-width) {
-    background-image: url('./../images/headerbg/bgimg1024@2x.jpg');
+    background-image: 
+    inear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/bgimg1024.jpg');
   }
 }
 
 .library-header_img {
-  background-image: linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg.jpg');
+  background-image: 
+  linear-gradient(to top left, $header-background-color, $header-background-color), 
+  url('./../images/headerbg/libraryimg.jpg');
 
   @media screen and (min-resolution: 2dppx) {
-    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg@2x.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/libraryimg@2x.jpg');
   }
 
   @media screen and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image: url('./../images/headerbg/libraryimg760.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color),
+    url('./../images/headerbg/libraryimg760.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $mobile-width) and (max-width: $tablet-width) {
-    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg760@2x.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/libraryimg760@2x.jpg');
   }
 
   @media screen and (min-width: $tablet-width) {
-    background-image: url('./../images/headerbg/libraryimg1024.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color),
+    url('./../images/headerbg/libraryimg1024.jpg');
   }
 
   @media screen and (min-resolution: 2dppx) and (min-width: $tablet-width) {
-    background-image:linear-gradient(to top, $header-background-color, $header-background-color), url('./../images/headerbg/libraryimg1024@2x.jpg');
+    background-image:
+    linear-gradient(to top left, $header-background-color, $header-background-color), 
+    url('./../images/headerbg/libraryimg1024@2x.jpg');
   }
 }
 
@@ -83,7 +107,7 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 61px;
+  margin-bottom: 35px;
 
   @include for-responsive-only {
     align-items: flex-end;
@@ -94,6 +118,8 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
+  
 
   h1 {
     margin-left: 12px;
@@ -176,7 +202,7 @@
   input {
     font-size: 14px;
     color: $accent-text-color;
-
+    padding-bottom: 3px;
     background: transparent;
     border: none;
     border-bottom: 0.5px solid $accent-text-color;
@@ -184,6 +210,14 @@
 
     &::placeholder {
       color: $accent-text-color;
+      border: none;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba(24,24,24,0.8);
+      outline: none;
+      border-bottom: none;
     }
   }
 
