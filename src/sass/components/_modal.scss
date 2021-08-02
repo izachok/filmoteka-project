@@ -129,6 +129,10 @@
   color: $main-text-color;
 }
 
+.movie__title {
+  text-transform: uppercase;
+}
+
 .movie__about-header {
   margin-bottom: 10px;
   font-weight: 500;
