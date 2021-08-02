@@ -30,8 +30,7 @@ class OpenModal {
     // this.onShowModal();
 
     window.addEventListener('keydown', event => {
-      console.log(event);
-      if (event.keyCode === 27) {
+      if (event.code === 'Escape') {
         this.instance.close();
       }
     });
