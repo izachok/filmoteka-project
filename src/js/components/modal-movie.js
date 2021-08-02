@@ -5,11 +5,17 @@ import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
 
 class OpenModal {
+  #windowKeyHandler = this.onWindowClick.bind(this);
+
   constructor(argument) {
     this.movieObj = argument;
     this.instance = basicLightbox.create(modalWindowMovie(argument), {
-      onClose: this.onCloseModal,
-      onShow: this.onShowModal,
+      onClose: () => {
+        this.onCloseModal();
+      },
+      onShow: () => {
+        this.onShowModal();
+      },
     });
   }
 
@@ -27,14 +33,6 @@ class OpenModal {
       type: libraryType.QUEUE,
     });
 
-    // this.onShowModal();
-
-    window.addEventListener('keydown', event => {
-      if (event.code === 'Escape') {
-        this.instance.close();
-      }
-    });
-
     document.querySelector('.modal__close').addEventListener('click', event => {
       return this.instance.close();
     });
@@ -42,13 +40,21 @@ class OpenModal {
 
   onShowModal() {
     document.body.classList.add('modal-open');
+    window.addEventListener('keydown', this.#windowKeyHandler);
   }
 
   onCloseModal() {
     document.body.classList.remove('modal-open');
+    window.removeEventListener('keydown', this.#windowKeyHandler);
     //rerender movies list if add/remove buttons were clicked
     if (!pageState.isHome && pageState.wasLibraryChanged) {
       renderMoviesList();
+    }
+  }
+
+  onWindowClick(event) {
+    if (event.code === 'Escape') {
+      this.instance.close();
     }
   }
 }
