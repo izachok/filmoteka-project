@@ -4,6 +4,7 @@ import { OpenModal } from './modal-movie';
 import { hidePagination, hidePaginationLocalStorage } from './pagination';
 import LibraryBtn from './library-btn';
 import libraryType from './library-type';
+import * as localDB from './localDB';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -58,7 +59,7 @@ function makeMoviesArrayForRendering(data) {
     movie.stringDescription = makeStringDescription(movie);
     movie.posterUrl = makeUrl(movie.poster_path);
     const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
-    movie.stringGenres = makeStringGenres(arrStrName);
+    movie.stringGenres = arrStrName.join(', ');
     return movie;
   });
   return arrayForRendering;
@@ -92,23 +93,27 @@ function bindMovieObjToCard(movieObjs) {
 
 function bindMovieObjOverlay(movieObjs) {
   const cards = document.querySelectorAll('.one-card_overlay');
+
   cards.forEach((card, index) => {
-    card.addEventListener('click', event => {
-      const watchBtn = new LibraryBtn({
-        element: document.querySelector('[data-action="add-to-watched_one-card"]'),
-        movieObj: movieObjs[index],
-        type: libraryType.WATCHED,
-      });
-      console.log(movieObjs[index]);
-      card.addEventListener('click', event => {
-        const queueBtn = new LibraryBtn({
-          element: document.querySelector('[data-action="add-to-queue_one-card"]'),
-          movieObj: movieObjs[index],
-          type: libraryType.QUEUE,
-        });
-      });
+    console.log(card.querySelector('[data-action="add-to-watched_one-card"]'));
+
+    const watchBtnOne = new LibraryBtn({
+      element: card.querySelector('[data-action="add-to-watched_one-card"]'),
+      movieObj: movieObjs[index],
+      type: libraryType.WATCHED,
+    });
+    console.log(card.querySelector('[data-action="add-to-queue_one-card"]'));
+
+    const queueBtnOne = new LibraryBtn({
+      element: card.querySelector('[data-action="add-to-queue_one-card"]'),
+      movieObj: movieObjs[index],
+      type: libraryType.QUEUE,
     });
   });
+  // cards.forEach((card, index) => {
+  //   console.log(movieObjs[index]);
+
+  // });
 }
 
 export { makeMoviesArrayForRendering, renderGallery };
