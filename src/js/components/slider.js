@@ -45,18 +45,27 @@ function showSlide(n) {
       slide.classList.remove('slide--active');
     }
   });
+
+  turnOffAutoSlider();
+  turnOnAutoSlider();
 }
 
 function showPrevSlide() {
   num -= 1;
   if (num < 0) num = refs.slides.length - 1;
   showSlide(num);
+
+  turnOffAutoSlider();
+  turnOnAutoSlider();
 }
 
 function showNextSlide() {
   num += 1;
   if (num >= refs.slides.length) num = 0;
   showSlide(num);
+
+  turnOffAutoSlider();
+  turnOnAutoSlider();
 }
 
 function renderSliderMarkup() {
@@ -65,11 +74,11 @@ function renderSliderMarkup() {
 }
 
 export function turnOnAutoSlider() {
-  intervalId = setInterval(() => {
+  intervalId = setTimeout(() => {
     showNextSlide();
   }, 5000);
 }
 
 export function turnOffAutoSlider() {
-  clearInterval(intervalId);
+  clearTimeout(intervalId);
 }
