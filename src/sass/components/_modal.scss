@@ -71,6 +71,7 @@
 
 .movie__poster {
   margin: 0 0 30px 0;
+  border-radius: 5px;
   @include for-tablet-up {
     margin: 0;
   }
