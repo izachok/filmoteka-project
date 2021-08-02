@@ -31,6 +31,7 @@ export async function RenderSearchResults(page = 1) {
     if (queryResult.total_results === 0) {
       Notify.warning('Search result not successful. Enter the correct movie name and try again');
       refs.searchInputEl.value = '';
+      pageState.query = '';
       // renderTopMovies();
       return;
     }
