@@ -38,5 +38,9 @@
 
   @include for-desktop-up {
     width: 274px;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 }
