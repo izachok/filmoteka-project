@@ -1,6 +1,8 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 import { OpenModal } from './modal-movie';
+import LibraryBtn from './library-btn';
+import libraryType from './library-type';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -60,6 +62,7 @@ function renderGallery(arrayForRendering) {
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);
+  bindMovieObjOverlay(arrayForRendering);
 }
 
 function showsRating() {
@@ -70,7 +73,7 @@ function showsRating() {
 }
 
 function bindMovieObjToCard(movieObjs) {
-  const cards = document.querySelectorAll('.films__list-item');
+  const cards = document.querySelectorAll('.one-card_box');
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
@@ -78,6 +81,27 @@ function bindMovieObjToCard(movieObjs) {
       //todo move to OpenModal class and delete here
       openModal.onShowModal();
       openModal.onCloseModal();
+    });
+  });
+}
+
+function bindMovieObjOverlay(movieObjs) {
+  const cards = document.querySelectorAll('.one-card_overlay');
+  cards.forEach((card, index) => {
+    card.addEventListener('click', event => {
+      const watchBtn = new LibraryBtn({
+        element: document.querySelector('[data-action="add-to-watched_one-card"]'),
+        movieObj: movieObjs[index],
+        type: libraryType.WATCHED,
+      });
+      console.log(movieObjs[index]);
+      card.addEventListener('click', event => {
+        const queueBtn = new LibraryBtn({
+          element: document.querySelector('[data-action="add-to-queue_one-card"]'),
+          movieObj: movieObjs[index],
+          type: libraryType.QUEUE,
+        });
+      });
     });
   });
 }
