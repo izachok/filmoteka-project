@@ -26,6 +26,7 @@ export async function RenderSearchResults(page = 1) {
   try {
     const queryResult = await getMoviesByQuery(pageState.query, page);
     const filmsArray = makeMoviesArrayForRendering(queryResult);
+    pagination.setTotalItems(queryResult.total_results);
 
     if (queryResult.total_results === 0) {
       Notify.warning('Search result not successful. Enter the correct movie name and try again');
