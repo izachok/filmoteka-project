@@ -1,17 +1,37 @@
 import { renderApp } from './renderer';
 import { defineLibraryType } from './defineLibraryType';
 
+const logoEl = document.querySelector('.header-logo');
 const navElements = document.getElementsByClassName('navEl');
 
+const routes = [
+  { 'page': 'home' },
+  { 'page': 'library' }
+];
+
 export function initNavigation() {
-  [...navElements].forEach(navElement => (navElement.onclick = changePage));
+  [...navElements].forEach(navElement => (navElement.onclick = navChangePage));
 }
 
-function changePage(event) {
+logoEl.addEventListener('click', () => {
+  changePage('home')}
+);
+
+function navChangePage(event) {
+  const requestedPage = event.currentTarget.getAttribute('page');
+
+  if (!routes.find(({page}) => page === requestedPage)) {
+    throw `Unknown page ${requestedPage}`;
+  }
+
+  changePage(requestedPage);
+}
+
+function changePage(page) {
   const headerImgEL = document.querySelector('.header-section');
   const changableHeaderEL = document.querySelector('.changable-el');
   changableHeaderEL.remove();
-  const page = event.target.getAttribute('page');
+  
   if (page === 'home') {
     pageState.isHome = true;
     headerImgEL.classList.remove('library-header_img');
@@ -21,15 +41,16 @@ function changePage(event) {
     headerImgEL.classList.remove('home-header_img');
     headerImgEL.classList.add('library-header_img');
   }
-  chageNavElStyle(event);
+
   renderApp();
+  chageNavElStyle(page);
 
   if (!pageState.isHome) {
     defineLibraryType();
   }
 }
 
-function chageNavElStyle(event) {
+function chageNavElStyle(page) {
   [...navElements].forEach(el => el.classList.remove('active-page'));
-  event.currentTarget.classList.add('active-page');
+  document.querySelector(`[page=${page}]`).classList.add('active-page');
 }

@@ -78,9 +78,6 @@ function bindMovieObjToCard(movieObjs) {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
       openModal.showModal();
-      //todo move to OpenModal class and delete here
-      openModal.onShowModal();
-      openModal.onCloseModal();
     });
   });
 }
