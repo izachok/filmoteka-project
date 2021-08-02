@@ -1,6 +1,6 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import { OpenModal } from './modal-movie';
+import { OpenModal, genresForModal } from './modal-movie';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -74,7 +74,11 @@ function bindMovieObjToCard(movieObjs) {
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
+      // openModal.showGenres();
       openModal.showModal();
+      genresForModal(movieObjs[index].genre_ids);
+
+      // openModal.getSimilarMovie();
     });
   });
 }

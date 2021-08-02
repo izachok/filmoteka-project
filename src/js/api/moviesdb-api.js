@@ -31,4 +31,4 @@ const getMovieById = function (id) {
   return handleFetch(axios.get(`/movie/${id}`));
 };
 
-export { getTrendingMovies, getMoviesByQuery, getMovieById };
+export { getTrendingMovies, getMoviesByQuery, getMovieById, handleFetch };

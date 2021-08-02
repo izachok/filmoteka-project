@@ -109,11 +109,23 @@ li {
   }
 }
 
+.properties-values {
+  width: 120px;
+}
+
+.genre {
+  line-height: 20px;
+}
+
 .value-item {
   color: black;
   font-weight: 500;
   &:not(:last-child) {
     margin-bottom: 10px;
+  }
+  &__genre {
+    color: black;
+    font-weight: 500;
   }
 }
 
@@ -144,6 +156,7 @@ li {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
+  margin-bottom: 20px;
   @include for-desktop-up {
     width: 287px;
   }
@@ -169,5 +182,18 @@ li {
   }
   @include for-desktop-up {
     width: 136px;
+  }
+}
+
+.show-similar-btn {
+  width: max-content;
+  height: 27px;
+  background-color: inherit;
+  border: 0;
+  border-bottom: 1px solid black;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    border-bottom: 1px solid $accent-color;
   }
 }
