@@ -12,7 +12,7 @@ function arrGenres(array) {
 function makeStringGenres(arrStrName) {
   if (!Array.isArray(arrStrName)) return '';
   if (arrStrName.length > 2) {
-    return `${arrStrName[0]}, ${arrStrName[1]}`;
+    return `${arrStrName[0]}, ${arrStrName[1]}, Other`;
   }
   return arrStrName.join(', ');
 }
