@@ -1,6 +1,6 @@
 import { renderApp } from './renderer';
 import { defineLibraryType } from './defineLibraryType';
-import { renderBtnToClear } from './to-trash-btn';
+// import { renderBtnToClear } from './to-trash-btn';
 
 const logoEl = document.querySelector('.header-logo');
 const navElements = document.getElementsByClassName('navEl');
@@ -49,7 +49,7 @@ function changePage(page) {
 
   if (!pageState.isHome) {
     defineLibraryType();
-    renderBtnToClear();
+    // renderBtnToClear();
   }
 }
 
