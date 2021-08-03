@@ -68,7 +68,6 @@ function renderQueue(page = 1) {
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
     if (page === 1) {
-      console.log(pageState.wasLibraryChanged);
       pagination.reset(localDB.getItemsFromQueue().length);
       setPaginationVisibilityLocalDB(localDB.getItemsFromQueue().length);
     }

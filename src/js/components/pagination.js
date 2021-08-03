@@ -57,7 +57,6 @@ const setPaginationVisibilityLocalDB = function (totalCount) {
   if (pageState.isHome) {
     return;
   }
-  console.log(totalCount, ITEMS_PER_PAGE_LOCALDB);
   if (totalCount > ITEMS_PER_PAGE_LOCALDB) {
     refs.paginationContainer.classList.remove('visually-hidden');
   } else {
