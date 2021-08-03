@@ -4,28 +4,34 @@
       <use href='sprite.svg#icon-close'></use>
     </svg>
   </button>
-  <img src={{posterUrl}} alt={{title}} class='poster' />
-  <div class='modal-window-content'>
-    <h2 class='movie-name'>{{title}}</h2>
-    <div class='properties'>
-      <ul class='properties-list'>
-        <li class='property-item'>Vote/Votes</li>
-        <li class='property-item'>Popularity</li>
-        <li class='property-item'>Original Title</li>
-        <li class='property-item'>Genre</li>
-      </ul>
-      <ul class='properties-values'>
-        <li class='value-item'><span class='vote'>{{vote_average}}</span>/{{vote_count}}</li>
-        <li class='value-item'>{{popularity}}</li>
-        <li class='value-item'>{{original_title}}</li>
-        <li class='value-item'>{{stringGenres}}</li>
-      </ul>
+  <div class='modal__content-wrapper'>
+    <div class='movie__content'>
+      <img src={{posterUrl}} alt={{title}} class='movie__poster' />
     </div>
-    <h3>About</h3>
-    <p class='about-movie'>{{overview}}</p>
-    <div class='modal-window-buttons'>
-      <button type='button' class='modal-window-btn' data-action='add-to-watched'>ADD TO WATCHED</button>
-      <button type='button' class='modal-window-btn' data-action='add-to-queue'>ADD TO QUEUE</button>
+    <div class='movie__content'>
+      <h2 class='movie__name'>{{title}}</h2>
+      <div class='properties'>
+        <ul class='properties-list list'>
+          <li class='property-item'>Vote/Votes</li>
+          <li class='property-item'>Popularity</li>
+          <li class='property-item'>Original Title</li>
+          <li class='property-item'>Genre</li>
+        </ul>
+        <ul class='properties-values list'>
+          <li class='value-item'><span class='movie__vote'>{{vote_average}}</span>
+            /
+            <span class='movie__vote movie__vote--light'>{{vote_count}}</span></li>
+          <li class='value-item'>{{popularity}}</li>
+          <li class='value-item movie__title'>{{original_title}}</li>
+          <li class='value-item genre'></li>
+        </ul>
+      </div>
+      <h3 class='movie__about-header'>About</h3>
+      <p class='movie__about'>{{overview}}</p>
+      <div class='movie__buttons'>
+        <button type='button' class='movie__btn' data-action='add-to-watched'>Add wo Watched</button>
+        <button type='button' class='movie__btn' data-action='add-to-queue'>Add to queue</button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,10 +1,9 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import { OpenModal } from './modal-movie';
-import { hidePagination, hidePaginationLocalStorage } from './pagination';
 import LibraryBtn from './library-btn';
 import libraryType from './library-type';
-import * as localDB from './localDB';
+import { OpenModal, genresForModal } from './modal-movie';
+import { setPaginationVisibility } from './pagination';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -52,7 +51,7 @@ function makeMoviesArrayForRendering(data) {
   if (pagination.getCurrentPage() === 1) {
     pagination.reset();
   }
-  hidePagination(data);
+  setPaginationVisibility(data);
 
   const arrMovies = data.results;
   const arrayForRendering = arrMovies.map(movie => {
@@ -67,7 +66,7 @@ function makeMoviesArrayForRendering(data) {
 
 function renderGallery(arrayForRendering) {
   const galleryMarkup = cardMarkup(arrayForRendering);
-  // hidePaginationLocalStorage(arrayForRendering);
+  // setPaginationVisibilityLocalDB(arrayForRendering);
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);
@@ -87,6 +86,7 @@ function bindMovieObjToCard(movieObjs) {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
       openModal.showModal();
+      genresForModal(movieObjs[index].genre_ids);
     });
   });
 }

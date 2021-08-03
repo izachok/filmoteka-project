@@ -3,7 +3,8 @@ import { renderTopMovies } from './rendering-top-movies';
 import { RenderSearchResults } from './search';
 import { renderMoviesList } from './renderer';
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE_HOME = 20;
+const ITEMS_PER_PAGE_LOCALDB = 9;
 
 const refs = {
   paginationContainer: null,
@@ -11,7 +12,7 @@ const refs = {
 
 export function createPagination() {
   const options = {
-    itemsPerPage: ITEMS_PER_PAGE,
+    itemsPerPage: ITEMS_PER_PAGE_HOME,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
@@ -27,38 +28,59 @@ export function createPagination() {
 
 const onCurrentPageClick = async function (event) {
   if (pageState.isWatched || pageState.isQueue) {
-    renderMoviesList();
+    renderMoviesList(event.page);
   }
   if (pageState.query) {
     RenderSearchResults(event.page);
   } else {
     renderTopMovies(event.page);
   }
+  scrollToNew();
 };
 
-const hidePagination = function (data) {
-  if (data.total_results > ITEMS_PER_PAGE) {
+const scrollToNew = function () {
+  document.querySelector('.films__list').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+};
+
+const setPaginationVisibility = function (data) {
+  if (data.total_results > ITEMS_PER_PAGE_HOME) {
     refs.paginationContainer.classList.remove('visually-hidden');
   } else {
     refs.paginationContainer.classList.add('visually-hidden');
   }
 };
 
-const hidePaginationLocalStorage = function (array) {
-  refs.paginationContainer.classList.add('visually-hidden');
-  // if (pageState.isHome) {
-  //   return;
-  // }
-  // if (array.length > ITEMS_PER_PAGE) {
-  //   refs.paginationContainer.classList.remove('visually-hidden');
-  // } else {
-  //   refs.paginationContainer.classList.add('visually-hidden');
-  // }
+const setPaginationVisibilityLocalDB = function (totalCount) {
+  if (pageState.isHome) {
+    return;
+  }
+  if (totalCount > ITEMS_PER_PAGE_LOCALDB) {
+    refs.paginationContainer.classList.remove('visually-hidden');
+  } else {
+    refs.paginationContainer.classList.add('visually-hidden');
+  }
 };
 
-export const bindPagination = function () {
+const setPaginationPerPage = function () {
+  if (pageState.isHome) {
+    pagination.setItemsPerPage(ITEMS_PER_PAGE_HOME);
+  } else {
+    pagination.setItemsPerPage(ITEMS_PER_PAGE_LOCALDB);
+  }
+};
+
+const bindPagination = function () {
   refs.paginationContainer = document.querySelector('.tui-pagination');
   pagination.on('beforeMove', onCurrentPageClick);
 };
 
-export { onCurrentPageClick, hidePagination, hidePaginationLocalStorage };
+export {
+  onCurrentPageClick,
+  setPaginationVisibility,
+  setPaginationVisibilityLocalDB,
+  setPaginationPerPage,
+  ITEMS_PER_PAGE_LOCALDB,
+};

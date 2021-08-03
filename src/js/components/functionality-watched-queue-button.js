@@ -14,11 +14,13 @@ function initLibraryHeaderBtns() {
 
 function onClickWatchedBtn() {
   pageState.isWatched = true;
+  pagination.reset();
   renderMoviesList();
 }
 
 function onClickQueueBtn() {
   pageState.isQueue = true;
+  pagination.reset();
   renderMoviesList();
 }
 
