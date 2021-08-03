@@ -3,23 +3,8 @@ import modalWindowMovie from '../../templates/modalWindowMovie';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
-import axios from 'axios';
 import { getGenresByIds } from '../api/genres-library';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-axios.defaults.headers.common['Authorization'] =
-  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYTZjNGIwYzQwMzI5N2JiZGM5NTAzNmMxMjkwYzc5NyIsInN1YiI6IjYwZjlhNmUyOTdmZGVjMDA3NGRlMmRmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a83nORWttyE7amxmCMPeKf9lKvYOeGs30Ue0qmqjMEw';
-
-// function genresForModal(array) {
-//   const genresList = document.querySelector('.genre');
-//   const strGenres = getGenresByIds(array);
-//   // console.log(strGenres);
-//   const allGenresArray = strGenres.flatMap(cat => cat.name);
-//   // console.log(allGenresArray);
-//   const metodJoin = allGenresArray.join(', ');
-//   // console.log(metodJoin);
-//   return (genresList.textContent = metodJoin);
-// }
 function genresForModal(array) {
   return (document.querySelector('.genre').textContent = getGenresByIds(array)
     .flatMap(cat => cat.name)
@@ -80,12 +65,5 @@ class OpenModal {
     }
   }
 }
-
-// getSimilarMovie = function () {
-//   console.log(this.id);
-//   return axios
-//     .get(`/movie/${this.id}/similar`)
-//     .then(response => console.log(response.data.results));
-// };
 
 export { OpenModal, genresForModal };
