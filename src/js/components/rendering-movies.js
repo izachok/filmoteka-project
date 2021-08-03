@@ -95,25 +95,23 @@ function bindMovieObjOverlay(movieObjs) {
   const cards = document.querySelectorAll('.one-card_overlay');
 
   cards.forEach((card, index) => {
-    console.log(card.querySelector('[data-action="add-to-watched_one-card"]'));
-
     const watchBtnOne = new LibraryBtn({
       element: card.querySelector('[data-action="add-to-watched_one-card"]'),
       movieObj: movieObjs[index],
       type: libraryType.WATCHED,
     });
-    console.log(card.querySelector('[data-action="add-to-queue_one-card"]'));
 
     const queueBtnOne = new LibraryBtn({
       element: card.querySelector('[data-action="add-to-queue_one-card"]'),
       movieObj: movieObjs[index],
       type: libraryType.QUEUE,
     });
+    // watchBtnOne.addEventListener('click', e => {
+    //   if (!pageState.isHome && pageState.wasLibraryChanged) {
+    //     renderMoviesList();
+    //   }
+    // });
   });
-  // cards.forEach((card, index) => {
-  //   console.log(movieObjs[index]);
-
-  // });
 }
 
 export { makeMoviesArrayForRendering, renderGallery };
