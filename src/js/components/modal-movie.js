@@ -3,6 +3,13 @@ import modalWindowMovie from '../../templates/modalWindowMovie';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
+import { getGenresByIds } from '../api/genres-library';
+
+function genresForModal(array) {
+  return (document.querySelector('.genre').textContent = getGenresByIds(array)
+    .flatMap(cat => cat.name)
+    .join(', '));
+}
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
@@ -59,4 +66,4 @@ class OpenModal {
   }
 }
 
-export { OpenModal };
+export { OpenModal, genresForModal };
