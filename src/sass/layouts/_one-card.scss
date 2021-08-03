@@ -73,6 +73,34 @@
 }
 .one-card_overlay {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
-  top: 0px;
+  bottom: 100%;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: $header-background-color;
+  transition: transform $animation-time $animation-function;
+  @include for-phone-only {
+    justify-content: center;
+  }
+}
+.one-card:focus .one-card_overlay,
+.one-card:hover .one-card_overlay {
+  transform: translateY(100%);
+}
+.btn_one-card {
+  width: 100px;
+  height: 35px;
+  @include for-phone-only {
+    margin-left: 15px;
+  }
+}
+.btn_one-card:focus,
+.btn_one-card:hover {
+  background-color: $accent-color;
+  color: $accent-text-color;
+  cursor: pointer;
 }
