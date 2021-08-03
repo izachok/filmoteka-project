@@ -10,9 +10,10 @@ import { createPagination, hidePaginationLocalStorage } from './pagination';
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
 function renderApp() {
+  pagination.reset();
   renderHeader();
   renderMoviesList();
-  createPagination();
+
   // bindPagination();
 }
 
