@@ -106,11 +106,6 @@ function bindMovieObjOverlay(movieObjs) {
       movieObj: movieObjs[index],
       type: libraryType.QUEUE,
     });
-    // watchBtnOne.addEventListener('click', e => {
-    //   if (!pageState.isHome && pageState.wasLibraryChanged) {
-    //     renderMoviesList();
-    //   }
-    // });
   });
 }
 

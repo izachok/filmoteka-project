@@ -1,5 +1,6 @@
 import libraryType from './library-type';
 import * as localDB from './localDB';
+import { renderMoviesList } from './renderer';
 
 export default class LibraryBtn {
   constructor({ element, movieObj, type }) {
@@ -54,5 +55,8 @@ export default class LibraryBtn {
     }
     pageState.wasLibraryChanged = true;
     this.setStatus();
+    if (!pageState.isHome && pageState.wasLibraryChanged) {
+      renderMoviesList();
+    }
   }
 }
