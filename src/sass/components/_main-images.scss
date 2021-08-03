@@ -1,0 +1,11 @@
+.home-main-bgimage {
+  background-image: url('./../images/main-backgraund-images/pattern-home-light.jpg');
+  //background-image: url('./../images/main-backgraund-images/pattern-home-dark.jpg');
+}
+
+.library-main-bgimage {
+  background-image: url('./../images/main-backgraund-images/pattern-library-light.jpg');
+  //background-image: url('./../images/main-backgraund-images/pattern-library-dark.jpg');
+
+  flex-grow: 1;
+}
