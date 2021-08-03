@@ -192,3 +192,33 @@
     border-color: $accent-color;
   }
 }
+
+.movie__button-trailer {
+  font-weight: 500;
+  min-width: 112px;
+  max-width: 125px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: get-transition-prop(color);
+  margin-bottom: 21px;
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}

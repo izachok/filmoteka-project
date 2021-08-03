@@ -3,6 +3,7 @@ import modalWindowMovie from '../../templates/modalWindowMovie';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
+import { createTrailerModal } from './trailer-modal';
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
@@ -36,6 +37,8 @@ class OpenModal {
     document.querySelector('.modal__close').addEventListener('click', event => {
       return this.instance.close();
     });
+
+    createTrailerModal(this.movieObj);
   }
 
   onShowModal() {
