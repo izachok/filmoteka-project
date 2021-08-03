@@ -1,0 +1,35 @@
+.button_clear-library {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  border: 1px solid $accent-color;
+  background-color: transparent;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 70px;
+  right: 60px;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.delete-icon {
+  width: 28px;
+  height: 20px;
+  fill: $accent-color;
+  margin: auto;
+
+  &:hover,
+  &:focus {
+    
+    transition: 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5) color;
+  }
+}
+

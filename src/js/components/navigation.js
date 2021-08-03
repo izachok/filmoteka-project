@@ -1,5 +1,6 @@
 import { renderApp } from './renderer';
 import { defineLibraryType } from './defineLibraryType';
+import { renderBtnToClear } from './to-trash-btn';
 
 const logoEl = document.querySelector('.header-logo');
 const navElements = document.getElementsByClassName('navEl');
@@ -18,7 +19,7 @@ logoEl.addEventListener('click', () => {
 );
 
 function navChangePage(event) {
-  const requestedPage = event.currentTarget.getAttribute('page');
+  const requestedPage = event.currentTarget.getAttribute('data-page');
 
   if (!routes.find(({page}) => page === requestedPage)) {
     throw `Unknown page ${requestedPage}`;
@@ -40,6 +41,7 @@ function changePage(page) {
     pageState.isHome = false;
     headerImgEL.classList.remove('home-header_img');
     headerImgEL.classList.add('library-header_img');
+    
   }
 
   renderApp();
@@ -47,10 +49,11 @@ function changePage(page) {
 
   if (!pageState.isHome) {
     defineLibraryType();
+    renderBtnToClear();
   }
 }
 
 function chageNavElStyle(page) {
   [...navElements].forEach(el => el.classList.remove('active-page'));
-  document.querySelector(`[page=${page}]`).classList.add('active-page');
+  document.querySelector(`[data-page=${page}]`).classList.add('active-page');
 }
