@@ -67,7 +67,7 @@
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  padding-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +108,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: $accent-text-color;
+  background-color: #ffffff00;
 
   text-decoration: none;
 }
