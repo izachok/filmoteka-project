@@ -2,6 +2,7 @@ import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
 import { OpenModal, genresForModal } from './modal-movie';
 import { setPaginationVisibility } from './pagination';
+import { createCardOverlay } from './one-card-btn';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -55,8 +56,8 @@ function makeMoviesArrayForRendering(data) {
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
     movie.posterUrl = makeUrl(movie.poster_path);
-    const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
-    movie.stringGenres = makeStringGenres(arrStrName);
+    // const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
+    // movie.stringGenres = arrStrName.join(', ');
     return movie;
   });
   return arrayForRendering;
@@ -68,6 +69,7 @@ function renderGallery(arrayForRendering) {
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);
+  createCardOverlay(arrayForRendering);
 }
 
 function showsRating() {
@@ -78,7 +80,7 @@ function showsRating() {
 }
 
 function bindMovieObjToCard(movieObjs) {
-  const cards = document.querySelectorAll('.films__list-item');
+  const cards = document.querySelectorAll('.one-card_box');
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);

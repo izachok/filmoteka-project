@@ -85,6 +85,8 @@
 
 .movie__name {
   font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
 
   @include for-desktop-up {
     font-size: 30px;
@@ -93,19 +95,18 @@
 
 .properties {
   display: flex;
-  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 100%;
-  @include for-desktop-up {
-    width: 260px;
-  }
+}
+
+.properties-list {
+  min-width: 80px;
+  width: 108px;
 }
 
 .property-item {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   color: $details-card-items-text-color;
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -115,9 +116,16 @@
 .value-item {
   color: black;
   font-weight: 500;
-  &:not(:last-child) {
+  &:first-child {
+    margin-bottom: 6px;
+  }
+  &:not(:first-child) {
     margin-bottom: 10px;
   }
+}
+
+.genre {
+  line-height: 20px;
 }
 
 .movie__vote {
@@ -125,7 +133,6 @@
   color: white;
   background-color: $accent-color;
   padding: 2px 10px;
-  width: 36px;
   text-align: center;
   border-radius: 5px;
 }
@@ -157,7 +164,6 @@
 
 .movie__buttons {
   width: 100%;
-  justify-content: center;
   display: inline-flex;
 
   @include for-desktop-up {
