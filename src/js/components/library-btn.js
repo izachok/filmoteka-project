@@ -1,6 +1,5 @@
 import libraryType from './library-type';
 import * as localDB from './localDB';
-import { renderMoviesList } from './renderer';
 
 export default class LibraryBtn {
   constructor({ element, movieObj, type }) {

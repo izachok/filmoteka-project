@@ -1,9 +1,8 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import LibraryBtn from './library-btn';
-import libraryType from './library-type';
 import { OpenModal, genresForModal } from './modal-movie';
 import { setPaginationVisibility } from './pagination';
+import { createCardOverlay } from './one-card-btn';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/';
 const BASE_WIDTH = 'w500';
@@ -57,8 +56,8 @@ function makeMoviesArrayForRendering(data) {
   const arrayForRendering = arrMovies.map(movie => {
     movie.stringDescription = makeStringDescription(movie);
     movie.posterUrl = makeUrl(movie.poster_path);
-    const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
-    movie.stringGenres = arrStrName.join(', ');
+    // const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
+    // movie.stringGenres = arrStrName.join(', ');
     return movie;
   });
   return arrayForRendering;
@@ -70,7 +69,7 @@ function renderGallery(arrayForRendering) {
   document.querySelector('.films__list').innerHTML = galleryMarkup;
   showsRating();
   bindMovieObjToCard(arrayForRendering);
-  bindMovieObjOverlay(arrayForRendering);
+  createCardOverlay(arrayForRendering);
 }
 
 function showsRating() {
@@ -89,29 +88,6 @@ function bindMovieObjToCard(movieObjs) {
       genresForModal(movieObjs[index].genre_ids);
     });
   });
-}
-
-function bindMovieObjOverlay(movieObjs) {
-  if (pageState.isHome) {
-    const cards = document.querySelectorAll('.one-card_overlay');
-
-    cards.forEach((card, index) => {
-      const watchBtnOne = new LibraryBtn({
-        element: card.querySelector('[data-action="add-to-watched_one-card"]'),
-        movieObj: movieObjs[index],
-        type: libraryType.WATCHED,
-      });
-
-      const queueBtnOne = new LibraryBtn({
-        element: card.querySelector('[data-action="add-to-queue_one-card"]'),
-        movieObj: movieObjs[index],
-        type: libraryType.QUEUE,
-      });
-    });
-  } else {
-    const oneCardBtn = document.querySelectorAll('.one-card_overlay');
-    [...oneCardBtn].map(element => element.classList.add('visually-hidden'));
-  }
 }
 
 export { makeMoviesArrayForRendering, renderGallery };
