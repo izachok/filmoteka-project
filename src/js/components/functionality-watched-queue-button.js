@@ -4,8 +4,8 @@ import { renderMoviesList } from './renderer';
 const refs = {};
 
 function initLibraryHeaderBtns() {
-  refs.watchedBtnRef = document.querySelector(`.library-button[page="${libraryType.WATCHED}"]`);
-  refs.queueBtnRef = document.querySelector(`.library-button[page="${libraryType.QUEUE}"]`);
+  refs.watchedBtnRef = document.querySelector(`.library-button[data-page="${libraryType.WATCHED}"]`);
+  refs.queueBtnRef = document.querySelector(`.library-button[data-page="${libraryType.QUEUE}"]`);
   refs.filmListRef = document.querySelector('.films__list');
 
   refs.watchedBtnRef?.addEventListener('click', onClickWatchedBtn);
@@ -14,11 +14,13 @@ function initLibraryHeaderBtns() {
 
 function onClickWatchedBtn() {
   pageState.isWatched = true;
+  pagination.reset();
   renderMoviesList();
 }
 
 function onClickQueueBtn() {
   pageState.isQueue = true;
+  pagination.reset();
   renderMoviesList();
 }
 

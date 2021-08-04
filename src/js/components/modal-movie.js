@@ -3,6 +3,14 @@ import modalWindowMovie from '../../templates/modalWindowMovie';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
+import { getGenresByIds } from '../api/genres-library';
+import { createTrailerModal } from './trailer-modal';
+
+function genresForModal(array) {
+  return (document.querySelector('.genre').textContent = getGenresByIds(array)
+    .flatMap(cat => cat.name)
+    .join(', '));
+}
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
@@ -36,6 +44,9 @@ class OpenModal {
     document.querySelector('.modal__close').addEventListener('click', event => {
       return this.instance.close();
     });
+
+    document.querySelector('.modal').classList.add('active');
+    createTrailerModal(this.movieObj);
   }
 
   onShowModal() {
@@ -53,10 +64,10 @@ class OpenModal {
   }
 
   onWindowClick(event) {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape' && document.querySelector('.modal').className.includes('active')) {
       this.instance.close();
     }
   }
 }
 
-export { OpenModal };
+export { OpenModal, genresForModal };

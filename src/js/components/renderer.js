@@ -5,14 +5,20 @@ import header from './../../templates/header.hbs';
 import { renderTopMovies } from './rendering-top-movies';
 import { initSearch } from './search';
 import { initNavigation } from './navigation';
-import { createPagination, hidePaginationLocalStorage } from './pagination';
+import {
+  setPaginationVisibilityLocalDB,
+  setPaginationPerPage,
+  ITEMS_PER_PAGE_LOCALDB,
+} from './pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
 function renderApp() {
+  setPaginationPerPage();
+  pagination.reset();
   renderHeader();
   renderMoviesList();
-  createPagination();
+
   // bindPagination();
 }
 
@@ -25,43 +31,48 @@ function renderHeader() {
   initSearch();
 }
 
-function renderMoviesList() {
+function renderMoviesList(page = 1) {
   pageState.query = '';
   if (pageState.isHome) {
     //show trending movies
     renderTopMovies();
     // }
   } else if (pageState.isWatched) {
-    // pageState.query = '';
     //show watched library
-    renderWatched();
+    renderWatched(page);
   } else {
     //show queue library
-    renderQueue();
+    renderQueue(page);
   }
   //page was rerendered so wasLibraryChanged must be reseted
   pageState.wasLibraryChanged = false;
 }
 
-function renderWatched() {
+function renderWatched(page = 1) {
   if (localDB.getItemsFromWatched() === null || localDB.getItemsFromWatched().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
-    // pagination.setTotalItems(localDB.getItemsFromWatched().length);
-    hidePaginationLocalStorage();
-    renderGallery(localDB.getItemsFromWatched());
+    if (page === 1) {
+      pagination.reset(localDB.getItemsFromWatched().length);
+      setPaginationVisibilityLocalDB(localDB.getItemsFromWatched().length);
+    }
+
+    renderGallery(localDB.getItemsFromWatched(page, ITEMS_PER_PAGE_LOCALDB));
   }
 }
 
-function renderQueue() {
+function renderQueue(page = 1) {
   if (localDB.getItemsFromQueue() === null || localDB.getItemsFromQueue().length === 0) {
     document.querySelector('.films__list').innerHTML = emptyPageMessage;
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   } else {
-    // pagination.setTotalItems(localDB.getItemsFromQueue().length);
-    hidePaginationLocalStorage();
-    renderGallery(localDB.getItemsFromQueue());
+    if (page === 1) {
+      pagination.reset(localDB.getItemsFromQueue().length);
+      setPaginationVisibilityLocalDB(localDB.getItemsFromQueue().length);
+    }
+
+    renderGallery(localDB.getItemsFromQueue(page, ITEMS_PER_PAGE_LOCALDB));
   }
 }
 
