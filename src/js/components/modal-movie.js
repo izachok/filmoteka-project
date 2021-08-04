@@ -8,7 +8,6 @@ import { getGenresByIds } from '../api/genres-library';
 import { getSimilarMovie, getMovieById } from '../api/moviesdb-api';
 import { createTrailerModal } from './trailer-modal';
 
-
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
 
@@ -28,24 +27,6 @@ class OpenModal {
     });
   }
 
-  // buttonsOnWork() {
-  //   const watchBtn = new LibraryBtn({
-  //     element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
-  //     movieObj: this.movieObj,
-  //     type: libraryType.WATCHED,
-  //   });
-
-  //   const queueBtn = new LibraryBtn({
-  //     element: this.instance.element().querySelector('[data-action="add-to-queue"]'),
-  //     movieObj: this.movieObj,
-  //     type: libraryType.QUEUE,
-  //   });
-
-  //   document.querySelector('.modal__close').addEventListener('click', event => {
-  //     return this.instance.close();
-  //   });
-  // }
-
   buttonsOnWork(current) {
     const watchBtn = new LibraryBtn({
       element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
@@ -64,7 +45,7 @@ class OpenModal {
     });
 
     document.querySelector('.modal').classList.add('active');
-    createTrailerModal(this.movieObj);
+    createTrailerModal(current);
   }
 
   showModal() {

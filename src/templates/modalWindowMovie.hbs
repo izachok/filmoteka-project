@@ -6,7 +6,7 @@
       </svg>
     </button>
     <div class='modal__content-wrapper'>
-      <div class='movie__content'>
+      <div class='movie__content-image'>
         <img
           src='https://image.tmdb.org/t/p/w500{{poster_path}}'
           alt={{title}}
@@ -14,7 +14,7 @@
         />
       </div>
       <div class='movie__content'>
-        <h2 class='movie__name'>{{title}}</h2>
+        <h2 class='movie-name'>{{title}}</h2>
         <div class='properties'>
           <ul class='properties-list list'>
             <li class='property-item'>Vote/Votes</li>
@@ -41,8 +41,8 @@
         <button type='button' class='movie__btn' data-action='add-to-queue'>Add to queue</button>
       </div>
     </div>
+  </div>
     <h3 class='s-title'>Similar movies:</h3>
     <div class='similar'>
     </div>
-  </div>
 </div>
