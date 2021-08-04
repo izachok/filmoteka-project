@@ -45,6 +45,7 @@ class OpenModal {
       return this.instance.close();
     });
 
+    document.querySelector('.modal').classList.add('active');
     createTrailerModal(this.movieObj);
   }
 

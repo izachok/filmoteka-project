@@ -11,7 +11,7 @@ const createTrailerModal = async function (movie) {
   } catch (error) {
     return;
   }
-  if (trailerObj.results.length < 1) {
+  if (trailerObj?.results.length < 1) {
     return;
   }
   document.querySelector('.movie__button-trailer').classList.remove('hidden-button');
