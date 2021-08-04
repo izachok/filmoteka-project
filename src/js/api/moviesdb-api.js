@@ -31,4 +31,10 @@ const getMovieById = function (id) {
   return handleFetch(axios.get(`/movie/${id}`));
 };
 
-export { getTrendingMovies, getMoviesByQuery, getMovieById };
+const getSimilarMovie = function (arg) {
+  return axios.get(`/movie/${arg}/similar`).then(response => {
+    return response.data.results.slice(0, 6);
+  });
+};
+
+export { getTrendingMovies, getMoviesByQuery, getMovieById, getSimilarMovie };

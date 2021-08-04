@@ -1,20 +1,18 @@
 import * as basicLightbox from 'basiclightbox';
 import modalWindowMovie from '../../templates/modalWindowMovie';
+import similarMovies from '../../templates/similarMovies';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
 import { getGenresByIds } from '../api/genres-library';
-
-function genresForModal(array) {
-  return (document.querySelector('.genre').textContent = getGenresByIds(array)
-    .flatMap(cat => cat.name)
-    .join(', '));
-}
+import { getSimilarMovie } from '../api/moviesdb-api';
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
 
   constructor(argument) {
+    this.id = argument.id;
+    this.genresArray = argument.genre_ids;
     this.movieObj = argument;
     this.instance = basicLightbox.create(modalWindowMovie(argument), {
       onClose: () => {
@@ -43,6 +41,14 @@ class OpenModal {
     document.querySelector('.modal__close').addEventListener('click', event => {
       return this.instance.close();
     });
+
+    createSimilar(this.id);
+  }
+
+  genresForModal() {
+    return (document.querySelector('.genre').textContent = getGenresByIds(this.genresArray)
+      .flatMap(cat => cat.name)
+      .join(', '));
   }
 
   onShowModal() {
@@ -66,4 +72,13 @@ class OpenModal {
   }
 }
 
-export { OpenModal, genresForModal };
+function createSimilar(movieId) {
+  getSimilarMovie(movieId).then(data => {
+    // console.log(data);
+    const container = document.querySelector('.similar');
+    return container.insertAdjacentHTML('beforeend', similarMovies(data));
+  });
+  const linkToMovie = document.querySelector('.poster-similar');
+}
+
+export { OpenModal, createSimilar };

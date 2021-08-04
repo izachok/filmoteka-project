@@ -141,6 +141,15 @@
   text-transform: uppercase;
 }
 
+.s-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 20px;
+  @include for-tablet-up {
+    margin-left: 15px;
+  }
+}
+
 .movie__about {
   width: 100%;
   margin-bottom: 21px;
@@ -191,4 +200,40 @@
     background-color: $accent-color;
     border-color: $accent-color;
   }
+}
+
+.similar {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  // display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  &__movie-title {
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  @include for-desktop-up {
+    justify-content: flex-start;
+  }
+}
+
+.similar-item {
+  display: inline-block;
+  // min-width: 120px;
+  max-width: 120px;
+  margin: 10px;
+  @include for-tablet-up {
+    max-width: 150px;
+    margin: 15px;
+  }
+}
+
+.poster-similar {
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
