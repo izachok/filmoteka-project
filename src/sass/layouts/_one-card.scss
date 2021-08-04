@@ -94,6 +94,8 @@
 .btn_one-card {
   width: 100px;
   height: 35px;
+  border-radius: 5px;
+  border: 1px solid black;
   @include for-phone-only {
     margin-left: 15px;
   }
@@ -103,4 +105,5 @@
   background-color: $accent-color;
   color: $accent-text-color;
   cursor: pointer;
+  border-color: $accent-color;
 }

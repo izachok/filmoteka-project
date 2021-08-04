@@ -40,6 +40,9 @@ export default class LibraryBtn {
       case libraryType.WATCHED:
         if (this.isInLibrary()) {
           localDB.removeFromWatched(this.movieObj);
+          if (!pageState.isHome && pageState.wasLibraryChanged && pageState.isWatched) {
+            renderMoviesList();
+          }
         } else {
           localDB.addItemToWatched(this.movieObj);
         }
@@ -47,6 +50,9 @@ export default class LibraryBtn {
       case libraryType.QUEUE:
         if (this.isInLibrary()) {
           localDB.removeFromQueue(this.movieObj);
+          if (!pageState.isHome && pageState.wasLibraryChanged && pageState.isQueue) {
+            renderMoviesList();
+          }
         } else {
           localDB.addItemToQueue(this.movieObj);
         }
@@ -55,8 +61,5 @@ export default class LibraryBtn {
     }
     pageState.wasLibraryChanged = true;
     this.setStatus();
-    if (!pageState.isHome && pageState.wasLibraryChanged) {
-      renderMoviesList();
-    }
   }
 }
