@@ -92,21 +92,26 @@ function bindMovieObjToCard(movieObjs) {
 }
 
 function bindMovieObjOverlay(movieObjs) {
-  const cards = document.querySelectorAll('.one-card_overlay');
+  if (pageState.isHome) {
+    const cards = document.querySelectorAll('.one-card_overlay');
 
-  cards.forEach((card, index) => {
-    const watchBtnOne = new LibraryBtn({
-      element: card.querySelector('[data-action="add-to-watched_one-card"]'),
-      movieObj: movieObjs[index],
-      type: libraryType.WATCHED,
-    });
+    cards.forEach((card, index) => {
+      const watchBtnOne = new LibraryBtn({
+        element: card.querySelector('[data-action="add-to-watched_one-card"]'),
+        movieObj: movieObjs[index],
+        type: libraryType.WATCHED,
+      });
 
-    const queueBtnOne = new LibraryBtn({
-      element: card.querySelector('[data-action="add-to-queue_one-card"]'),
-      movieObj: movieObjs[index],
-      type: libraryType.QUEUE,
+      const queueBtnOne = new LibraryBtn({
+        element: card.querySelector('[data-action="add-to-queue_one-card"]'),
+        movieObj: movieObjs[index],
+        type: libraryType.QUEUE,
+      });
     });
-  });
+  } else {
+    const oneCardBtn = document.querySelectorAll('.one-card_overlay');
+    [...oneCardBtn].map(element => element.classList.add('visually-hidden'));
+  }
 }
 
 export { makeMoviesArrayForRendering, renderGallery };
