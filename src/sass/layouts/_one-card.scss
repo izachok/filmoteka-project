@@ -1,4 +1,6 @@
 .one-card {
+  position: relative;
+  overflow: hidden;
   &:hover,
   &:focus {
     cursor: pointer;
@@ -68,4 +70,40 @@
     background-color: $accent-color;
     border-radius: 5px;
   }
+}
+.one-card_overlay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: $header-background-color;
+  transition: transform $animation-time $animation-function;
+  @include for-phone-only {
+    justify-content: center;
+  }
+}
+.one-card:focus .one-card_overlay,
+.one-card:hover .one-card_overlay {
+  transform: translateY(100%);
+}
+.btn_one-card {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid black;
+  @include for-phone-only {
+    margin-left: 15px;
+  }
+}
+.btn_one-card:focus,
+.btn_one-card:hover {
+  background-color: $accent-color;
+  color: $accent-text-color;
+  cursor: pointer;
+  border-color: $accent-color;
 }

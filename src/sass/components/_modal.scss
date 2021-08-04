@@ -1,16 +1,18 @@
 .modal {
-  margin: $column-gap-mobile;
+  overflow: auto;
+  // margin: $column-gap-mobile;
   padding: 48px $column-gap-mobile;
   color: $details-card-main-text-color;
   background-color: $main-background-color;
   position: relative;
-
+  width: calc(100vw - 30px);
   max-width: 460px;
+  max-height: calc(100vh - 30px);
 
   @include for-tablet-up {
     padding: 40px $column-gap;
     max-width: 618px;
-    margin: 0;
+    // margin: 0;
   }
 
   @include for-desktop-up {
@@ -19,21 +21,12 @@
   }
 }
 
-ul {
-  margin: 0;
-}
-
-li {
-  list-style: none;
-}
-
 .modal__close {
+  border: 0;
   margin: 0;
   padding: 0;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  color: $details-card-main-text-color;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
@@ -51,53 +44,197 @@ li {
   fill: currentColor;
 }
 
-.poster {
-  width: 240px;
-  height: 20px;
+.modal__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include for-tablet-up {
+    @include elements-set;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+  }
+
+  @include for-desktop-up {
+    justify-content: space-around;
+  }
+}
+
+.movie__about-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.movie__content {
+  @include for-tablet-up {
+    @include element;
+    flex-basis: get-column-basis(2);
+  }
+}
+
+.movie__poster {
+  margin: 0 0 30px 0;
+  border-radius: 5px;
+  @include for-tablet-up {
+    margin: 0;
+  }
+}
+
+.movie__name {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  @include for-desktop-up {
+    font-size: 30px;
+  }
+}
+
+.properties {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .properties-list {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  min-width: 80px;
+  width: 108px;
 }
 
 .property-item {
   display: flex;
   justify-content: space-between;
+  color: $details-card-items-text-color;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.value-item {
+  color: black;
+  font-weight: 500;
+  &:first-child {
+    margin-bottom: 6px;
+  }
+  &:not(:first-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.genre {
+  line-height: 20px;
+}
+
+.movie__vote {
+  display: inline-block;
+  color: white;
+  background-color: $accent-color;
+  padding: 2px 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.movie__vote--light {
+  background-color: #f7f7f7;
+  color: $main-text-color;
+}
+
+.movie__title {
+  text-transform: uppercase;
+}
+
+.movie__about-header {
+  margin-right: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
+.movie__about {
   width: 100%;
-}
-
-.property-span {
-  border: 1px solid grey;
-}
-
-.movie-name {
-  height: 21px;
-  margin-top: 30px;
-}
-
-.about-movie {
-  border: 1px solid grey;
   margin-bottom: 21px;
-  margin-top: 10px;
+
+  font-weight: 500;
+  line-height: 20px;
 }
 
-.modal-window-buttons {
+.movie__buttons {
   width: 100%;
   display: inline-flex;
-  justify-content: space-between;
+
+  @include for-desktop-up {
+    justify-content: flex-start;
+  }
 }
 
-.modal-window-btn {
-  width: 113px;
+.movie__btn {
+  font-weight: 500;
+  min-width: 112px;
+  max-width: 125px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 44px;
   background-color: inherit;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: get-transition-prop(color);
+
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
   &:hover,
   &:focus {
     color: white;
     background-color: $accent-color;
     border-color: $accent-color;
   }
+}
+
+.movie__button-trailer {
+  font-weight: 500;
+  min-width: 112px;
+  max-width: 125px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: get-transition-prop(color);
+
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
+.hidden-button {
+  display: none;
 }

@@ -1,8 +1,10 @@
 .films {
   padding-top: 20px;
+  padding-bottom: 40px;
 
   @include for-tablet-up {
     padding-top: 60px;
+    padding-bottom: 50px;
   }
 }
 
@@ -36,5 +38,9 @@
 
   @include for-desktop-up {
     width: 274px;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 }

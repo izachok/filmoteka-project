@@ -5,8 +5,11 @@ import { Notify } from 'notiflix';
 import * as footerModal from './components/footer-modal';
 import { PageState } from './components/page-state';
 import { renderApp } from './components/renderer';
+import { createPagination } from './components/pagination';
 
 import './components/to-top-btn';
+import {switchTheme} from './components/theme-switcher';
+
 
 window.pageState = new PageState();
 Notify.init({
@@ -16,5 +19,6 @@ Notify.init({
   closeOnClick: true,
 });
 
+createPagination();
 renderApp();
 footerModal.createFooterModal();

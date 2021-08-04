@@ -19,9 +19,6 @@ p {
   padding: 0;
 }
 
-// a {
-//   color: $accent-color;
-// }
 a:visited {
   color: inherit;
 }
@@ -47,7 +44,8 @@ h6 {
   padding: 0;
 }
 
-a, ul {
+a,
+ul {
   margin: 0;
   padding: 0;
 }

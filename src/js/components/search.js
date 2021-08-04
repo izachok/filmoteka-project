@@ -1,6 +1,7 @@
 import { getMoviesByQuery } from '../api/moviesdb-api';
 import { makeMoviesArrayForRendering, renderGallery } from './rendering-movies';
 import { Notify } from 'notiflix';
+import { renderTopMovies } from './rendering-top-movies';
 
 const refs = {
   searchInputEl: null,
@@ -18,18 +19,20 @@ const onFormSubmit = function (event) {
   }
 
   pageState.query = query;
+  pagination.reset();
   RenderSearchResults();
 };
 
-async function RenderSearchResults(page = 1) {
+export async function RenderSearchResults(page = 1) {
   try {
-    const queryResult = await getMoviesByQuery(pageState.query);
+    const queryResult = await getMoviesByQuery(pageState.query, page);
     const filmsArray = makeMoviesArrayForRendering(queryResult);
 
     if (queryResult.total_results === 0) {
       Notify.warning('Search result not successful. Enter the correct movie name and try again');
       refs.searchInputEl.value = '';
-      // renderTopMovies();
+      pageState.query = '';
+      renderTopMovies();
       return;
     }
     renderGallery(filmsArray);
