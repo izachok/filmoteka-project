@@ -5,14 +5,6 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute('data-theme', Theme.DARK);
-  } else {
-    document.documentElement.setAttribute('data-theme', Theme.LIGHT);
-  }
-}
-
 toggleSwitch.addEventListener('change', switchTheme, false);
 
 export function switchTheme(e) {
