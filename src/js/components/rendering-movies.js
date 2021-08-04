@@ -1,6 +1,6 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import { OpenModal, createSimilar } from './modal-movie';
+import { OpenModal } from './modal-movie';
 import { setPaginationVisibility } from './pagination';
 // import { getSimilarMovie } from '../api/moviesdb-api';
 
@@ -82,9 +82,9 @@ function bindMovieObjToCard(movieObjs) {
   const cards = document.querySelectorAll('.films__list-item');
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
+      console.log(event);
       const openModal = new OpenModal(movieObjs[index]);
-      // console.log(movieObjs[index]);
-      openModal.showModal();
+      openModal.showModal(movieObjs[index]);
       openModal.genresForModal();
     });
   });

@@ -2,7 +2,12 @@
   <li class='films__list-item' data-id={{id}}>
     <div class='one-card'>
       <div class='one-card__box-img'>
-        <img class='one-card__img' src={{posterUrl}} alt={{title}} />
+        <img
+          class='one-card__img'
+          src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+          alt={{title}}
+          id='{{id}}'
+        />
       </div>
       <div class='one-card__title-box'>
         <h4 class='one-card__title'>{{title}}</h4>

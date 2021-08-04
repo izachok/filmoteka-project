@@ -1,6 +1,12 @@
 {{#each this}}
   <a class='similar-item'>
-    <img src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt={{title}} class="poster-similar"/>
-    <h4 class='similar__movie-title'>{{title}}</h2>
+    <img
+      id='{{id}}'
+      data-action='working'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      alt={{title}}
+      class='poster-similar'
+    />
+    <h6 class='similar__movie-title'>{{title}}</h6>
   </a>
 {{/each}}
