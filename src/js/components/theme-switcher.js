@@ -5,14 +5,22 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', Theme.DARK);
+  } else {
+    document.documentElement.setAttribute('data-theme', Theme.LIGHT);
+  }
+}
+
 toggleSwitch.addEventListener('change', switchTheme, false);
 
 export function switchTheme(e) {
   if (e.target.checked) {
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-theme', Theme.DARK);
     localStorage.setItem('theme', Theme.DARK);
   } else {
-    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.setAttribute('data-theme', Theme.LIGHT);
     localStorage.setItem('theme', Theme.LIGHT);
   }
 }
@@ -21,7 +29,8 @@ const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme
 
 if (currentTheme) {
   document.documentElement.setAttribute('data-theme', currentTheme);
-  if (currentTheme === 'dark') {
+
+  if (currentTheme === Theme.DARK) {
     toggleSwitch.checked = true;
   }
 }

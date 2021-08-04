@@ -1,4 +1,4 @@
-html, html[data-theme='light'] {
+html, html[data-theme='light-theme'] {
   .home-main-bgimage {
     background: url(./../images/main-background-images/pattern-home-light.jpg);
     transition: all 0.5s $animation-function;
@@ -11,7 +11,7 @@ html, html[data-theme='light'] {
   }
 }
 
-html[data-theme='dark'] {
+html[data-theme='dark-theme'] {
   .home-main-bgimage {
     background: url(./../images/main-background-images/pattern-home-dark.jpg);
     transition: all 0.5s $animation-function;
