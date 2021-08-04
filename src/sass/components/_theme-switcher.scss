@@ -1,4 +1,5 @@
-html, html[data-theme='light-theme'] {
+html,
+html[data-theme='light-theme'] {
   .home-main-bgimage {
     background: url(./../images/main-background-images/pattern-home-light.jpg);
     transition: all 0.5s $animation-function;
@@ -24,7 +25,7 @@ html[data-theme='dark-theme'] {
   }
 
   .one-card__title,
-  .movie__content>*,
+  .movie__content > *,
   .properties-list .property-item,
   .movie__btn,
   .modal__icon,
@@ -32,7 +33,9 @@ html[data-theme='dark-theme'] {
   .footer__link,
   .card__text,
   .card__name,
-  .tui-page-btn {
+  .tui-page-btn,
+  .movie__button-trailer,
+  .movie__about-header {
     color: #fff;
   }
 
@@ -53,12 +56,14 @@ html[data-theme='dark-theme'] {
     filter: brightness(0.5);
   }
 
-  .movie__btn {
+  .movie__btn,
+  .movie__button-trailer {
     border-color: #fff;
   }
 
   .modal,
-  .footer {
+  .footer,
+  .modal-trailer {
     background-color: #272727;
   }
 }
@@ -80,11 +85,11 @@ html[data-theme='dark-theme'] {
 
   &:hover,
   &:focus {
-    +.theme-switch__label {
+    + .theme-switch__label {
       background-color: #e8cfc061;
     }
 
-    +.theme-switch__label span::after {
+    + .theme-switch__label span::after {
       background-color: lighten(#ffffff61, 10%);
     }
   }
@@ -144,7 +149,7 @@ html[data-theme='dark-theme'] {
   }
 }
 
-.theme-switch__input:checked~.theme-switch__label {
+.theme-switch__input:checked ~ .theme-switch__label {
   background-color: lightSlateGray;
 
   &::before {
