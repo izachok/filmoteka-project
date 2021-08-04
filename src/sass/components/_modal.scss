@@ -96,16 +96,19 @@
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 100%;
+  max-width: 260px;
   @include for-desktop-up {
     width: 260px;
   }
 }
 
+.properties-values {
+  width: 130px;
+}
+
 .property-item {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   color: $details-card-items-text-color;
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -115,9 +118,16 @@
 .value-item {
   color: black;
   font-weight: 500;
-  &:not(:last-child) {
+  &:first-child {
+    margin-bottom: 6px;
+  }
+  &:not(:first-child) {
     margin-bottom: 10px;
   }
+}
+
+.genre {
+  line-height: 20px;
 }
 
 .movie__vote {
@@ -157,7 +167,6 @@
 
 .movie__buttons {
   width: 100%;
-  justify-content: center;
   display: inline-flex;
 
   @include for-desktop-up {
