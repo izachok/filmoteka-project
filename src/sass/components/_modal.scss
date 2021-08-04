@@ -62,6 +62,12 @@
   }
 }
 
+.movie__about-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .movie__content {
   @include for-tablet-up {
     @include element;
@@ -134,7 +140,7 @@
 }
 
 .movie__about-header {
-  margin-bottom: 10px;
+  margin-right: 10px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -207,7 +213,7 @@
   cursor: pointer;
   text-transform: uppercase;
   transition: get-transition-prop(color);
-  margin-bottom: 21px;
+
   @include for-tablet-up {
     width: 125px;
   }
@@ -221,4 +227,8 @@
     background-color: $accent-color;
     border-color: $accent-color;
   }
+}
+
+.hidden-button {
+  display: none;
 }

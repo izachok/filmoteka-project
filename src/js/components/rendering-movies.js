@@ -84,6 +84,8 @@ function bindMovieObjToCard(movieObjs) {
       const openModal = new OpenModal(movieObjs[index]);
       openModal.showModal();
       genresForModal(movieObjs[index].genre_ids);
+
+      document.querySelector('.modal').classList.add('active');
     });
   });
 }

@@ -63,7 +63,7 @@ class OpenModal {
   }
 
   onWindowClick(event) {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape' && document.querySelector('.modal').className.includes('active')) {
       this.instance.close();
     }
   }
