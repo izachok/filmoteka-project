@@ -6,6 +6,8 @@ import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
 import { getGenresByIds } from '../api/genres-library';
 import { getSimilarMovie, getMovieById } from '../api/moviesdb-api';
+import { createTrailerModal } from './trailer-modal';
+
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
@@ -60,6 +62,9 @@ class OpenModal {
     document.querySelector('.modal__close').addEventListener('click', event => {
       return this.instance.close();
     });
+
+    document.querySelector('.modal').classList.add('active');
+    createTrailerModal(this.movieObj);
   }
 
   showModal() {
@@ -122,7 +127,7 @@ class OpenModal {
   }
 
   onWindowClick(event) {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape' && document.querySelector('.modal').className.includes('active')) {
       this.instance.close();
     }
   }

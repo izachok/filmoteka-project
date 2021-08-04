@@ -1,6 +1,6 @@
 .modal-window {
   overflow: auto;
-  margin: $column-gap-mobile;
+  // margin: $column-gap-mobile;
   padding: 48px $column-gap-mobile;
   color: $details-card-main-text-color;
   background-color: $main-background-color;
@@ -12,7 +12,7 @@
   @include for-tablet-up {
     padding: 40px $column-gap;
     max-width: 618px;
-    margin: 0;
+    // margin: 0;
   }
 
   @include for-desktop-up {
@@ -62,6 +62,12 @@
   }
 }
 
+.movie__about-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .movie__content {
   @include for-tablet-up {
     @include element;
@@ -79,6 +85,8 @@
 
 .movie__name {
   font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
 
   @include for-desktop-up {
     font-size: 30px;
@@ -87,19 +95,18 @@
 
 .properties {
   display: flex;
-  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 100%;
-  @include for-desktop-up {
-    width: 260px;
-  }
+}
+
+.properties-list {
+  min-width: 80px;
+  width: 108px;
 }
 
 .property-item {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   color: $details-card-items-text-color;
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -109,9 +116,16 @@
 .value-item {
   color: black;
   font-weight: 500;
-  &:not(:last-child) {
+  &:first-child {
+    margin-bottom: 6px;
+  }
+  &:not(:first-child) {
     margin-bottom: 10px;
   }
+}
+
+.genre {
+  line-height: 20px;
 }
 
 .movie__vote {
@@ -119,7 +133,6 @@
   color: white;
   background-color: $accent-color;
   padding: 2px 10px;
-  width: 36px;
   text-align: center;
   border-radius: 5px;
 }
@@ -134,7 +147,7 @@
 }
 
 .movie__about-header {
-  margin-bottom: 10px;
+  margin-right: 10px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -160,7 +173,6 @@
 
 .movie__buttons {
   width: 100%;
-  justify-content: center;
   display: inline-flex;
 
   @include for-desktop-up {
@@ -236,4 +248,36 @@
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 5px;
+.movie__button-trailer {
+  font-weight: 500;
+  min-width: 112px;
+  max-width: 125px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: get-transition-prop(color);
+
+  @include for-tablet-up {
+    width: 125px;
+  }
+  @include for-desktop-up {
+    width: 136px;
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
+.hidden-button {
+  display: none;
 }

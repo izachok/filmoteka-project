@@ -8,6 +8,8 @@ import { renderApp } from './components/renderer';
 import { createPagination } from './components/pagination';
 
 import './components/to-top-btn';
+import {switchTheme} from './components/theme-switcher';
+
 
 window.pageState = new PageState();
 Notify.init({

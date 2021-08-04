@@ -1,20 +1,29 @@
 {{#each this}}
   <li class='films__list-item' data-id={{id}}>
     <div class='one-card'>
-      <div class='one-card__box-img'>
-        <img
-          class='one-card__img'
-          src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-          alt={{title}}
-          id='{{id}}'
-        />
-      </div>
-      <div class='one-card__title-box'>
-        <h4 class='one-card__title'>{{title}}</h4>
-        <div class='one-card__box-description'>
-          <p class='one-card__description'>{{stringDescription}}
-            <div class='one-card__average visually-hidden'>{{vote_average}}</div></p>
+      <div class='one-card_box'>
+        <div class='one-card__box-img'>
+          <img
+            class='one-card__img'
+            src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+            alt={{title}}
+            id='{{id}}'
+          />
         </div>
+        <div class='one-card__title-box'>
+          <h4 class='one-card__title'>{{title}}</h4>
+          <div class='one-card__box-description'>
+            <p class='one-card__description'>{{stringDescription}}
+              <div class='one-card__average visually-hidden'>{{vote_average}}</div></p>
+          </div>
+        </div>
+      </div>
+
+      <div class='one-card_overlay'>
+        <div class='one-card__average'>{{vote_average}}</div>
+        <button type='button' class='btn_one-card' data-action='add-to-watched_one-card'>ADD TO
+          WATCHED</button>
+        <button type='button' class='btn_one-card' data-action='add-to-queue_one-card'>ADD TO QUEUE</button>
       </div>
     </div>
   </li>

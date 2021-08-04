@@ -9,7 +9,7 @@ function changeLibraryState(event) {
   [...document.getElementsByClassName('library-button')].map(el =>
     el.classList.remove('library-button_active'),
   );
-  const page = event.target.getAttribute('page');
+  const page = event.target.getAttribute('data-page');
 
   if (page === libraryType.WATCHED) {
     pageState.isWatched = true;
