@@ -56,12 +56,16 @@ class OpenModal {
   }
 
   createSimilar(dataMovie) {
-    getSimilarMovie(dataMovie).then(data => {
-      // console.log(data);
-      const container = document.querySelector('.similar');
-      container.insertAdjacentHTML('beforeend', similarMovies(data));
-      this.work();
-    });
+    getSimilarMovie(dataMovie)
+      .then(response => {
+        return response.data.results.slice(0, 6);
+      })
+      .then(data => {
+        // console.log(data);
+        const container = document.querySelector('.similar');
+        container.insertAdjacentHTML('beforeend', similarMovies(data));
+        this.work();
+      });
   }
 
   work() {

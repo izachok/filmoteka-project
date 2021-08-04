@@ -32,9 +32,7 @@ const getMovieById = function (id) {
 };
 
 const getSimilarMovie = function (arg) {
-  return axios.get(`/movie/${arg}/similar`).then(response => {
-    return response.data.results.slice(0, 6);
-  });
+  return axios.get(`/movie/${arg}/similar`);
 };
 
 const getTrailerById = function (id) {
