@@ -48,6 +48,10 @@ function removeFromLocalStorageArray(key, item) {
   return saveToLocalStorage(key, array);
 }
 
+function removeFromLocalStorage(key) {
+  localStorage.removeItem(key);
+}
+
 function isInWatched(objModel) {
   return isInArray('watched', objModel);
 }
@@ -89,4 +93,5 @@ export {
   isInQueue,
   getItemsFromWatched,
   getItemsFromQueue,
+  removeFromLocalStorage,
 };

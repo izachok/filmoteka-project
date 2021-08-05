@@ -10,6 +10,7 @@ import {
   setPaginationPerPage,
   itemsPerPageLocalDB,
 } from './pagination';
+import { renderBtnToClear } from './to-trash-btn';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
 
@@ -44,6 +45,7 @@ function renderMoviesList(page = 1) {
   }
   //page was rerendered so wasLibraryChanged must be reseted
   pageState.wasLibraryChanged = false;
+  renderBtnToClear();
 }
 
 function renderWatched(page = 1) {

@@ -1,10 +1,12 @@
 import libraryType from './library-type';
 import { renderMoviesList } from './renderer';
-
+import { renderBtnToClear } from './to-trash-btn';
 const refs = {};
 
 function initLibraryHeaderBtns() {
-  refs.watchedBtnRef = document.querySelector(`.library-button[data-page="${libraryType.WATCHED}"]`);
+  refs.watchedBtnRef = document.querySelector(
+    `.library-button[data-page="${libraryType.WATCHED}"]`,
+  );
   refs.queueBtnRef = document.querySelector(`.library-button[data-page="${libraryType.QUEUE}"]`);
   refs.filmListRef = document.querySelector('.films__list');
 
@@ -14,14 +16,18 @@ function initLibraryHeaderBtns() {
 
 function onClickWatchedBtn() {
   pageState.isWatched = true;
-  pagination.reset();
-  renderMoviesList();
+  renderPage();
 }
 
 function onClickQueueBtn() {
   pageState.isQueue = true;
+  renderPage();
+}
+
+function renderPage() {
   pagination.reset();
   renderMoviesList();
+  renderBtnToClear();
 }
 
 export { initLibraryHeaderBtns, onClickWatchedBtn, onClickQueueBtn };
