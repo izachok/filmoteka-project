@@ -80,6 +80,11 @@
   position: absolute;
   bottom: 25px;
   right: 5px;
+
+  @media screen and (max-width: $tablet-width) {
+    bottom: 40px;
+    right: 10px;
+  }
 }
 
 .tooltip:hover .tooltiptext {
