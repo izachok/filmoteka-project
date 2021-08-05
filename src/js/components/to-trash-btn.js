@@ -2,6 +2,8 @@ import btnToEmpty from './../../templates/clear-library-button.hbs';
 import { onClickWatchedBtn, onClickQueueBtn } from './functionality-watched-queue-button';
 import * as localBD from './localDB';
 import libraryType from './library-type';
+import { Confirm } from 'notiflix';
+// import Notiflix from 'notiflix';
 
 const pageContainerEl = document.querySelector('.page-container__body');
 
@@ -21,26 +23,19 @@ function initBtnToClear() {
   pageContainerEl.insertAdjacentHTML('beforeend', btnToEmpty());
   const buttonClearLibrary = document.querySelector('.button_clear-library');
   buttonClearLibrary.addEventListener('click', () => {
-    clearLibrary(pageState);
+    Confirm.show('Delete library list', 'Are you sure?', 'Yes', 'No', function () {
+      clearLibrary(pageState);
+    });
   });
 }
-
-// function removeBtnToClear() {
-//   const buttonClearLibrary = document.querySelector('.button-delete_container');
-//   if (buttonClearLibrary) {
-//     buttonClearLibrary.remove();
-//   }
-// }
 
 function clearLibrary() {
   if (pageState.isWatched) {
     localBD.removeFromLocalStorage(libraryType.WATCHED);
-    // window.localStorage.removeItem('watched');
     onClickWatchedBtn();
   }
   if (pageState.isQueue) {
     localBD.removeFromLocalStorage(libraryType.QUEUE);
-    // window.localStorage.removeItem('queue');
     onClickQueueBtn();
   }
 }
