@@ -28,7 +28,7 @@ html[data-theme='dark-theme'] {
   .movie__content > *,
   .properties-list .property-item,
   .movie__btn,
-  .modal__icon,
+  .modal__close,
   .footer,
   .footer__link,
   .card__text,
@@ -36,8 +36,14 @@ html[data-theme='dark-theme'] {
   .tui-page-btn,
   .movie__button-trailer,
   .movie__about-header,
+  .card__icon,
   .list-is-empty__text {
     color: #fff;
+  }
+
+  .card__icon:hover,
+  .modal__close:hover {
+    color: $accent-color;
   }
 
   .properties-values .value-item,
@@ -62,7 +68,7 @@ html[data-theme='dark-theme'] {
     border-color: #fff;
   }
 
-  .modal,
+  .modal-window,
   .footer,
   .modal-trailer {
     background-color: #272727;
