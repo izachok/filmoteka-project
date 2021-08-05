@@ -21,7 +21,7 @@
     "role": "Developer",
     "photoUrl": "aleksandr-bryzgalin",
     "githubUrl": "https://github.com/Aleksandr-Bryzgalin",
-    "text": "Aleksandr implemented loading of popular movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit. Also he added background to our site and tested it."
+    "text": "Aleksandr implemented loading of popular movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit. Also he added background and tested our website."
   },
   {
     "fullName": "Oleksandra Haniieva",
@@ -29,7 +29,7 @@
     "role": "Developer",
     "photoUrl": "oleksandra-haniieva",
     "githubUrl": "https://github.com/Aleksandra605",
-    "text": "Oleksandra implemented functionality and styles for modal window with information about movie."
+    "text": "Oleksandra implemented functionality and styles for modal window with information about movie. She added information about similar movies for fast searching connected movies."
   },
   {
     "fullName": "Natalia Denysenko",
@@ -53,7 +53,7 @@
     "role": "Developer",
     "photoUrl": "serhii-krimets",
     "githubUrl": "https://github.com/Sergio1004",
-    "text": "Serhii implemented important part of functionality: he added pagination to our results. Also he helped with bugfixing and testing."
+    "text": "Serhii implemented important part of functionality: he added pagination to our results and implemented logic of showing different number of movies in library depending on device width. Also he helped with bugfixing and testing."
   },
   {
     "fullName": "Tatiana Skalska",
@@ -61,6 +61,6 @@
     "role": "Developer",
     "photoUrl": "tatiana-skalska",
     "githubUrl": "https://github.com/tskalska",
-    "text": "Tatiana wrote styles and functionality for site's header. Prepared all images and helped with bugfixing."
+    "text": "Tatiana wrote styles and functionality for site's header. Prepared all images and helped with bugfixing. She added feature of cleaning library lists."
   }
 ]
