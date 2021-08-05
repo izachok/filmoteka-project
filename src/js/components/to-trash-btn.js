@@ -14,8 +14,10 @@ function renderBtnToClear() {
 
   if (isVisible) {
     document.querySelector('.button_clear-library').classList.remove('hidden');
+    document.querySelector('.tooltip').classList.remove('hidden');
   } else {
     document.querySelector('.button_clear-library').classList.add('hidden');
+    document.querySelector('.tooltip').classList.add('hidden');
   }
 }
 
