@@ -100,39 +100,26 @@
 }
 
 .properties {
-  display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.properties-list {
-  min-width: 80px;
-  width: 108px;
+  line-height: 20px;
 }
 
 .property-item {
-  display: flex;
-  justify-content: space-between;
   color: $details-card-items-text-color;
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
+  width: 108px;
+  vertical-align: top;
 }
 
 .value-item {
   color: black;
   font-weight: 500;
-  &:first-child {
-    margin-bottom: 6px;
-  }
-  &:not(:first-child) {
-    margin-bottom: 10px;
-  }
+  vertical-align: top;
 }
 
-// .genre {
-//   line-height: 20px;
-// }
+.origina-title-item {
+  text-transform: uppercase;
+}
 
 .movie__vote {
   display: inline-block;

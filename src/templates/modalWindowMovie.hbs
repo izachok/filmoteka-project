@@ -15,22 +15,27 @@
       </div>
       <div class='movie__content'>
         <h2 class='movie-name'>{{title}}</h2>
-        <div class='properties'>
-          <ul class='properties-list list'>
-            <li class='property-item'>Vote/Votes</li>
-            <li class='property-item'>Popularity</li>
-            <li class='property-item'>Original Title</li>
-            <li class='property-item'>Genre</li>
-          </ul>
-          <ul class='properties-values list'>
-            <li class='value-item'><span class='movie__vote'>{{vote_average}}</span>
-              /
-              <span class='movie__vote movie__vote--light'>{{vote_count}}</span></li>
-            <li class='value-item'>{{popularity}}</li>
-            <li class='value-item movie__title'>{{original_title}}</li>
-            <li class='value-item genre'>{{fullGenresList}}</li>
-          </ul>
-        </div>
+      <table class="properties">
+        <tr>
+          <td class='property-item'>Vote/Votes</td>
+          <td class='value-item'><span class='movie__vote'>{{vote_average}}</span>
+           /<span class='movie__vote movie__vote--light'>{{vote_count}}</span>
+           </td>
+        </tr>
+        <tr>
+          <td class='property-item'>Popularity</td>
+          <td class='value-item'>{{popularity}}</td>
+        </tr>
+        <tr>
+          <td class='property-item'>Original Title</td>
+          <td class='value-item origina-title-item'>{{original_title}}</td>
+        </tr>
+        <tr>
+          <td class='property-item'>Genre</td>
+          <td class='value-item genre'>{{fullGenresList}}</td>
+        </tr>
+      </table>
+
         <div class='movie__about-div'>
         <h3 class='movie__about-header'>About</h3>
         <button type='button' class='movie__button-trailer hidden-button'>show trailer</button>
