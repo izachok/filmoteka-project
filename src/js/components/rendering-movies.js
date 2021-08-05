@@ -1,6 +1,6 @@
 import { getGenresByIds } from '../api/genres-library';
 import cardMarkup from '../../templates/one-card-markup.hbs';
-import { OpenModal, genresForModal } from './modal-movie';
+import { OpenModal } from './modal-movie';
 import { setPaginationVisibility } from './pagination';
 import { createCardOverlay } from './one-card-btn';
 
@@ -53,14 +53,16 @@ function makeMoviesArrayForRendering(data) {
   setPaginationVisibility(data);
 
   const arrMovies = data.results;
-  const arrayForRendering = arrMovies.map(movie => {
-    movie.stringDescription = makeStringDescription(movie);
-    movie.posterUrl = makeUrl(movie.poster_path);
-    // const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
-    // movie.stringGenres = arrStrName.join(', ');
-    return movie;
-  });
+  const arrayForRendering = arrMovies.map(prepareMovieForRendering);
   return arrayForRendering;
+}
+
+function prepareMovieForRendering(movie) {
+  movie.stringDescription = makeStringDescription(movie);
+  movie.posterUrl = makeUrl(movie.poster_path);
+  const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
+  movie.fullGenresList = arrStrName.join(', ');
+  return movie;
 }
 
 function renderGallery(arrayForRendering) {
@@ -84,10 +86,9 @@ function bindMovieObjToCard(movieObjs) {
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
       const openModal = new OpenModal(movieObjs[index]);
-      openModal.showModal();
-      genresForModal(movieObjs[index].genre_ids);
+      openModal.showModal(movieObjs[index]);
     });
   });
 }
 
-export { makeMoviesArrayForRendering, renderGallery };
+export { makeMoviesArrayForRendering, renderGallery, prepareMovieForRendering };

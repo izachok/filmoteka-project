@@ -1,23 +1,21 @@
 import * as basicLightbox from 'basiclightbox';
 import modalWindowMovie from '../../templates/modalWindowMovie';
+import similarMovies from '../../templates/similarMovies';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
-import { getGenresByIds } from '../api/genres-library';
+import { getSimilarMovie, getMovieById } from '../api/moviesdb-api';
 import { createTrailerModal } from './trailer-modal';
-
-function genresForModal(array) {
-  return (document.querySelector('.genre').textContent = getGenresByIds(array)
-    .flatMap(cat => cat.name)
-    .join(', '));
-}
+import { prepareMovieForRendering } from './rendering-movies';
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
 
   constructor(argument) {
+    this.posterSimilar = document.querySelector('.poster-similar');
+    this.id = argument.id;
     this.movieObj = argument;
-    this.instance = basicLightbox.create(modalWindowMovie(argument), {
+    this.instance = basicLightbox.create(modalWindowMovie(this.movieObj), {
       onClose: () => {
         this.onCloseModal();
       },
@@ -27,17 +25,16 @@ class OpenModal {
     });
   }
 
-  showModal() {
-    this.instance.show();
+  buttonsOnWork(current) {
     const watchBtn = new LibraryBtn({
       element: this.instance.element().querySelector('[data-action="add-to-watched"]'),
-      movieObj: this.movieObj,
+      movieObj: current,
       type: libraryType.WATCHED,
     });
 
     const queueBtn = new LibraryBtn({
       element: this.instance.element().querySelector('[data-action="add-to-queue"]'),
-      movieObj: this.movieObj,
+      movieObj: current,
       type: libraryType.QUEUE,
     });
 
@@ -46,7 +43,52 @@ class OpenModal {
     });
 
     document.querySelector('.modal').classList.add('active');
-    createTrailerModal(this.movieObj);
+    createTrailerModal(current);
+  }
+
+  showModal() {
+    this.instance.show();
+    this.buttonsOnWork(this.movieObj);
+    this.createSimilar(this.id);
+  }
+
+  createSimilar(dataMovie) {
+    getSimilarMovie(dataMovie)
+      .then(response => {
+        return response.results.slice(0, 6);
+      })
+      .then(data => {
+        const container = document.querySelector('.similar');
+        container.insertAdjacentHTML('beforeend', similarMovies(data));
+        this.work();
+      })
+      .catch(() => {
+        document.querySelector('.s-title').classList.add('hidden');
+      });
+  }
+
+  work() {
+    this.instance
+      .element()
+      .querySelectorAll('.similar-item')
+      .forEach(el =>
+        el.addEventListener('click', event => {
+          getMovieById(event.target.id).then(data => {
+            this.reloadModal(data);
+            this.buttonsOnWork(data);
+            this.createSimilar(data.id);
+          });
+        }),
+      );
+  }
+
+  reloadModal(movie) {
+    const modal = this.instance.element().querySelector('.modal');
+    const modalWindow = this.instance.element().querySelector('.modal-window');
+    movie.genre_ids = movie.genres.map(item => item.id);
+    movie = prepareMovieForRendering(movie);
+    modalWindow.remove();
+    modal.insertAdjacentHTML('beforeend', modalWindowMovie(movie));
   }
 
   onShowModal() {
@@ -57,7 +99,6 @@ class OpenModal {
   onCloseModal() {
     document.body.classList.remove('modal-open');
     window.removeEventListener('keydown', this.#windowKeyHandler);
-    //rerender movies list if add/remove buttons were clicked
     if (!pageState.isHome && pageState.wasLibraryChanged) {
       renderMoviesList();
     }
@@ -70,4 +111,4 @@ class OpenModal {
   }
 }
 
-export { OpenModal, genresForModal };
+export { OpenModal };

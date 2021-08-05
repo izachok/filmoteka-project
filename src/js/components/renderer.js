@@ -18,8 +18,6 @@ function renderApp() {
   pagination.reset();
   renderHeader();
   renderMoviesList();
-
-  // bindPagination();
 }
 
 function renderHeader() {
