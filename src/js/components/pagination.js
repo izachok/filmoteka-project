@@ -4,10 +4,16 @@ import { RenderSearchResults } from './search';
 import { renderMoviesList } from './renderer';
 
 const ITEMS_PER_PAGE_HOME = 20;
-const ITEMS_PER_PAGE_LOCALDB = 9;
+let itemsPerPageLocalDB = 9;
 
 const refs = {
   paginationContainer: null,
+};
+
+const libraryPaginationSize = {
+  paginationDesktopPageSize: 9,
+  paginationTabletPageSize: 8,
+  paginationMobilePageSize:4,
 };
 
 export function createPagination() {
@@ -57,7 +63,7 @@ const setPaginationVisibilityLocalDB = function (totalCount) {
   if (pageState.isHome) {
     return;
   }
-  if (totalCount > ITEMS_PER_PAGE_LOCALDB) {
+  if (totalCount > itemsPerPageLocalDB) {
     refs.paginationContainer.classList.remove('visually-hidden');
   } else {
     refs.paginationContainer.classList.add('visually-hidden');
@@ -68,7 +74,8 @@ const setPaginationPerPage = function () {
   if (pageState.isHome) {
     pagination.setItemsPerPage(ITEMS_PER_PAGE_HOME);
   } else {
-    pagination.setItemsPerPage(ITEMS_PER_PAGE_LOCALDB);
+    setItemsPerPageLocalStorage()
+    pagination.setItemsPerPage(itemsPerPageLocalDB);
   }
 };
 
@@ -77,10 +84,18 @@ const bindPagination = function () {
   pagination.on('beforeMove', onCurrentPageClick);
 };
 
+function setItemsPerPageLocalStorage() {
+ 
+  if (window.innerWidth < 768) {itemsPerPageLocalDB = libraryPaginationSize.paginationMobilePageSize}
+  else if (window.innerWidth >= 768 && window.innerWidth < 1024) {itemsPerPageLocalDB = libraryPaginationSize.paginationTabletPageSize}
+  else if (window.innerWidth >= 1024) {itemsPerPageLocalDB = libraryPaginationSize.paginationDesktopPageSize};
+  return itemsPerPageLocalDB;
+};
+
 export {
   onCurrentPageClick,
   setPaginationVisibility,
   setPaginationVisibilityLocalDB,
   setPaginationPerPage,
-  ITEMS_PER_PAGE_LOCALDB,
+  itemsPerPageLocalDB,
 };

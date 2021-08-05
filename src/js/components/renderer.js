@@ -8,7 +8,7 @@ import { initNavigation } from './navigation';
 import {
   setPaginationVisibilityLocalDB,
   setPaginationPerPage,
-  ITEMS_PER_PAGE_LOCALDB,
+  itemsPerPageLocalDB,
 } from './pagination';
 
 const emptyPageMessage = '<span class="list-is-empty__text">This list is empty</span>';
@@ -56,7 +56,7 @@ function renderWatched(page = 1) {
       setPaginationVisibilityLocalDB(localDB.getItemsFromWatched().length);
     }
 
-    renderGallery(localDB.getItemsFromWatched(page, ITEMS_PER_PAGE_LOCALDB));
+    renderGallery(localDB.getItemsFromWatched(page, itemsPerPageLocalDB));
   }
 }
 
@@ -70,7 +70,7 @@ function renderQueue(page = 1) {
       setPaginationVisibilityLocalDB(localDB.getItemsFromQueue().length);
     }
 
-    renderGallery(localDB.getItemsFromQueue(page, ITEMS_PER_PAGE_LOCALDB));
+    renderGallery(localDB.getItemsFromQueue(page, itemsPerPageLocalDB));
   }
 }
 
