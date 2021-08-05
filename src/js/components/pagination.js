@@ -4,10 +4,13 @@ import { RenderSearchResults } from './search';
 import { renderMoviesList } from './renderer';
 
 const ITEMS_PER_PAGE_HOME = 20;
-const ITEMS_PER_PAGE_LOCALDB = 9;
+let ITEMS_PER_PAGE_LOCALDB = 9;
 
 const refs = {
   paginationContainer: null,
+  paginationDesktopPageSize: 9,
+  paginationTabletPageSize: 8,
+  paginationMobilePageSize:4,
 };
 
 export function createPagination() {
@@ -68,6 +71,7 @@ const setPaginationPerPage = function () {
   if (pageState.isHome) {
     pagination.setItemsPerPage(ITEMS_PER_PAGE_HOME);
   } else {
+    defineResultsPerPage()
     pagination.setItemsPerPage(ITEMS_PER_PAGE_LOCALDB);
   }
 };
@@ -77,10 +81,19 @@ const bindPagination = function () {
   pagination.on('beforeMove', onCurrentPageClick);
 };
 
+function defineResultsPerPage() {
+ 
+  if (window.innerWidth < 768) {ITEMS_PER_PAGE_LOCALDB = refs.paginationMobilePageSize}
+  else if (window.innerWidth >= 768 && window.innerWidth < 1024) {ITEMS_PER_PAGE_LOCALDB = refs.paginationTabletPageSize}
+  else if (window.innerWidth >= 1024) {ITEMS_PER_PAGE_LOCALDB = refs.paginationDesktopPageSize};
+  return ITEMS_PER_PAGE_LOCALDB;
+};
+
 export {
   onCurrentPageClick,
   setPaginationVisibility,
   setPaginationVisibilityLocalDB,
   setPaginationPerPage,
   ITEMS_PER_PAGE_LOCALDB,
+  defineResultsPerPage,
 };
