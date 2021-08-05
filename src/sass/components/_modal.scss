@@ -102,20 +102,23 @@
 .properties {
   margin-top: 20px;
   margin-bottom: 20px;
+  line-height: 20px;
 }
 
 .property-item {
   color: $details-card-items-text-color;
   width: 108px;
-  line-height: 20px;
   vertical-align: top;
 }
 
 .value-item {
   color: black;
   font-weight: 500;
-  line-height: 20px;
   vertical-align: top;
+}
+
+.origina-title-item {
+  text-transform: uppercase;
 }
 
 .movie__vote {
