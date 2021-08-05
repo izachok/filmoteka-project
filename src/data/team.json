@@ -5,7 +5,7 @@
     "role": "Team lead",
     "photoUrl": "olga-tiutiunnyk",
     "githubUrl": "https://github.com/izachok",
-    "text": "Olga is our Teamlead. She prepared the structure of the project, wrote documentation about the project's interfaces and made most of the reviews. She implemented footer and this modal section with a slider about our team, also wrote functions for working with API, and refactored the project to connect all the parts. 'Add to library' buttons are also made by Olga."
+    "text": "Olga is our Teamlead. She prepared the structure of the project, wrote documentation about the project's interfaces and made most of the reviews. She implemented footer and this modal section with a slider about our team, also wrote functions for working with API, and refactored the project to connect all the parts. 'Add to library' buttons were also made by Olga."
   },
   {
     "fullName": "Hanna Hryhorieva",
@@ -13,7 +13,7 @@
     "role": "SCRUM master",
     "photoUrl": "hanna-hryhorieva",
     "githubUrl": "https://github.com/HannaHryhorieva",
-    "text": "Hanna is our Scrum Master. Thanks to her, daily standup meetings were held smoothly, efficiently and at a time convenient for all the team members. She made functionality and styles for rendering movie cards as well as for errors notification."
+    "text": "Hanna is our Scrum Master. Thanks to her, daily standup meetings were held smoothly, efficiently and at a time convenient for all the team members. She made functionality and styles for rendering movie cards as well as for errors notification and helped with reviews. Hanna added possibility to work with library quickly from main window if you hover on movie's card."
   },
   {
     "fullName": "Aleksandr Bryzgalin",
@@ -21,7 +21,7 @@
     "role": "Developer",
     "photoUrl": "aleksandr-bryzgalin",
     "githubUrl": "https://github.com/Aleksandr-Bryzgalin",
-    "text": "Aleksandr implemented loading of popular movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit."
+    "text": "Aleksandr implemented loading of popular movies, prepared style variables for all project. Implementation of logic with library buttons in header and nice favicon are also his merit. Also he added background and tested our website."
   },
   {
     "fullName": "Oleksandra Haniieva",
@@ -29,7 +29,7 @@
     "role": "Developer",
     "photoUrl": "oleksandra-haniieva",
     "githubUrl": "https://github.com/Aleksandra605",
-    "text": "Oleksandra implemented modal window with information about movie."
+    "text": "Oleksandra implemented functionality and styles for modal window with information about movie. She added information about similar movies for fast searching connected movies."
   },
   {
     "fullName": "Natalia Denysenko",
@@ -37,7 +37,7 @@
     "role": "Developer",
     "photoUrl": "natalia-denysenko",
     "githubUrl": "https://github.com/dNataly",
-    "text": "Natalia wrote functions for working with local storage and added nice button, which helps users easily get to site's top."
+    "text": "Natalia wrote functions for working with local storage and added nice button, which helps users easily get to site's top. She added theme switcher to the website."
   },
   {
     "fullName": "Maxim Lebiga",
@@ -45,7 +45,7 @@
     "role": "Developer",
     "photoUrl": "maxim-lebiga",
     "githubUrl": "https://github.com/Maksytko",
-    "text": "Maxim prepared styles for main container and implemented search functionality on our website."
+    "text": "Maxim prepared styles for main container and implemented search functionality on our website. And added possibility to watch movie trailer in one click."
   },
   {
     "fullName": "Serhii Krimets",
@@ -53,7 +53,7 @@
     "role": "Developer",
     "photoUrl": "serhii-krimets",
     "githubUrl": "https://github.com/Sergio1004",
-    "text": "Serhii implemented important part of functionality: he added pagination to our results."
+    "text": "Serhii implemented important part of functionality: he added pagination to our results and implemented logic of showing different number of movies in library depending on device width. Also he helped with bugfixing and testing."
   },
   {
     "fullName": "Tatiana Skalska",
@@ -61,6 +61,6 @@
     "role": "Developer",
     "photoUrl": "tatiana-skalska",
     "githubUrl": "https://github.com/tskalska",
-    "text": "Tatiana wrote styles and functionality for site's header. Prepared all images and helped with bugfixing."
+    "text": "Tatiana wrote styles and functionality for site's header. Prepared all images and helped with bugfixing. She added feature of cleaning library lists."
   }
 ]
