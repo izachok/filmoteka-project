@@ -4,10 +4,13 @@ import { RenderSearchResults } from './search';
 import { renderMoviesList } from './renderer';
 
 const ITEMS_PER_PAGE_HOME = 20;
-let ITEMS_PER_PAGE_LOCALDB = 9;
+let itemsPerPageLocalDB = 9;
 
 const refs = {
   paginationContainer: null,
+};
+
+const libraryPaginationSize = {
   paginationDesktopPageSize: 9,
   paginationTabletPageSize: 8,
   paginationMobilePageSize:4,
@@ -60,7 +63,7 @@ const setPaginationVisibilityLocalDB = function (totalCount) {
   if (pageState.isHome) {
     return;
   }
-  if (totalCount > ITEMS_PER_PAGE_LOCALDB) {
+  if (totalCount > itemsPerPageLocalDB) {
     refs.paginationContainer.classList.remove('visually-hidden');
   } else {
     refs.paginationContainer.classList.add('visually-hidden');
@@ -72,7 +75,7 @@ const setPaginationPerPage = function () {
     pagination.setItemsPerPage(ITEMS_PER_PAGE_HOME);
   } else {
     setItemsPerPageLocalStorage()
-    pagination.setItemsPerPage(ITEMS_PER_PAGE_LOCALDB);
+    pagination.setItemsPerPage(itemsPerPageLocalDB);
   }
 };
 
@@ -83,10 +86,10 @@ const bindPagination = function () {
 
 function setItemsPerPageLocalStorage() {
  
-  if (window.innerWidth < 768) {ITEMS_PER_PAGE_LOCALDB = refs.paginationMobilePageSize}
-  else if (window.innerWidth >= 768 && window.innerWidth < 1024) {ITEMS_PER_PAGE_LOCALDB = refs.paginationTabletPageSize}
-  else if (window.innerWidth >= 1024) {ITEMS_PER_PAGE_LOCALDB = refs.paginationDesktopPageSize};
-  return ITEMS_PER_PAGE_LOCALDB;
+  if (window.innerWidth < 768) {itemsPerPageLocalDB = libraryPaginationSize.paginationMobilePageSize}
+  else if (window.innerWidth >= 768 && window.innerWidth < 1024) {itemsPerPageLocalDB = libraryPaginationSize.paginationTabletPageSize}
+  else if (window.innerWidth >= 1024) {itemsPerPageLocalDB = libraryPaginationSize.paginationDesktopPageSize};
+  return itemsPerPageLocalDB;
 };
 
 export {
@@ -94,5 +97,5 @@ export {
   setPaginationVisibility,
   setPaginationVisibilityLocalDB,
   setPaginationPerPage,
-  ITEMS_PER_PAGE_LOCALDB,
+  itemsPerPageLocalDB,
 };
