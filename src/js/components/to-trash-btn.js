@@ -1,32 +1,35 @@
-import libraryType from "./library-type";
-import btnToEmpty from './../../templates/delete-button.hbs';
-import { changePage } from './navigation';
+import btnToEmpty from './../../templates/clear-library-button.hbs';
+import {onClickWatchedBtn, onClickQueueBtn} from './functionality-watched-queue-button';
 
 
 const pageContainerEl = document.querySelector('.page-container__body');
 
 function renderBtnToClear(){
-  console.log(localStorage);
-  if (localStorage.length > 0) {
-    pageContainerEl.insertAdjacentHTML('beforeend', btnToEmpty());
-    // { ...pageState}  передать в btnToEmpty чтоб генерировать разные шаблоны
+  if (localStorage.length > 1) {
+    pageContainerEl.insertAdjacentHTML('beforeend', btnToEmpty({ ...pageState}));
     const buttonClearLibrary = document.querySelector('.button_clear-library');
     buttonClearLibrary.addEventListener('click', () => {
-      clearLibrary()});
-      // былобы хорошо в  clearLibrary передать состоянии страницы и удалить нужную библиотеку
+      clearLibrary(pageState)
+    });
   }
 };
 
-function clearLibrary() {
-  window.localStorage.clear();
-  changePage('library');
-}
-
 function removeBtnToClear(){
   const buttonClearLibrary = document.querySelector('.button-delete_container');
-  if(buttonClearLibrary){
+  if(buttonClearLibrary) {
     buttonClearLibrary.remove()
   };
+}
+
+function clearLibrary() {
+  if (pageState.isWatched){
+    window.localStorage.removeItem('watched');
+    onClickWatchedBtn();
+  }
+  if (pageState.isQueue) {
+    window.localStorage.removeItem('queue');
+    onClickQueueBtn();
+  }
 }
 
 export {removeBtnToClear, renderBtnToClear};

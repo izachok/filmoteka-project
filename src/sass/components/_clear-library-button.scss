@@ -1,0 +1,87 @@
+.button_clear-library {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  border: 1px solid $accent-color;
+  background-color: transparent;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 90px;
+  right: 60px;
+  cursor: pointer;
+
+  overflow: hidden;
+
+  @media screen and (max-width: $tablet-width) {
+    bottom: 110px;
+    right: 10px;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    bottom: 110px;
+    right: 15px;
+  }
+  
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.button_clear-library:hover {
+  .arrow-slide {
+    transition: all 0.4s ease-in-out;
+    transform: translateY(200%);
+  }
+}
+
+.delete-icon {
+  width: 28px;
+  height: 20px;
+  fill: $accent-color;
+  margin: auto;
+}
+
+/* Tooltip text */
+.tooltip{
+  overflow: visible;
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  bottom: 110px;
+  right: 60px;
+
+  @media screen and (max-width: $tablet-width) {
+    bottom: 110px;
+    right: 10px;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    bottom: 110px;
+    right: 15px;
+  }
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: $accent-color;
+  color: $accent-text-color;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 6px;
+  padding: 15px 5px;
+ 
+  /* Position the tooltip text */
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
