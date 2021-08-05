@@ -4,18 +4,16 @@ import similarMovies from '../../templates/similarMovies';
 import libraryType from './library-type';
 import LibraryBtn from './library-btn';
 import { renderMoviesList } from './renderer';
-import { getGenresByIds } from '../api/genres-library';
 import { getSimilarMovie, getMovieById } from '../api/moviesdb-api';
 import { createTrailerModal } from './trailer-modal';
+import { prepareMovieForRendering } from './rendering-movies';
 
 class OpenModal {
   #windowKeyHandler = this.onWindowClick.bind(this);
 
   constructor(argument) {
-    // console.log('>> ar', argument);
     this.posterSimilar = document.querySelector('.poster-similar');
     this.id = argument.id;
-    this.genresArray = argument.genre_ids;
     this.movieObj = argument;
     this.instance = basicLightbox.create(modalWindowMovie(this.movieObj), {
       onClose: () => {
@@ -51,51 +49,46 @@ class OpenModal {
   showModal() {
     this.instance.show();
     this.buttonsOnWork(this.movieObj);
-    // console.log('id', this.id);
     this.createSimilar(this.id);
   }
 
   createSimilar(dataMovie) {
     getSimilarMovie(dataMovie)
       .then(response => {
-        return response.data.results.slice(0, 6);
+        return response.results.slice(0, 6);
       })
       .then(data => {
-        // console.log(data);
         const container = document.querySelector('.similar');
         container.insertAdjacentHTML('beforeend', similarMovies(data));
         this.work();
+      })
+      .catch(() => {
+        document.querySelector('.s-title').classList.add('hidden');
       });
   }
 
   work() {
-    const doggo = this.instance.element().querySelectorAll('.similar-item');
-
-    doggo.forEach(el =>
-      el.addEventListener('click', event => {
-        // console.log(event.target.id);
-        getMovieById(event.target.id).then(data => {
-          console.log('current movie', data.id);
-          this.reloadModal(data);
-          this.buttonsOnWork(data);
-          this.createSimilar(data.id);
-        });
-      }),
-    );
+    this.instance
+      .element()
+      .querySelectorAll('.similar-item')
+      .forEach(el =>
+        el.addEventListener('click', event => {
+          getMovieById(event.target.id).then(data => {
+            this.reloadModal(data);
+            this.buttonsOnWork(data);
+            this.createSimilar(data.id);
+          });
+        }),
+      );
   }
 
-  reloadModal(some) {
+  reloadModal(movie) {
     const modal = this.instance.element().querySelector('.modal');
     const modalWindow = this.instance.element().querySelector('.modal-window');
-    // console.log('hey im here', modalWindow);
+    movie.genre_ids = movie.genres.map(item => item.id);
+    movie = prepareMovieForRendering(movie);
     modalWindow.remove();
-    modal.insertAdjacentHTML('beforeend', modalWindowMovie(some));
-  }
-
-  genresForModal() {
-    return (document.querySelector('.genre').textContent = getGenresByIds(this.genresArray)
-      .flatMap(cat => cat.name)
-      .join(', '));
+    modal.insertAdjacentHTML('beforeend', modalWindowMovie(movie));
   }
 
   onShowModal() {

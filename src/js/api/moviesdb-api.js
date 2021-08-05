@@ -31,8 +31,8 @@ const getMovieById = function (id) {
   return handleFetch(axios.get(`/movie/${id}`));
 };
 
-const getSimilarMovie = function (arg) {
-  return axios.get(`/movie/${arg}/similar`);
+const getSimilarMovie = function (id) {
+  return handleFetch(axios.get(`/movie/${id}/similar`));
 };
 
 const getTrailerById = function (id) {

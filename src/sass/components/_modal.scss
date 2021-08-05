@@ -165,6 +165,10 @@
   font-weight: 400;
   margin-top: 20px;
   height: 20px;
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .movie__about {

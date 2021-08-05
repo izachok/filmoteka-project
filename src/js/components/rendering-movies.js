@@ -53,14 +53,16 @@ function makeMoviesArrayForRendering(data) {
   setPaginationVisibility(data);
 
   const arrMovies = data.results;
-  const arrayForRendering = arrMovies.map(movie => {
-    movie.stringDescription = makeStringDescription(movie);
-    movie.posterUrl = makeUrl(movie.poster_path);
-    // const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
-    // movie.stringGenres = arrStrName.join(', ');
-    return movie;
-  });
+  const arrayForRendering = arrMovies.map(prepareMovieForRendering);
   return arrayForRendering;
+}
+
+function prepareMovieForRendering(movie) {
+  movie.stringDescription = makeStringDescription(movie);
+  movie.posterUrl = makeUrl(movie.poster_path);
+  const arrStrName = arrGenres(getGenresByIds(movie.genre_ids));
+  movie.fullGenresList = arrStrName.join(', ');
+  return movie;
 }
 
 function renderGallery(arrayForRendering) {
@@ -83,12 +85,10 @@ function bindMovieObjToCard(movieObjs) {
   const cards = document.querySelectorAll('.one-card_box');
   cards.forEach((card, index) => {
     card.addEventListener('click', event => {
-      console.log(event);
       const openModal = new OpenModal(movieObjs[index]);
       openModal.showModal(movieObjs[index]);
-      openModal.genresForModal();
     });
   });
 }
 
-export { makeMoviesArrayForRendering, renderGallery };
+export { makeMoviesArrayForRendering, renderGallery, prepareMovieForRendering };
