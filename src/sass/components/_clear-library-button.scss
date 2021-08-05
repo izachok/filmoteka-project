@@ -25,7 +25,11 @@
     bottom: 110px;
     right: 15px;
   }
-  
+
+  &.hidden {
+    display: none;
+  }
+
   &:hover,
   &:focus {
     cursor: pointer;
@@ -47,7 +51,7 @@
 }
 
 /* Tooltip text */
-.tooltip{
+.tooltip {
   overflow: visible;
   width: 35px;
   height: 35px;
@@ -71,7 +75,7 @@
   width: 120px;
   color: $accent-color;
   text-align: center;
- 
+
   /* Position the tooltip text */
   position: absolute;
   bottom: 25px;
