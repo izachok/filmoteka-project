@@ -71,7 +71,7 @@ const setPaginationPerPage = function () {
   if (pageState.isHome) {
     pagination.setItemsPerPage(ITEMS_PER_PAGE_HOME);
   } else {
-    setItemsPerPageLocalStorege()
+    setItemsPerPageLocalStorage()
     pagination.setItemsPerPage(ITEMS_PER_PAGE_LOCALDB);
   }
 };
@@ -81,7 +81,7 @@ const bindPagination = function () {
   pagination.on('beforeMove', onCurrentPageClick);
 };
 
-function setItemsPerPageLocalStorege() {
+function setItemsPerPageLocalStorage() {
  
   if (window.innerWidth < 768) {ITEMS_PER_PAGE_LOCALDB = refs.paginationMobilePageSize}
   else if (window.innerWidth >= 768 && window.innerWidth < 1024) {ITEMS_PER_PAGE_LOCALDB = refs.paginationTabletPageSize}
